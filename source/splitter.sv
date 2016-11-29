@@ -16,7 +16,6 @@ output wire [37:0]locations,
 output wire [15:0]color
 );
 
-//my changes
 
 typedef enum {IDLE, START_CIRCLE, START_LINE, START_SQ, SQ1, SQ2, SQ3, SQ4, START_TRI, TRI1, TRI2, TRI3} stateType;
 stateType state;
