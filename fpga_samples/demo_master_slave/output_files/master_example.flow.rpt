@@ -1,0 +1,287 @@
+Flow report for master_example
+Mon Apr 20 11:14:01 2015
+Quartus II 32-bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Flow Summary
+  3. Flow Settings
+  4. Flow Non-Default Global Settings
+  5. Flow Elapsed Time
+  6. Flow OS Summary
+  7. Flow Log
+  8. Flow Messages
+  9. Flow Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++---------------------------------------------------------------------------------------+
+; Flow Summary                                                                          ;
++------------------------------------+--------------------------------------------------+
+; Flow Status                        ; Successful - Mon Apr 20 11:14:01 2015            ;
+; Quartus II 32-bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Full Version ;
+; Revision Name                      ; master_example                                   ;
+; Top-level Entity Name              ; master_example                                   ;
+; Family                             ; Cyclone IV GX                                    ;
+; Device                             ; EP4CGX150DF31C7                                  ;
+; Timing Models                      ; Final                                            ;
+; Total logic elements               ; 11,443 / 149,760 ( 8 % )                         ;
+;     Total combinational functions  ; 9,244 / 149,760 ( 6 % )                          ;
+;     Dedicated logic registers      ; 7,822 / 149,760 ( 5 % )                          ;
+; Total registers                    ; 7940                                             ;
+; Total pins                         ; 171 / 508 ( 34 % )                               ;
+; Total virtual pins                 ; 0                                                ;
+; Total memory bits                  ; 157,416 / 6,635,520 ( 2 % )                      ;
+; Embedded Multiplier 9-bit elements ; 0 / 720 ( 0 % )                                  ;
+; Total GXB Receiver Channel PCS     ; 1 / 8 ( 13 % )                                   ;
+; Total GXB Receiver Channel PMA     ; 1 / 8 ( 13 % )                                   ;
+; Total GXB Transmitter Channel PCS  ; 1 / 8 ( 13 % )                                   ;
+; Total GXB Transmitter Channel PMA  ; 1 / 8 ( 13 % )                                   ;
+; Total PLLs                         ; 2 / 8 ( 25 % )                                   ;
++------------------------------------+--------------------------------------------------+
+
+
++-----------------------------------------+
+; Flow Settings                           ;
++-------------------+---------------------+
+; Option            ; Setting             ;
++-------------------+---------------------+
+; Start date & time ; 04/20/2015 10:41:52 ;
+; Main task         ; Compilation         ;
+; Revision Name     ; master_example      ;
++-------------------+---------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Flow Non-Default Global Settings                                                                                                                                                                             ;
++-----------------------------------------------+------------------------------------------------------------------------------+---------------+----------------------------------------------+----------------+
+; Assignment Name                               ; Value                                                                        ; Default Value ; Entity Name                                  ; Section Id     ;
++-----------------------------------------------+------------------------------------------------------------------------------+---------------+----------------------------------------------+----------------+
+; AUTO_EXPORT_INCREMENTAL_COMPILATION           ; On                                                                           ; Off           ; --                                           ; --             ;
+; COMPILER_SIGNATURE_ID                         ; 144339181174.142954091206712                                                 ; --            ; --                                           ; --             ;
+; EDA_OUTPUT_DATA_FORMAT                        ; Verilog Hdl                                                                  ; --            ; --                                           ; eda_simulation ;
+; EDA_SIMULATION_TOOL                           ; ModelSim (Verilog)                                                           ; <None>        ; --                                           ; --             ;
+; EDA_TIME_SCALE                                ; 1 ps                                                                         ; --            ; --                                           ; eda_simulation ;
+; ENABLE_SIGNALTAP                              ; On                                                                           ; --            ; --                                           ; --             ;
+; INCREMENTAL_COMPILATION_EXPORT_FILE           ; master_example_test.qxp                                                      ; --            ; --                                           ; --             ;
+; INCREMENTAL_COMPILATION_EXPORT_FLATTEN        ; On                                                                           ; --            ; --                                           ; --             ;
+; INCREMENTAL_COMPILATION_EXPORT_PARTITION_NAME ; Top                                                                          ; --            ; --                                           ; --             ;
+; INCREMENTAL_COMPILATION_EXPORT_POST_FIT       ; On                                                                           ; --            ; --                                           ; --             ;
+; INCREMENTAL_COMPILATION_EXPORT_POST_SYNTH     ; On                                                                           ; --            ; --                                           ; --             ;
+; INCREMENTAL_COMPILATION_EXPORT_ROUTING        ; On                                                                           ; --            ; --                                           ; --             ;
+; IP_TOOL_ENV                                   ; Qsys                                                                         ; --            ; altera_avalon_sc_fifo                        ; --             ;
+; IP_TOOL_ENV                                   ; Qsys                                                                         ; --            ; altera_avalon_st_handshake_clock_crosser     ; --             ;
+; IP_TOOL_ENV                                   ; Qsys                                                                         ; --            ; altera_merlin_burst_adapter                  ; --             ;
+; IP_TOOL_ENV                                   ; Qsys                                                                         ; --            ; altera_merlin_master_agent                   ; --             ;
+; IP_TOOL_ENV                                   ; Qsys                                                                         ; --            ; altera_merlin_master_translator              ; --             ;
+; IP_TOOL_ENV                                   ; Qsys                                                                         ; --            ; altera_merlin_slave_agent                    ; --             ;
+; IP_TOOL_ENV                                   ; Qsys                                                                         ; --            ; altera_merlin_slave_translator               ; --             ;
+; IP_TOOL_ENV                                   ; Qsys                                                                         ; --            ; altera_merlin_traffic_limiter                ; --             ;
+; IP_TOOL_ENV                                   ; Qsys                                                                         ; --            ; altera_merlin_width_adapter                  ; --             ;
+; IP_TOOL_ENV                                   ; Qsys                                                                         ; --            ; altera_reset_controller                      ; --             ;
+; IP_TOOL_ENV                                   ; Qsys                                                                         ; --            ; amm_master_qsys_with_pcie                    ; --             ;
+; IP_TOOL_ENV                                   ; Qsys                                                                         ; --            ; amm_master_qsys_with_pcie_addr_router        ; --             ;
+; IP_TOOL_ENV                                   ; Qsys                                                                         ; --            ; amm_master_qsys_with_pcie_addr_router_001    ; --             ;
+; IP_TOOL_ENV                                   ; Qsys                                                                         ; --            ; amm_master_qsys_with_pcie_addr_router_003    ; --             ;
+; IP_TOOL_ENV                                   ; Qsys                                                                         ; --            ; amm_master_qsys_with_pcie_addr_router_005    ; --             ;
+; IP_TOOL_ENV                                   ; Qsys                                                                         ; --            ; amm_master_qsys_with_pcie_addr_router_006    ; --             ;
+; IP_TOOL_ENV                                   ; Qsys                                                                         ; --            ; amm_master_qsys_with_pcie_altpll_qsys        ; --             ;
+; IP_TOOL_ENV                                   ; Qsys                                                                         ; --            ; amm_master_qsys_with_pcie_cmd_xbar_demux     ; --             ;
+; IP_TOOL_ENV                                   ; Qsys                                                                         ; --            ; amm_master_qsys_with_pcie_cmd_xbar_demux_001 ; --             ;
+; IP_TOOL_ENV                                   ; Qsys                                                                         ; --            ; amm_master_qsys_with_pcie_cmd_xbar_demux_003 ; --             ;
+; IP_TOOL_ENV                                   ; Qsys                                                                         ; --            ; amm_master_qsys_with_pcie_cmd_xbar_demux_004 ; --             ;
+; IP_TOOL_ENV                                   ; Qsys                                                                         ; --            ; amm_master_qsys_with_pcie_cmd_xbar_demux_006 ; --             ;
+; IP_TOOL_ENV                                   ; Qsys                                                                         ; --            ; amm_master_qsys_with_pcie_cmd_xbar_mux_002   ; --             ;
+; IP_TOOL_ENV                                   ; Qsys                                                                         ; --            ; amm_master_qsys_with_pcie_cmd_xbar_mux_003   ; --             ;
+; IP_TOOL_ENV                                   ; Qsys                                                                         ; --            ; amm_master_qsys_with_pcie_id_router          ; --             ;
+; IP_TOOL_ENV                                   ; Qsys                                                                         ; --            ; amm_master_qsys_with_pcie_id_router_002      ; --             ;
+; IP_TOOL_ENV                                   ; Qsys                                                                         ; --            ; amm_master_qsys_with_pcie_id_router_003      ; --             ;
+; IP_TOOL_ENV                                   ; Qsys                                                                         ; --            ; amm_master_qsys_with_pcie_id_router_004      ; --             ;
+; IP_TOOL_ENV                                   ; Qsys                                                                         ; --            ; amm_master_qsys_with_pcie_irq_mapper         ; --             ;
+; IP_TOOL_ENV                                   ; Qsys                                                                         ; --            ; amm_master_qsys_with_pcie_rsp_xbar_demux     ; --             ;
+; IP_TOOL_ENV                                   ; Qsys                                                                         ; --            ; amm_master_qsys_with_pcie_rsp_xbar_demux_002 ; --             ;
+; IP_TOOL_ENV                                   ; Qsys                                                                         ; --            ; amm_master_qsys_with_pcie_rsp_xbar_demux_003 ; --             ;
+; IP_TOOL_ENV                                   ; Qsys                                                                         ; --            ; amm_master_qsys_with_pcie_rsp_xbar_mux       ; --             ;
+; IP_TOOL_ENV                                   ; Qsys                                                                         ; --            ; amm_master_qsys_with_pcie_rsp_xbar_mux_003   ; --             ;
+; IP_TOOL_ENV                                   ; Qsys                                                                         ; --            ; amm_master_qsys_with_pcie_sdram              ; --             ;
+; IP_TOOL_ENV                                   ; Qsys                                                                         ; --            ; amm_master_qsys_with_pcie_sgdma              ; --             ;
+; IP_TOOL_NAME                                  ; altera_avalon_sc_fifo                                                        ; --            ; altera_avalon_sc_fifo                        ; --             ;
+; IP_TOOL_NAME                                  ; altera_avalon_st_handshake_clock_crosser                                     ; --            ; altera_avalon_st_handshake_clock_crosser     ; --             ;
+; IP_TOOL_NAME                                  ; altera_merlin_burst_adapter                                                  ; --            ; altera_merlin_burst_adapter                  ; --             ;
+; IP_TOOL_NAME                                  ; altera_merlin_master_agent                                                   ; --            ; altera_merlin_master_agent                   ; --             ;
+; IP_TOOL_NAME                                  ; altera_merlin_master_translator                                              ; --            ; altera_merlin_master_translator              ; --             ;
+; IP_TOOL_NAME                                  ; altera_merlin_slave_agent                                                    ; --            ; altera_merlin_slave_agent                    ; --             ;
+; IP_TOOL_NAME                                  ; altera_merlin_slave_translator                                               ; --            ; altera_merlin_slave_translator               ; --             ;
+; IP_TOOL_NAME                                  ; altera_merlin_traffic_limiter                                                ; --            ; altera_merlin_traffic_limiter                ; --             ;
+; IP_TOOL_NAME                                  ; altera_merlin_width_adapter                                                  ; --            ; altera_merlin_width_adapter                  ; --             ;
+; IP_TOOL_NAME                                  ; altera_reset_controller                                                      ; --            ; altera_reset_controller                      ; --             ;
+; IP_TOOL_NAME                                  ; Qsys                                                                         ; --            ; amm_master_qsys_with_pcie                    ; --             ;
+; IP_TOOL_NAME                                  ; altera_merlin_router                                                         ; --            ; amm_master_qsys_with_pcie_addr_router        ; --             ;
+; IP_TOOL_NAME                                  ; altera_merlin_router                                                         ; --            ; amm_master_qsys_with_pcie_addr_router_001    ; --             ;
+; IP_TOOL_NAME                                  ; altera_merlin_router                                                         ; --            ; amm_master_qsys_with_pcie_addr_router_003    ; --             ;
+; IP_TOOL_NAME                                  ; altera_merlin_router                                                         ; --            ; amm_master_qsys_with_pcie_addr_router_005    ; --             ;
+; IP_TOOL_NAME                                  ; altera_merlin_router                                                         ; --            ; amm_master_qsys_with_pcie_addr_router_006    ; --             ;
+; IP_TOOL_NAME                                  ; altpll                                                                       ; --            ; amm_master_qsys_with_pcie_altpll_qsys        ; --             ;
+; IP_TOOL_NAME                                  ; altera_merlin_demultiplexer                                                  ; --            ; amm_master_qsys_with_pcie_cmd_xbar_demux     ; --             ;
+; IP_TOOL_NAME                                  ; altera_merlin_demultiplexer                                                  ; --            ; amm_master_qsys_with_pcie_cmd_xbar_demux_001 ; --             ;
+; IP_TOOL_NAME                                  ; altera_merlin_demultiplexer                                                  ; --            ; amm_master_qsys_with_pcie_cmd_xbar_demux_003 ; --             ;
+; IP_TOOL_NAME                                  ; altera_merlin_demultiplexer                                                  ; --            ; amm_master_qsys_with_pcie_cmd_xbar_demux_004 ; --             ;
+; IP_TOOL_NAME                                  ; altera_merlin_demultiplexer                                                  ; --            ; amm_master_qsys_with_pcie_cmd_xbar_demux_006 ; --             ;
+; IP_TOOL_NAME                                  ; altera_merlin_multiplexer                                                    ; --            ; amm_master_qsys_with_pcie_cmd_xbar_mux_002   ; --             ;
+; IP_TOOL_NAME                                  ; altera_merlin_multiplexer                                                    ; --            ; amm_master_qsys_with_pcie_cmd_xbar_mux_003   ; --             ;
+; IP_TOOL_NAME                                  ; altera_merlin_router                                                         ; --            ; amm_master_qsys_with_pcie_id_router          ; --             ;
+; IP_TOOL_NAME                                  ; altera_merlin_router                                                         ; --            ; amm_master_qsys_with_pcie_id_router_002      ; --             ;
+; IP_TOOL_NAME                                  ; altera_merlin_router                                                         ; --            ; amm_master_qsys_with_pcie_id_router_003      ; --             ;
+; IP_TOOL_NAME                                  ; altera_merlin_router                                                         ; --            ; amm_master_qsys_with_pcie_id_router_004      ; --             ;
+; IP_TOOL_NAME                                  ; altera_irq_mapper                                                            ; --            ; amm_master_qsys_with_pcie_irq_mapper         ; --             ;
+; IP_TOOL_NAME                                  ; altera_merlin_demultiplexer                                                  ; --            ; amm_master_qsys_with_pcie_rsp_xbar_demux     ; --             ;
+; IP_TOOL_NAME                                  ; altera_merlin_demultiplexer                                                  ; --            ; amm_master_qsys_with_pcie_rsp_xbar_demux_002 ; --             ;
+; IP_TOOL_NAME                                  ; altera_merlin_demultiplexer                                                  ; --            ; amm_master_qsys_with_pcie_rsp_xbar_demux_003 ; --             ;
+; IP_TOOL_NAME                                  ; altera_merlin_multiplexer                                                    ; --            ; amm_master_qsys_with_pcie_rsp_xbar_mux       ; --             ;
+; IP_TOOL_NAME                                  ; altera_merlin_multiplexer                                                    ; --            ; amm_master_qsys_with_pcie_rsp_xbar_mux_003   ; --             ;
+; IP_TOOL_NAME                                  ; altera_avalon_new_sdram_controller                                           ; --            ; amm_master_qsys_with_pcie_sdram              ; --             ;
+; IP_TOOL_NAME                                  ; altera_avalon_sgdma                                                          ; --            ; amm_master_qsys_with_pcie_sgdma              ; --             ;
+; IP_TOOL_VERSION                               ; 13.0                                                                         ; --            ; altera_avalon_sc_fifo                        ; --             ;
+; IP_TOOL_VERSION                               ; 13.0                                                                         ; --            ; altera_avalon_st_handshake_clock_crosser     ; --             ;
+; IP_TOOL_VERSION                               ; 13.0                                                                         ; --            ; altera_merlin_burst_adapter                  ; --             ;
+; IP_TOOL_VERSION                               ; 13.0                                                                         ; --            ; altera_merlin_master_agent                   ; --             ;
+; IP_TOOL_VERSION                               ; 13.0                                                                         ; --            ; altera_merlin_master_translator              ; --             ;
+; IP_TOOL_VERSION                               ; 13.0                                                                         ; --            ; altera_merlin_slave_agent                    ; --             ;
+; IP_TOOL_VERSION                               ; 13.0                                                                         ; --            ; altera_merlin_slave_translator               ; --             ;
+; IP_TOOL_VERSION                               ; 13.0                                                                         ; --            ; altera_merlin_traffic_limiter                ; --             ;
+; IP_TOOL_VERSION                               ; 13.0                                                                         ; --            ; altera_merlin_width_adapter                  ; --             ;
+; IP_TOOL_VERSION                               ; 13.0                                                                         ; --            ; altera_reset_controller                      ; --             ;
+; IP_TOOL_VERSION                               ; 13.0sp1                                                                      ; --            ; amm_master_qsys_with_pcie                    ; --             ;
+; IP_TOOL_VERSION                               ; 13.0                                                                         ; --            ; amm_master_qsys_with_pcie_addr_router        ; --             ;
+; IP_TOOL_VERSION                               ; 13.0                                                                         ; --            ; amm_master_qsys_with_pcie_addr_router_001    ; --             ;
+; IP_TOOL_VERSION                               ; 13.0                                                                         ; --            ; amm_master_qsys_with_pcie_addr_router_003    ; --             ;
+; IP_TOOL_VERSION                               ; 13.0                                                                         ; --            ; amm_master_qsys_with_pcie_addr_router_005    ; --             ;
+; IP_TOOL_VERSION                               ; 13.0                                                                         ; --            ; amm_master_qsys_with_pcie_addr_router_006    ; --             ;
+; IP_TOOL_VERSION                               ; 13.0                                                                         ; --            ; amm_master_qsys_with_pcie_altpll_qsys        ; --             ;
+; IP_TOOL_VERSION                               ; 13.0                                                                         ; --            ; amm_master_qsys_with_pcie_cmd_xbar_demux     ; --             ;
+; IP_TOOL_VERSION                               ; 13.0                                                                         ; --            ; amm_master_qsys_with_pcie_cmd_xbar_demux_001 ; --             ;
+; IP_TOOL_VERSION                               ; 13.0                                                                         ; --            ; amm_master_qsys_with_pcie_cmd_xbar_demux_003 ; --             ;
+; IP_TOOL_VERSION                               ; 13.0                                                                         ; --            ; amm_master_qsys_with_pcie_cmd_xbar_demux_004 ; --             ;
+; IP_TOOL_VERSION                               ; 13.0                                                                         ; --            ; amm_master_qsys_with_pcie_cmd_xbar_demux_006 ; --             ;
+; IP_TOOL_VERSION                               ; 13.0                                                                         ; --            ; amm_master_qsys_with_pcie_cmd_xbar_mux_002   ; --             ;
+; IP_TOOL_VERSION                               ; 13.0                                                                         ; --            ; amm_master_qsys_with_pcie_cmd_xbar_mux_003   ; --             ;
+; IP_TOOL_VERSION                               ; 13.0                                                                         ; --            ; amm_master_qsys_with_pcie_id_router          ; --             ;
+; IP_TOOL_VERSION                               ; 13.0                                                                         ; --            ; amm_master_qsys_with_pcie_id_router_002      ; --             ;
+; IP_TOOL_VERSION                               ; 13.0                                                                         ; --            ; amm_master_qsys_with_pcie_id_router_003      ; --             ;
+; IP_TOOL_VERSION                               ; 13.0                                                                         ; --            ; amm_master_qsys_with_pcie_id_router_004      ; --             ;
+; IP_TOOL_VERSION                               ; 13.0                                                                         ; --            ; amm_master_qsys_with_pcie_irq_mapper         ; --             ;
+; IP_TOOL_VERSION                               ; 13.0                                                                         ; --            ; amm_master_qsys_with_pcie_rsp_xbar_demux     ; --             ;
+; IP_TOOL_VERSION                               ; 13.0                                                                         ; --            ; amm_master_qsys_with_pcie_rsp_xbar_demux_002 ; --             ;
+; IP_TOOL_VERSION                               ; 13.0                                                                         ; --            ; amm_master_qsys_with_pcie_rsp_xbar_demux_003 ; --             ;
+; IP_TOOL_VERSION                               ; 13.0                                                                         ; --            ; amm_master_qsys_with_pcie_rsp_xbar_mux       ; --             ;
+; IP_TOOL_VERSION                               ; 13.0                                                                         ; --            ; amm_master_qsys_with_pcie_rsp_xbar_mux_003   ; --             ;
+; IP_TOOL_VERSION                               ; 13.0.1.99.2                                                                  ; --            ; amm_master_qsys_with_pcie_sdram              ; --             ;
+; IP_TOOL_VERSION                               ; 13.0.1.99.2                                                                  ; --            ; amm_master_qsys_with_pcie_sgdma              ; --             ;
+; MAX_CORE_JUNCTION_TEMP                        ; 85                                                                           ; --            ; --                                           ; --             ;
+; MIN_CORE_JUNCTION_TEMP                        ; 0                                                                            ; --            ; --                                           ; --             ;
+; MISC_FILE                                     ; amm_master_qsys_with_pcie/synthesis/../../amm_master_qsys_with_pcie.cmp      ; --            ; --                                           ; --             ;
+; MISC_FILE                                     ; amm_master_qsys_with_pcie/synthesis/../../amm_master_qsys_with_pcie.qsys     ; --            ; --                                           ; --             ;
+; NUM_PARALLEL_PROCESSORS                       ; All                                                                          ; --            ; --                                           ; --             ;
+; OUTPUT_IO_TIMING_FAR_END_VMEAS                ; Half Signal Swing                                                            ; --            ; --                                           ; --             ;
+; OUTPUT_IO_TIMING_FAR_END_VMEAS                ; Half Signal Swing                                                            ; --            ; --                                           ; --             ;
+; OUTPUT_IO_TIMING_NEAR_END_VMEAS               ; Half Vccio                                                                   ; --            ; --                                           ; --             ;
+; OUTPUT_IO_TIMING_NEAR_END_VMEAS               ; Half Vccio                                                                   ; --            ; --                                           ; --             ;
+; PARTITION_COLOR                               ; 16764057                                                                     ; --            ; --                                           ; Top            ;
+; PARTITION_FITTER_PRESERVATION_LEVEL           ; PLACEMENT_AND_ROUTING                                                        ; --            ; --                                           ; Top            ;
+; PARTITION_NETLIST_TYPE                        ; POST_FIT                                                                     ; --            ; --                                           ; Top            ;
+; POWER_BOARD_THERMAL_MODEL                     ; None (CONSERVATIVE)                                                          ; --            ; --                                           ; --             ;
+; POWER_PRESET_COOLING_SOLUTION                 ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW                                        ; --            ; --                                           ; --             ;
+; PROJECT_OUTPUT_DIRECTORY                      ; output_files                                                                 ; --            ; --                                           ; --             ;
+; SLD_FILE                                      ; db/stp1_auto_stripped.stp                                                    ; --            ; --                                           ; --             ;
+; SLD_INFO                                      ; QSYS_NAME amm_master_qsys_with_pcie HAS_SOPCINFO 1 GENERATION_ID 1429538176  ; --            ; amm_master_qsys_with_pcie                    ; --             ;
+; SMART_RECOMPILE                               ; On                                                                           ; Off           ; --                                           ; --             ;
+; SOPCINFO_FILE                                 ; amm_master_qsys_with_pcie/synthesis/../../amm_master_qsys_with_pcie.sopcinfo ; --            ; --                                           ; --             ;
+; SYNTHESIS_ONLY_QIP                            ; On                                                                           ; --            ; --                                           ; --             ;
+; USE_SIGNALTAP_FILE                            ; output_files/stp1.stp                                                        ; --            ; --                                           ; --             ;
++-----------------------------------------------+------------------------------------------------------------------------------+---------------+----------------------------------------------+----------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------+
+; Flow Elapsed Time                                                                                                             ;
++---------------------------+--------------+-------------------------+---------------------+------------------------------------+
+; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
++---------------------------+--------------+-------------------------+---------------------+------------------------------------+
+; Analysis & Synthesis      ; 00:00:06     ; 1.0                     ; 366 MB              ; 00:00:04                           ;
+; Analysis & Synthesis      ; 00:02:16     ; 1.0                     ; 635 MB              ; 00:02:01                           ;
+; Partition Merge           ; 00:00:09     ; 1.0                     ; 389 MB              ; 00:00:06                           ;
+; Fitter                    ; 00:03:44     ; 2.5                     ; 1198 MB             ; 00:06:20                           ;
+; Assembler                 ; 00:00:20     ; 1.0                     ; 410 MB              ; 00:00:19                           ;
+; TimeQuest Timing Analyzer ; 00:00:27     ; 1.4                     ; 655 MB              ; 00:00:28                           ;
+; EDA Netlist Writer        ; 00:00:33     ; 1.0                     ; 479 MB              ; 00:00:30                           ;
+; Analysis & Synthesis      ; 00:02:09     ; 1.0                     ; 645 MB              ; 00:01:59                           ;
+; Partition Merge           ; 00:00:07     ; 1.0                     ; 389 MB              ; 00:00:06                           ;
+; Fitter                    ; 00:03:46     ; 2.5                     ; 1230 MB             ; 00:06:19                           ;
+; Assembler                 ; 00:00:20     ; 1.0                     ; 412 MB              ; 00:00:19                           ;
+; TimeQuest Timing Analyzer ; 00:00:26     ; 1.5                     ; 658 MB              ; 00:00:29                           ;
+; EDA Netlist Writer        ; 00:00:33     ; 1.0                     ; 487 MB              ; 00:00:30                           ;
+; Total                     ; 00:14:56     ; --                      ; --                  ; 00:19:30                           ;
++---------------------------+--------------+-------------------------+---------------------+------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------+
+; Flow OS Summary                                                                               ;
++---------------------------+---------------------------+---------+------------+----------------+
+; Module Name               ; Machine Hostname          ; OS Name ; OS Version ; Processor type ;
++---------------------------+---------------------------+---------+------------+----------------+
+; Analysis & Synthesis      ; ee210lnx04.ecn.purdue.edu ; Red Hat ; 6          ; x86_64         ;
+; Analysis & Synthesis      ; ee210lnx04.ecn.purdue.edu ; Red Hat ; 6          ; x86_64         ;
+; Partition Merge           ; ee210lnx04.ecn.purdue.edu ; Red Hat ; 6          ; x86_64         ;
+; Fitter                    ; ee210lnx04.ecn.purdue.edu ; Red Hat ; 6          ; x86_64         ;
+; Assembler                 ; ee210lnx04.ecn.purdue.edu ; Red Hat ; 6          ; x86_64         ;
+; TimeQuest Timing Analyzer ; ee210lnx04.ecn.purdue.edu ; Red Hat ; 6          ; x86_64         ;
+; EDA Netlist Writer        ; ee210lnx04.ecn.purdue.edu ; Red Hat ; 6          ; x86_64         ;
+; Analysis & Synthesis      ; ee210lnx04.ecn.purdue.edu ; Red Hat ; 6          ; x86_64         ;
+; Partition Merge           ; ee210lnx04.ecn.purdue.edu ; Red Hat ; 6          ; x86_64         ;
+; Fitter                    ; ee210lnx04.ecn.purdue.edu ; Red Hat ; 6          ; x86_64         ;
+; Assembler                 ; ee210lnx04.ecn.purdue.edu ; Red Hat ; 6          ; x86_64         ;
+; TimeQuest Timing Analyzer ; ee210lnx04.ecn.purdue.edu ; Red Hat ; 6          ; x86_64         ;
+; EDA Netlist Writer        ; ee210lnx04.ecn.purdue.edu ; Red Hat ; 6          ; x86_64         ;
++---------------------------+---------------------------+---------+------------+----------------+
+
+
+------------
+; Flow Log ;
+------------
+quartus_map --read_settings_files=on --write_settings_files=off master_example -c master_example
+quartus_map --read_settings_files=on --write_settings_files=off master_example -c master_example
+quartus_cdb --read_settings_files=off --write_settings_files=off master_example -c master_example --merge=on
+quartus_fit --read_settings_files=off --write_settings_files=off master_example -c master_example
+quartus_asm --read_settings_files=off --write_settings_files=off master_example -c master_example
+quartus_sta master_example -c master_example
+quartus_eda --read_settings_files=off --write_settings_files=off master_example -c master_example
+quartus_map --read_settings_files=on --write_settings_files=off master_example -c master_example
+quartus_cdb --read_settings_files=off --write_settings_files=off master_example -c master_example --merge=on
+quartus_fit --read_settings_files=off --write_settings_files=off master_example -c master_example
+quartus_asm --read_settings_files=off --write_settings_files=off master_example -c master_example
+quartus_sta master_example -c master_example
+quartus_eda --read_settings_files=off --write_settings_files=off master_example -c master_example
+
+
+

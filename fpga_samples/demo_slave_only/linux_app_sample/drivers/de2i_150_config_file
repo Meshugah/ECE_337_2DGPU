@@ -1,0 +1,24 @@
+# Example for the configuration file
+
+# Vendor ID and Device ID
+vendor_id  =  0x1172
+device_id  =  0xe001
+
+# related to the pcie and the fixed translation table
+#R	pci_dma_bit_range  = 31
+#R	tx_base_addr       = 0x80000000
+#R	pcie_cra_bar_no    = 2
+#R	pcie_cra_base_addr = 0x00000000
+
+# maximum number of DMA controllers is 4
+# followings are arrays to define the parameters for the DMA controllers
+
+# type == 0 means no DMA, 1 means DMA Controller, 2 means SG-DMA Controller
+#R	dma_type           =          0,          2,          0,          0
+#R	dma_irq_no         =          0,          2,          0,          0
+#R	dma_ctrl_bar_no    =          0,          2,          0,          0
+#R	dma_ctrl_base_addr = 0x00000000, 0x00004040, 0x00000000, 0x00000000
+
+# for the DMA Controller only, you can ignore this if you are using SG-DMA
+#R	sdma_data_width    =          8,          0,          0,          0
+

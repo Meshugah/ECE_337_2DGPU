@@ -1,0 +1,389 @@
+Info: Starting: Create simulation model
+Info: ip-generate --project-directory=/home/ecegrid/a/mg287/Desktop/demo/hardware --output-directory=/home/ecegrid/a/mg287/Desktop/demo/hardware/amm_master_qsys_with_pcie/simulation --file-set=SIM_VERILOG --report-file=html:/home/ecegrid/a/mg287/Desktop/demo/hardware/amm_master_qsys_with_pcie/amm_master_qsys_with_pcie.html --report-file=sopcinfo:/home/ecegrid/a/mg287/Desktop/demo/hardware/amm_master_qsys_with_pcie.sopcinfo --report-file=csv:/home/ecegrid/a/mg287/Desktop/demo/hardware/amm_master_qsys_with_pcie/amm_master_qsys_with_pcie.csv --report-file=spd:/home/ecegrid/a/mg287/Desktop/demo/hardware/amm_master_qsys_with_pcie/amm_master_qsys_with_pcie.spd --report-file=cmp:/home/ecegrid/a/mg287/Desktop/demo/hardware/amm_master_qsys_with_pcie/amm_master_qsys_with_pcie.cmp --report-file=sip:/home/ecegrid/a/mg287/Desktop/demo/hardware/amm_master_qsys_with_pcie/simulation/amm_master_qsys_with_pcie.sip --system-info=DEVICE_FAMILY="Cyclone IV GX" --system-info=DEVICE=EP4CGX150DF31C7 --system-info=DEVICE_SPEEDGRADE=7 --component-file=/home/ecegrid/a/mg287/Desktop/demo/hardware/amm_master_qsys_with_pcie.qsys
+Progress: Loading hardware/amm_master_qsys_with_pcie.qsys
+Progress: Reading input file
+Progress: Adding clk_50 [clock_source 14.0]
+Progress: Parameterizing module clk_50
+Progress: Adding pcie_ip [altera_pcie_hard_ip 14.0]
+Progress: Parameterizing module pcie_ip
+Progress: Adding sgdma [altera_avalon_sgdma 14.0]
+Progress: Parameterizing module sgdma
+Progress: Adding sdram [altera_avalon_new_sdram_controller 14.0]
+Progress: Parameterizing module sdram
+Progress: Adding altpll_qsys [altpll 14.0]
+Progress: Parameterizing module altpll_qsys
+Progress: Adding user_module_0 [user_module 1.0]
+Progress: Parameterizing module user_module_0
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Info: amm_master_qsys_with_pcie.amm_master_qsys_with_pcie: There are recommended upgrades for: pcie_ip
+Info: amm_master_qsys_with_pcie.pcie_ip:  Rx Master BAR 1_0 mapped to 5 -bit Avalon-MM address
+Info: amm_master_qsys_with_pcie.pcie_ip:  Rx Master BAR 2 mapped to 15 -bit Avalon-MM address
+Warning: amm_master_qsys_with_pcie.pcie_ip.pcie_ip: Module dependency loop involving: "pcie_internal_hip" (altera_pcie_internal_hard_ip_qsys 14.0)
+Warning: amm_master_qsys_with_pcie.pcie_ip.pcie_ip: Module dependency loop involving: "pcie_internal_hip" (altera_pcie_internal_hard_ip_qsys 14.0), "avalon_clk" (altera_clock_bridge 14.0)
+Info: amm_master_qsys_with_pcie.pcie_ip.pcie_internal_hip:  Txs Address width is 31
+Info: amm_master_qsys_with_pcie.pcie_ip.pcie_internal_hip: Application clock frequency is 125 Mhz 
+Warning: amm_master_qsys_with_pcie.pcie_ip.pcie_internal_hip.app_msi_ack: Interface has no signals
+Warning: amm_master_qsys_with_pcie.pcie_ip.pcie_internal_hip.app_msi_num: Interface has no signals
+Warning: amm_master_qsys_with_pcie.pcie_ip.pcie_internal_hip.app_msi_req: Interface has no signals
+Warning: amm_master_qsys_with_pcie.pcie_ip.pcie_internal_hip.test_out_export: Interface has no signals
+Info: amm_master_qsys_with_pcie.pcie_ip.altgx_internal: Family: Cyclone IV GX
+Info: amm_master_qsys_with_pcie.pcie_ip.altgx_internal: Lanes: 1
+Warning: amm_master_qsys_with_pcie.pcie_ip.pcie_internal_hip: pcie_internal_hip.pcie_core_clk cannot be both connected and exported
+Warning: amm_master_qsys_with_pcie.pcie_ip.pcie_internal_hip: pcie_internal_hip.app_msi_ack must be exported, or connected to a matching conduit.
+Warning: amm_master_qsys_with_pcie.pcie_ip.pcie_internal_hip: pcie_internal_hip.rc_rx_analogreset must be exported, or connected to a matching conduit.
+Warning: amm_master_qsys_with_pcie.pcie_ip.pcie_internal_hip: pcie_internal_hip.rc_rx_digitalreset must be exported, or connected to a matching conduit.
+Warning: amm_master_qsys_with_pcie.pcie_ip.pcie_internal_hip: pcie_internal_hip.app_msi_num must be exported, or connected to a matching conduit.
+Warning: amm_master_qsys_with_pcie.pcie_ip.pcie_internal_hip: pcie_internal_hip.app_msi_req must be exported, or connected to a matching conduit.
+Warning: amm_master_qsys_with_pcie.pcie_ip.pcie_internal_hip: pcie_internal_hip.msi_interface_export must be exported, or connected to a matching conduit.
+Warning: amm_master_qsys_with_pcie.pcie_ip.pcie_internal_hip: pcie_internal_hip.tx_deemph_0 must be exported, or connected to a matching conduit.
+Warning: amm_master_qsys_with_pcie.pcie_ip.pcie_internal_hip: pcie_internal_hip.tx_margin_0 must be exported, or connected to a matching conduit.
+Warning: amm_master_qsys_with_pcie.pcie_ip.pcie_internal_hip: pcie_internal_hip.test_out_export must be exported, or connected to a matching conduit.
+Warning: amm_master_qsys_with_pcie.pcie_ip.pipe_interface_internal: pipe_interface_internal.pll_powerdown_pcs must be exported, or connected to a matching conduit.
+Warning: amm_master_qsys_with_pcie.pcie_ip.pipe_interface_internal: pipe_interface_internal.rateswitch_pcs must be exported, or connected to a matching conduit.
+Warning: amm_master_qsys_with_pcie.pcie_ip.pipe_interface_internal: pipe_interface_internal.rateswitchbaseclock_pcs must be exported, or connected to a matching conduit.
+Warning: amm_master_qsys_with_pcie.pcie_ip.refclk_conduit: refclk_conduit.conduit_out_2 must be exported, or connected to a matching conduit.
+Warning: amm_master_qsys_with_pcie.pcie_ip.refclk_conduit: refclk_conduit.conduit_out_3 must be exported, or connected to a matching conduit.
+Warning: amm_master_qsys_with_pcie.pcie_ip.refclk_conduit: refclk_conduit.conduit_out_4 must be exported, or connected to a matching conduit.
+Warning: amm_master_qsys_with_pcie.pcie_ip.refclk_conduit: refclk_conduit.conduit_out_5 must be exported, or connected to a matching conduit.
+Warning: amm_master_qsys_with_pcie.pcie_ip.refclk_conduit: refclk_conduit.conduit_out_6 must be exported, or connected to a matching conduit.
+Warning: amm_master_qsys_with_pcie.pcie_ip.refclk_conduit: refclk_conduit.conduit_out_7 must be exported, or connected to a matching conduit.
+Warning: amm_master_qsys_with_pcie.pcie_ip.refclk_conduit: refclk_conduit.conduit_out_8 must be exported, or connected to a matching conduit.
+Warning: amm_master_qsys_with_pcie.pcie_ip.refclk_conduit: refclk_conduit.conduit_out_9 must be exported, or connected to a matching conduit.
+Warning: amm_master_qsys_with_pcie.pcie_ip.reset_controller_internal: reset_controller_internal.reset_n_out cannot be both connected and exported
+Warning: amm_master_qsys_with_pcie.altpll_qsys: altpll_qsys.pll_slave must be connected to an Avalon-MM master
+Warning: amm_master_qsys_with_pcie.altpll_qsys: altpll_qsys.areset_conduit must be exported, or connected to a matching conduit.
+Warning: amm_master_qsys_with_pcie.altpll_qsys: altpll_qsys.locked_conduit must be exported, or connected to a matching conduit.
+Warning: amm_master_qsys_with_pcie.altpll_qsys: altpll_qsys.phasedone_conduit must be exported, or connected to a matching conduit.
+Warning: amm_master_qsys_with_pcie.pcie_ip: Interrupt sender pcie_ip.cra_irq is not connected to an interrupt receiver
+Info: amm_master_qsys_with_pcie: Generating amm_master_qsys_with_pcie "amm_master_qsys_with_pcie" for SIM_VERILOG
+Info: Inserting clock-crossing logic between sgdma_m_read_to_sdram_s1_cmd_width_adapter.src and cmd_mux_001.sink0
+Info: Inserting clock-crossing logic between sgdma_m_write_to_sdram_s1_cmd_width_adapter.src and cmd_mux_001.sink1
+Info: Inserting clock-crossing logic between sdram_s1_to_sgdma_m_read_rsp_width_adapter.src and rsp_mux_002.sink1
+Info: Inserting clock-crossing logic between sdram_s1_to_sgdma_m_write_rsp_width_adapter.src and rsp_mux_003.sink1
+Info: Interconnect is inserted between master pcie_ip.bar1_0 and slave user_module_0.avalon_slave_0 because the master has address signal 32 bit wide, but the slave is 3 bit wide.
+Info: Interconnect is inserted between master pcie_ip.bar1_0 and slave user_module_0.avalon_slave_0 because the master has waitrequest signal 1 bit wide, but the slave is 0 bit wide.
+Info: Interconnect is inserted between master pcie_ip.bar1_0 and slave user_module_0.avalon_slave_0 because the master has readdatavalid signal 1 bit wide, but the slave is 0 bit wide.
+Info: Interconnect is inserted between master pcie_ip.bar1_0 and slave user_module_0.avalon_slave_0 because the master has readdata signal 64 bit wide, but the slave is 32 bit wide.
+Info: Interconnect is inserted between master pcie_ip.bar1_0 and slave user_module_0.avalon_slave_0 because the master has writedata signal 64 bit wide, but the slave is 32 bit wide.
+Info: Interconnect is inserted between master pcie_ip.bar1_0 and slave user_module_0.avalon_slave_0 because the master has burstcount signal 7 bit wide, but the slave is 0 bit wide.
+Info: Interconnect is inserted between master pcie_ip.bar1_0 and slave user_module_0.avalon_slave_0 because the master has byteenable signal 8 bit wide, but the slave is 0 bit wide.
+Info: Interconnect is inserted between master pcie_ip.bar1_0 and slave user_module_0.avalon_slave_0 because they have different clock source.
+Info: Inserting clock-crossing logic between cmd_demux.src0 and cmd_mux.sink0
+Info: Inserting clock-crossing logic between rsp_demux.src0 and rsp_mux.sink0
+Info: pcie_ip: "amm_master_qsys_with_pcie" instantiated altera_pcie_hard_ip "pcie_ip"
+Info: sgdma: Starting RTL generation for module 'amm_master_qsys_with_pcie_sgdma'
+Info: sgdma:   Generation command is [exec /package/eda/altera/altera14.0/quartus/linux64/perl/bin/perl -I /package/eda/altera/altera14.0/quartus/linux64/perl/lib -I /package/eda/altera/altera14.0/quartus/sopc_builder/bin/europa -I /package/eda/altera/altera14.0/quartus/sopc_builder/bin/perl_lib -I /package/eda/altera/altera14.0/quartus/sopc_builder/bin -I /package/eda/altera/altera14.0/quartus/../ip/altera/sopc_builder_ip/common -I /package/eda/altera/altera14.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_sgdma -- /package/eda/altera/altera14.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_sgdma/generate_rtl.pl --name=amm_master_qsys_with_pcie_sgdma --dir=/tmp/alt6489_7259379572596842494.dir/0002_sgdma_gen/ --quartus_dir=/package/eda/altera/altera14.0/quartus --verilog --config=/tmp/alt6489_7259379572596842494.dir/0002_sgdma_gen//amm_master_qsys_with_pcie_sgdma_component_configuration.pl  --do_build_sim=1    --sim_dir=/tmp/alt6489_7259379572596842494.dir/0002_sgdma_gen/  ]
+Info: sgdma: Done RTL generation for module 'amm_master_qsys_with_pcie_sgdma'
+Info: sgdma: "amm_master_qsys_with_pcie" instantiated altera_avalon_sgdma "sgdma"
+Info: sdram: Starting RTL generation for module 'amm_master_qsys_with_pcie_sdram'
+Info: sdram:   Generation command is [exec /package/eda/altera/altera14.0/quartus/linux64/perl/bin/perl -I /package/eda/altera/altera14.0/quartus/linux64/perl/lib -I /package/eda/altera/altera14.0/quartus/sopc_builder/bin/europa -I /package/eda/altera/altera14.0/quartus/sopc_builder/bin/perl_lib -I /package/eda/altera/altera14.0/quartus/sopc_builder/bin -I /package/eda/altera/altera14.0/quartus/../ip/altera/sopc_builder_ip/common -I /package/eda/altera/altera14.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_new_sdram_controller -- /package/eda/altera/altera14.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_new_sdram_controller/generate_rtl.pl --name=amm_master_qsys_with_pcie_sdram --dir=/tmp/alt6489_7259379572596842494.dir/0003_sdram_gen/ --quartus_dir=/package/eda/altera/altera14.0/quartus --verilog --config=/tmp/alt6489_7259379572596842494.dir/0003_sdram_gen//amm_master_qsys_with_pcie_sdram_component_configuration.pl  --do_build_sim=1    --sim_dir=/tmp/alt6489_7259379572596842494.dir/0003_sdram_gen/  ]
+Info: sdram: Done RTL generation for module 'amm_master_qsys_with_pcie_sdram'
+Info: sdram: "amm_master_qsys_with_pcie" instantiated altera_avalon_new_sdram_controller "sdram"
+Info: altpll_qsys: Generating Verilog simulation model
+Info: altpll_qsys: Generated simulation model amm_master_qsys_with_pcie_altpll_qsys.vo
+Info: altpll_qsys: "amm_master_qsys_with_pcie" instantiated altpll "altpll_qsys"
+Info: user_module_0: "amm_master_qsys_with_pcie" instantiated user_module "user_module_0"
+Info: mm_interconnect_0: "amm_master_qsys_with_pcie" instantiated altera_mm_interconnect "mm_interconnect_0"
+Info: mm_interconnect_1: "amm_master_qsys_with_pcie" instantiated altera_mm_interconnect "mm_interconnect_1"
+Info: mm_interconnect_2: "amm_master_qsys_with_pcie" instantiated altera_mm_interconnect "mm_interconnect_2"
+Info: irq_mapper: "amm_master_qsys_with_pcie" instantiated altera_irq_mapper "irq_mapper"
+Info: rst_controller: "amm_master_qsys_with_pcie" instantiated altera_reset_controller "rst_controller"
+Info: pcie_internal_hip: "pcie_ip" instantiated altera_pcie_internal_hard_ip_qsys "pcie_internal_hip"
+Info: altgx_internal: Family: Cyclone IV GX
+Info: altgx_internal: Subprotocol: Gen 1-x1
+Info: altgx_internal: qmegawiz -silent module=alt_c3gxb LOCKDOWN_EXCL=PCIE IP_MODE=PCIE_HIP_8 gxb_analog_power=AUTO tx_analog_power=AUTO elec_idle_infer_enable=false tx_allow_polarity_inversion=false rx_cdrctrl_enable=true hip_tx_clkout rx_elecidleinfersel fixedclk enable_0ppm=false pll_powerdown intended_device_family=cycloneiv starting_channel_number=84   deviceFamily="Cyclone IV GX"  wiz_subprotocol="Gen 1-x1"  OPTIONAL_FILES=NONE amm_master_qsys_with_pcie_pcie_ip_altgx_internal_inst.v
+Info: altgx_internal: Generating Verilog simulation model
+Warning: Output port "rx_patterndetect[0]" at amm_master_qsys_with_pcie_pcie_ip_altgx_internal_inst.v(106) has no driver
+Warning: Output port "rx_syncstatus[0]" at amm_master_qsys_with_pcie_pcie_ip_altgx_internal_inst.v(107) has no driver
+Info: altgx_internal: Generated simulation model amm_master_qsys_with_pcie_pcie_ip_altgx_internal.vo
+Info: altgx_internal: "pcie_ip" instantiated altera_pcie_internal_altgx "altgx_internal"
+Info: reset_controller_internal: "pcie_ip" instantiated altera_pcie_internal_reset_controller_qsys "reset_controller_internal"
+Info: pipe_interface_internal: "pcie_ip" instantiated altera_pcie_internal_pipe_interface_qsys "pipe_interface_internal"
+Info: pcie_ip_bar2_translator: "mm_interconnect_0" instantiated altera_merlin_master_translator "pcie_ip_bar2_translator"
+Info: sgdma_csr_translator: "mm_interconnect_0" instantiated altera_merlin_slave_translator "sgdma_csr_translator"
+Info: pcie_ip_bar2_agent: "mm_interconnect_0" instantiated altera_merlin_master_agent "pcie_ip_bar2_agent"
+Info: sgdma_csr_agent: "mm_interconnect_0" instantiated altera_merlin_slave_agent "sgdma_csr_agent"
+Info: sgdma_csr_agent_rsp_fifo: "mm_interconnect_0" instantiated altera_avalon_sc_fifo "sgdma_csr_agent_rsp_fifo"
+Info: router: "mm_interconnect_0" instantiated altera_merlin_router "router"
+Info: router_001: "mm_interconnect_0" instantiated altera_merlin_router "router_001"
+Info: pcie_ip_bar2_limiter: "mm_interconnect_0" instantiated altera_merlin_traffic_limiter "pcie_ip_bar2_limiter"
+Info: Reusing file /home/ecegrid/a/mg287/Desktop/demo/hardware/amm_master_qsys_with_pcie/simulation/submodules/altera_avalon_sc_fifo.v
+Info: sgdma_csr_burst_adapter: "mm_interconnect_0" instantiated altera_merlin_burst_adapter "sgdma_csr_burst_adapter"
+Info: Reusing file /home/ecegrid/a/mg287/Desktop/demo/hardware/amm_master_qsys_with_pcie/simulation/submodules/altera_avalon_st_pipeline_base.v
+Info: cmd_demux: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "cmd_demux"
+Info: cmd_mux: "mm_interconnect_0" instantiated altera_merlin_multiplexer "cmd_mux"
+Info: rsp_demux: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "rsp_demux"
+Info: rsp_mux: "mm_interconnect_0" instantiated altera_merlin_multiplexer "rsp_mux"
+Info: Reusing file /home/ecegrid/a/mg287/Desktop/demo/hardware/amm_master_qsys_with_pcie/simulation/submodules/altera_merlin_arbitrator.sv
+Info: sgdma_csr_rsp_width_adapter: "mm_interconnect_0" instantiated altera_merlin_width_adapter "sgdma_csr_rsp_width_adapter"
+Info: Reusing file /home/ecegrid/a/mg287/Desktop/demo/hardware/amm_master_qsys_with_pcie/simulation/submodules/altera_merlin_address_alignment.sv
+Info: Reusing file /home/ecegrid/a/mg287/Desktop/demo/hardware/amm_master_qsys_with_pcie/simulation/submodules/altera_merlin_burst_uncompressor.sv
+Info: router: "mm_interconnect_1" instantiated altera_merlin_router "router"
+Info: router_002: "mm_interconnect_1" instantiated altera_merlin_router "router_002"
+Info: router_004: "mm_interconnect_1" instantiated altera_merlin_router "router_004"
+Info: router_005: "mm_interconnect_1" instantiated altera_merlin_router "router_005"
+Info: router_006: "mm_interconnect_1" instantiated altera_merlin_router "router_006"
+Info: cmd_demux: "mm_interconnect_1" instantiated altera_merlin_demultiplexer "cmd_demux"
+Info: cmd_demux_002: "mm_interconnect_1" instantiated altera_merlin_demultiplexer "cmd_demux_002"
+Info: cmd_demux_003: "mm_interconnect_1" instantiated altera_merlin_demultiplexer "cmd_demux_003"
+Info: cmd_demux_004: "mm_interconnect_1" instantiated altera_merlin_demultiplexer "cmd_demux_004"
+Info: cmd_mux: "mm_interconnect_1" instantiated altera_merlin_multiplexer "cmd_mux"
+Info: Reusing file /home/ecegrid/a/mg287/Desktop/demo/hardware/amm_master_qsys_with_pcie/simulation/submodules/altera_merlin_arbitrator.sv
+Info: cmd_mux_001: "mm_interconnect_1" instantiated altera_merlin_multiplexer "cmd_mux_001"
+Info: Reusing file /home/ecegrid/a/mg287/Desktop/demo/hardware/amm_master_qsys_with_pcie/simulation/submodules/altera_merlin_arbitrator.sv
+Info: rsp_demux: "mm_interconnect_1" instantiated altera_merlin_demultiplexer "rsp_demux"
+Info: rsp_demux_001: "mm_interconnect_1" instantiated altera_merlin_demultiplexer "rsp_demux_001"
+Info: rsp_mux: "mm_interconnect_1" instantiated altera_merlin_multiplexer "rsp_mux"
+Info: Reusing file /home/ecegrid/a/mg287/Desktop/demo/hardware/amm_master_qsys_with_pcie/simulation/submodules/altera_merlin_arbitrator.sv
+Info: rsp_mux_002: "mm_interconnect_1" instantiated altera_merlin_multiplexer "rsp_mux_002"
+Info: Reusing file /home/ecegrid/a/mg287/Desktop/demo/hardware/amm_master_qsys_with_pcie/simulation/submodules/altera_merlin_arbitrator.sv
+Info: rsp_mux_004: "mm_interconnect_1" instantiated altera_merlin_multiplexer "rsp_mux_004"
+Info: Reusing file /home/ecegrid/a/mg287/Desktop/demo/hardware/amm_master_qsys_with_pcie/simulation/submodules/altera_merlin_arbitrator.sv
+Info: crosser: "mm_interconnect_1" instantiated altera_avalon_st_handshake_clock_crosser "crosser"
+Info: Reusing file /home/ecegrid/a/mg287/Desktop/demo/hardware/amm_master_qsys_with_pcie/simulation/submodules/altera_avalon_st_pipeline_base.v
+Info: router: "mm_interconnect_2" instantiated altera_merlin_router "router"
+Info: router_001: "mm_interconnect_2" instantiated altera_merlin_router "router_001"
+Info: cmd_demux: "mm_interconnect_2" instantiated altera_merlin_demultiplexer "cmd_demux"
+Info: cmd_mux: "mm_interconnect_2" instantiated altera_merlin_multiplexer "cmd_mux"
+Info: Reusing file /home/ecegrid/a/mg287/Desktop/demo/hardware/amm_master_qsys_with_pcie/simulation/submodules/altera_merlin_arbitrator.sv
+Info: rsp_demux: "mm_interconnect_2" instantiated altera_merlin_demultiplexer "rsp_demux"
+Info: rsp_mux: "mm_interconnect_2" instantiated altera_merlin_multiplexer "rsp_mux"
+Info: Reusing file /home/ecegrid/a/mg287/Desktop/demo/hardware/amm_master_qsys_with_pcie/simulation/submodules/altera_merlin_arbitrator.sv
+Info: amm_master_qsys_with_pcie: Done "amm_master_qsys_with_pcie" with 52 modules, 157 files
+Info: ip-generate succeeded.
+Info: Finished: Create simulation model
+Info: Starting: Create Modelsim Project.
+Info: sim-script-gen --spd=/home/ecegrid/a/mg287/Desktop/demo/hardware/amm_master_qsys_with_pcie/amm_master_qsys_with_pcie.spd --output-directory=/home/ecegrid/a/mg287/Desktop/demo/hardware/amm_master_qsys_with_pcie/simulation/
+Info: Doing: ip-make-simscript --spd=/home/ecegrid/a/mg287/Desktop/demo/hardware/amm_master_qsys_with_pcie/amm_master_qsys_with_pcie.spd --output-directory=/home/ecegrid/a/mg287/Desktop/demo/hardware/amm_master_qsys_with_pcie/simulation/
+Info: Generating the following file(s) for MODELSIM simulator in /home/ecegrid/a/mg287/Desktop/demo/hardware/amm_master_qsys_with_pcie/simulation/ directory:
+Info: 	mentor/msim_setup.tcl
+Info: Generating the following file(s) for VCS simulator in /home/ecegrid/a/mg287/Desktop/demo/hardware/amm_master_qsys_with_pcie/simulation/ directory:
+Info: 	synopsys/vcs/vcs_setup.sh
+Info: Generating the following file(s) for VCSMX simulator in /home/ecegrid/a/mg287/Desktop/demo/hardware/amm_master_qsys_with_pcie/simulation/ directory:
+Info: 	synopsys/vcsmx/synopsys_sim.setup
+Info: 	synopsys/vcsmx/vcsmx_setup.sh
+Info: Generating the following file(s) for NCSIM simulator in /home/ecegrid/a/mg287/Desktop/demo/hardware/amm_master_qsys_with_pcie/simulation/ directory:
+Info: 	cadence/cds.lib
+Info: 	cadence/hdl.var
+Info: 	cadence/ncsim_setup.sh
+Info: 	40 .cds.lib files in cadence/cds_libs/ directory
+Info: Generating the following file(s) for RIVIERA simulator in /home/ecegrid/a/mg287/Desktop/demo/hardware/amm_master_qsys_with_pcie/simulation/ directory:
+Info: 	aldec/rivierapro_setup.tcl
+Info: Finished: Create Modelsim Project.
+Info: Starting: Create block symbol file (.bsf)
+Info: ip-generate --project-directory=/home/ecegrid/a/mg287/Desktop/demo/hardware --output-directory=/home/ecegrid/a/mg287/Desktop/demo/hardware/amm_master_qsys_with_pcie --report-file=bsf:/home/ecegrid/a/mg287/Desktop/demo/hardware/amm_master_qsys_with_pcie/amm_master_qsys_with_pcie.bsf --system-info=DEVICE_FAMILY="Cyclone IV GX" --system-info=DEVICE=EP4CGX150DF31C7 --system-info=DEVICE_SPEEDGRADE=7 --component-file=/home/ecegrid/a/mg287/Desktop/demo/hardware/amm_master_qsys_with_pcie.qsys
+Progress: Loading hardware/amm_master_qsys_with_pcie.qsys
+Progress: Reading input file
+Progress: Adding clk_50 [clock_source 14.0]
+Progress: Parameterizing module clk_50
+Progress: Adding pcie_ip [altera_pcie_hard_ip 14.0]
+Progress: Parameterizing module pcie_ip
+Progress: Adding sgdma [altera_avalon_sgdma 14.0]
+Progress: Parameterizing module sgdma
+Progress: Adding sdram [altera_avalon_new_sdram_controller 14.0]
+Progress: Parameterizing module sdram
+Progress: Adding altpll_qsys [altpll 14.0]
+Progress: Parameterizing module altpll_qsys
+Progress: Adding user_module_0 [user_module 1.0]
+Progress: Parameterizing module user_module_0
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Info: amm_master_qsys_with_pcie.amm_master_qsys_with_pcie: There are recommended upgrades for: pcie_ip
+Info: amm_master_qsys_with_pcie.pcie_ip:  Rx Master BAR 1_0 mapped to 5 -bit Avalon-MM address
+Info: amm_master_qsys_with_pcie.pcie_ip:  Rx Master BAR 2 mapped to 15 -bit Avalon-MM address
+Warning: amm_master_qsys_with_pcie.pcie_ip.pcie_ip: Module dependency loop involving: "pcie_internal_hip" (altera_pcie_internal_hard_ip_qsys 14.0)
+Warning: amm_master_qsys_with_pcie.pcie_ip.pcie_ip: Module dependency loop involving: "avalon_clk" (altera_clock_bridge 14.0), "pcie_internal_hip" (altera_pcie_internal_hard_ip_qsys 14.0)
+Info: amm_master_qsys_with_pcie.pcie_ip.pcie_internal_hip:  Txs Address width is 31
+Info: amm_master_qsys_with_pcie.pcie_ip.pcie_internal_hip: Application clock frequency is 125 Mhz 
+Warning: amm_master_qsys_with_pcie.pcie_ip.pcie_internal_hip.app_msi_ack: Interface has no signals
+Warning: amm_master_qsys_with_pcie.pcie_ip.pcie_internal_hip.app_msi_num: Interface has no signals
+Warning: amm_master_qsys_with_pcie.pcie_ip.pcie_internal_hip.app_msi_req: Interface has no signals
+Warning: amm_master_qsys_with_pcie.pcie_ip.pcie_internal_hip.test_out_export: Interface has no signals
+Info: amm_master_qsys_with_pcie.pcie_ip.altgx_internal: Family: Cyclone IV GX
+Info: amm_master_qsys_with_pcie.pcie_ip.altgx_internal: Lanes: 1
+Warning: amm_master_qsys_with_pcie.pcie_ip.pcie_internal_hip: pcie_internal_hip.pcie_core_clk cannot be both connected and exported
+Warning: amm_master_qsys_with_pcie.pcie_ip.pcie_internal_hip: pcie_internal_hip.app_msi_ack must be exported, or connected to a matching conduit.
+Warning: amm_master_qsys_with_pcie.pcie_ip.pcie_internal_hip: pcie_internal_hip.rc_rx_analogreset must be exported, or connected to a matching conduit.
+Warning: amm_master_qsys_with_pcie.pcie_ip.pcie_internal_hip: pcie_internal_hip.rc_rx_digitalreset must be exported, or connected to a matching conduit.
+Warning: amm_master_qsys_with_pcie.pcie_ip.pcie_internal_hip: pcie_internal_hip.app_msi_num must be exported, or connected to a matching conduit.
+Warning: amm_master_qsys_with_pcie.pcie_ip.pcie_internal_hip: pcie_internal_hip.app_msi_req must be exported, or connected to a matching conduit.
+Warning: amm_master_qsys_with_pcie.pcie_ip.pcie_internal_hip: pcie_internal_hip.msi_interface_export must be exported, or connected to a matching conduit.
+Warning: amm_master_qsys_with_pcie.pcie_ip.pcie_internal_hip: pcie_internal_hip.tx_deemph_0 must be exported, or connected to a matching conduit.
+Warning: amm_master_qsys_with_pcie.pcie_ip.pcie_internal_hip: pcie_internal_hip.tx_margin_0 must be exported, or connected to a matching conduit.
+Warning: amm_master_qsys_with_pcie.pcie_ip.pcie_internal_hip: pcie_internal_hip.test_out_export must be exported, or connected to a matching conduit.
+Warning: amm_master_qsys_with_pcie.pcie_ip.pipe_interface_internal: pipe_interface_internal.pll_powerdown_pcs must be exported, or connected to a matching conduit.
+Warning: amm_master_qsys_with_pcie.pcie_ip.pipe_interface_internal: pipe_interface_internal.rateswitch_pcs must be exported, or connected to a matching conduit.
+Warning: amm_master_qsys_with_pcie.pcie_ip.pipe_interface_internal: pipe_interface_internal.rateswitchbaseclock_pcs must be exported, or connected to a matching conduit.
+Warning: amm_master_qsys_with_pcie.pcie_ip.refclk_conduit: refclk_conduit.conduit_out_2 must be exported, or connected to a matching conduit.
+Warning: amm_master_qsys_with_pcie.pcie_ip.refclk_conduit: refclk_conduit.conduit_out_3 must be exported, or connected to a matching conduit.
+Warning: amm_master_qsys_with_pcie.pcie_ip.refclk_conduit: refclk_conduit.conduit_out_4 must be exported, or connected to a matching conduit.
+Warning: amm_master_qsys_with_pcie.pcie_ip.refclk_conduit: refclk_conduit.conduit_out_5 must be exported, or connected to a matching conduit.
+Warning: amm_master_qsys_with_pcie.pcie_ip.refclk_conduit: refclk_conduit.conduit_out_6 must be exported, or connected to a matching conduit.
+Warning: amm_master_qsys_with_pcie.pcie_ip.refclk_conduit: refclk_conduit.conduit_out_7 must be exported, or connected to a matching conduit.
+Warning: amm_master_qsys_with_pcie.pcie_ip.refclk_conduit: refclk_conduit.conduit_out_8 must be exported, or connected to a matching conduit.
+Warning: amm_master_qsys_with_pcie.pcie_ip.refclk_conduit: refclk_conduit.conduit_out_9 must be exported, or connected to a matching conduit.
+Warning: amm_master_qsys_with_pcie.pcie_ip.reset_controller_internal: reset_controller_internal.reset_n_out cannot be both connected and exported
+Warning: amm_master_qsys_with_pcie.altpll_qsys: altpll_qsys.pll_slave must be connected to an Avalon-MM master
+Warning: amm_master_qsys_with_pcie.altpll_qsys: altpll_qsys.areset_conduit must be exported, or connected to a matching conduit.
+Warning: amm_master_qsys_with_pcie.altpll_qsys: altpll_qsys.locked_conduit must be exported, or connected to a matching conduit.
+Warning: amm_master_qsys_with_pcie.altpll_qsys: altpll_qsys.phasedone_conduit must be exported, or connected to a matching conduit.
+Warning: amm_master_qsys_with_pcie.pcie_ip: Interrupt sender pcie_ip.cra_irq is not connected to an interrupt receiver
+Info: ip-generate succeeded.
+Info: Finished: Create block symbol file (.bsf)
+Info: 
+Info: Starting: Create HDL design files for synthesis
+Info: ip-generate --project-directory=/home/ecegrid/a/mg287/Desktop/demo/hardware --output-directory=/home/ecegrid/a/mg287/Desktop/demo/hardware/amm_master_qsys_with_pcie/synthesis --file-set=QUARTUS_SYNTH --report-file=html:/home/ecegrid/a/mg287/Desktop/demo/hardware/amm_master_qsys_with_pcie/amm_master_qsys_with_pcie.html --report-file=sopcinfo:/home/ecegrid/a/mg287/Desktop/demo/hardware/amm_master_qsys_with_pcie.sopcinfo --report-file=cmp:/home/ecegrid/a/mg287/Desktop/demo/hardware/amm_master_qsys_with_pcie/amm_master_qsys_with_pcie.cmp --report-file=qip:/home/ecegrid/a/mg287/Desktop/demo/hardware/amm_master_qsys_with_pcie/synthesis/amm_master_qsys_with_pcie.qip --report-file=svd:/home/ecegrid/a/mg287/Desktop/demo/hardware/amm_master_qsys_with_pcie/synthesis/amm_master_qsys_with_pcie.svd --report-file=regmap:/home/ecegrid/a/mg287/Desktop/demo/hardware/amm_master_qsys_with_pcie/synthesis/amm_master_qsys_with_pcie.regmap --report-file=xml:/home/ecegrid/a/mg287/Desktop/demo/hardware/amm_master_qsys_with_pcie/amm_master_qsys_with_pcie.xml --report-file=debuginfo:/home/ecegrid/a/mg287/Desktop/demo/hardware/amm_master_qsys_with_pcie/synthesis/amm_master_qsys_with_pcie.debuginfo --system-info=DEVICE_FAMILY="Cyclone IV GX" --system-info=DEVICE=EP4CGX150DF31C7 --system-info=DEVICE_SPEEDGRADE=7 --component-file=/home/ecegrid/a/mg287/Desktop/demo/hardware/amm_master_qsys_with_pcie.qsys --language=VERILOG
+Progress: Loading hardware/amm_master_qsys_with_pcie.qsys
+Progress: Reading input file
+Progress: Adding clk_50 [clock_source 14.0]
+Progress: Parameterizing module clk_50
+Progress: Adding pcie_ip [altera_pcie_hard_ip 14.0]
+Progress: Parameterizing module pcie_ip
+Progress: Adding sgdma [altera_avalon_sgdma 14.0]
+Progress: Parameterizing module sgdma
+Progress: Adding sdram [altera_avalon_new_sdram_controller 14.0]
+Progress: Parameterizing module sdram
+Progress: Adding altpll_qsys [altpll 14.0]
+Progress: Parameterizing module altpll_qsys
+Progress: Adding user_module_0 [user_module 1.0]
+Progress: Parameterizing module user_module_0
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Info: amm_master_qsys_with_pcie.amm_master_qsys_with_pcie: There are recommended upgrades for: pcie_ip
+Info: amm_master_qsys_with_pcie.pcie_ip:  Rx Master BAR 1_0 mapped to 5 -bit Avalon-MM address
+Info: amm_master_qsys_with_pcie.pcie_ip:  Rx Master BAR 2 mapped to 15 -bit Avalon-MM address
+Warning: amm_master_qsys_with_pcie.pcie_ip.pcie_ip: Module dependency loop involving: "pcie_internal_hip" (altera_pcie_internal_hard_ip_qsys 14.0)
+Warning: amm_master_qsys_with_pcie.pcie_ip.pcie_ip: Module dependency loop involving: "avalon_clk" (altera_clock_bridge 14.0), "pcie_internal_hip" (altera_pcie_internal_hard_ip_qsys 14.0)
+Info: amm_master_qsys_with_pcie.pcie_ip.pcie_internal_hip:  Txs Address width is 31
+Info: amm_master_qsys_with_pcie.pcie_ip.pcie_internal_hip: Application clock frequency is 125 Mhz 
+Warning: amm_master_qsys_with_pcie.pcie_ip.pcie_internal_hip.app_msi_ack: Interface has no signals
+Warning: amm_master_qsys_with_pcie.pcie_ip.pcie_internal_hip.app_msi_num: Interface has no signals
+Warning: amm_master_qsys_with_pcie.pcie_ip.pcie_internal_hip.app_msi_req: Interface has no signals
+Warning: amm_master_qsys_with_pcie.pcie_ip.pcie_internal_hip.test_out_export: Interface has no signals
+Info: amm_master_qsys_with_pcie.pcie_ip.altgx_internal: Family: Cyclone IV GX
+Info: amm_master_qsys_with_pcie.pcie_ip.altgx_internal: Lanes: 1
+Warning: amm_master_qsys_with_pcie.pcie_ip.pcie_internal_hip: pcie_internal_hip.pcie_core_clk cannot be both connected and exported
+Warning: amm_master_qsys_with_pcie.pcie_ip.pcie_internal_hip: pcie_internal_hip.app_msi_ack must be exported, or connected to a matching conduit.
+Warning: amm_master_qsys_with_pcie.pcie_ip.pcie_internal_hip: pcie_internal_hip.rc_rx_analogreset must be exported, or connected to a matching conduit.
+Warning: amm_master_qsys_with_pcie.pcie_ip.pcie_internal_hip: pcie_internal_hip.rc_rx_digitalreset must be exported, or connected to a matching conduit.
+Warning: amm_master_qsys_with_pcie.pcie_ip.pcie_internal_hip: pcie_internal_hip.app_msi_num must be exported, or connected to a matching conduit.
+Warning: amm_master_qsys_with_pcie.pcie_ip.pcie_internal_hip: pcie_internal_hip.app_msi_req must be exported, or connected to a matching conduit.
+Warning: amm_master_qsys_with_pcie.pcie_ip.pcie_internal_hip: pcie_internal_hip.msi_interface_export must be exported, or connected to a matching conduit.
+Warning: amm_master_qsys_with_pcie.pcie_ip.pcie_internal_hip: pcie_internal_hip.tx_deemph_0 must be exported, or connected to a matching conduit.
+Warning: amm_master_qsys_with_pcie.pcie_ip.pcie_internal_hip: pcie_internal_hip.tx_margin_0 must be exported, or connected to a matching conduit.
+Warning: amm_master_qsys_with_pcie.pcie_ip.pcie_internal_hip: pcie_internal_hip.test_out_export must be exported, or connected to a matching conduit.
+Warning: amm_master_qsys_with_pcie.pcie_ip.pipe_interface_internal: pipe_interface_internal.pll_powerdown_pcs must be exported, or connected to a matching conduit.
+Warning: amm_master_qsys_with_pcie.pcie_ip.pipe_interface_internal: pipe_interface_internal.rateswitch_pcs must be exported, or connected to a matching conduit.
+Warning: amm_master_qsys_with_pcie.pcie_ip.pipe_interface_internal: pipe_interface_internal.rateswitchbaseclock_pcs must be exported, or connected to a matching conduit.
+Warning: amm_master_qsys_with_pcie.pcie_ip.refclk_conduit: refclk_conduit.conduit_out_2 must be exported, or connected to a matching conduit.
+Warning: amm_master_qsys_with_pcie.pcie_ip.refclk_conduit: refclk_conduit.conduit_out_3 must be exported, or connected to a matching conduit.
+Warning: amm_master_qsys_with_pcie.pcie_ip.refclk_conduit: refclk_conduit.conduit_out_4 must be exported, or connected to a matching conduit.
+Warning: amm_master_qsys_with_pcie.pcie_ip.refclk_conduit: refclk_conduit.conduit_out_5 must be exported, or connected to a matching conduit.
+Warning: amm_master_qsys_with_pcie.pcie_ip.refclk_conduit: refclk_conduit.conduit_out_6 must be exported, or connected to a matching conduit.
+Warning: amm_master_qsys_with_pcie.pcie_ip.refclk_conduit: refclk_conduit.conduit_out_7 must be exported, or connected to a matching conduit.
+Warning: amm_master_qsys_with_pcie.pcie_ip.refclk_conduit: refclk_conduit.conduit_out_8 must be exported, or connected to a matching conduit.
+Warning: amm_master_qsys_with_pcie.pcie_ip.refclk_conduit: refclk_conduit.conduit_out_9 must be exported, or connected to a matching conduit.
+Warning: amm_master_qsys_with_pcie.pcie_ip.reset_controller_internal: reset_controller_internal.reset_n_out cannot be both connected and exported
+Warning: amm_master_qsys_with_pcie.altpll_qsys: altpll_qsys.pll_slave must be connected to an Avalon-MM master
+Warning: amm_master_qsys_with_pcie.altpll_qsys: altpll_qsys.areset_conduit must be exported, or connected to a matching conduit.
+Warning: amm_master_qsys_with_pcie.altpll_qsys: altpll_qsys.locked_conduit must be exported, or connected to a matching conduit.
+Warning: amm_master_qsys_with_pcie.altpll_qsys: altpll_qsys.phasedone_conduit must be exported, or connected to a matching conduit.
+Warning: amm_master_qsys_with_pcie.pcie_ip: Interrupt sender pcie_ip.cra_irq is not connected to an interrupt receiver
+Info: amm_master_qsys_with_pcie: Generating amm_master_qsys_with_pcie "amm_master_qsys_with_pcie" for QUARTUS_SYNTH
+Info: Inserting clock-crossing logic between sgdma_m_read_to_sdram_s1_cmd_width_adapter.src and cmd_mux_001.sink0
+Info: Inserting clock-crossing logic between sgdma_m_write_to_sdram_s1_cmd_width_adapter.src and cmd_mux_001.sink1
+Info: Inserting clock-crossing logic between sdram_s1_to_sgdma_m_read_rsp_width_adapter.src and rsp_mux_002.sink1
+Info: Inserting clock-crossing logic between sdram_s1_to_sgdma_m_write_rsp_width_adapter.src and rsp_mux_003.sink1
+Info: Interconnect is inserted between master pcie_ip.bar1_0 and slave user_module_0.avalon_slave_0 because the master has address signal 32 bit wide, but the slave is 3 bit wide.
+Info: Interconnect is inserted between master pcie_ip.bar1_0 and slave user_module_0.avalon_slave_0 because the master has waitrequest signal 1 bit wide, but the slave is 0 bit wide.
+Info: Interconnect is inserted between master pcie_ip.bar1_0 and slave user_module_0.avalon_slave_0 because the master has readdatavalid signal 1 bit wide, but the slave is 0 bit wide.
+Info: Interconnect is inserted between master pcie_ip.bar1_0 and slave user_module_0.avalon_slave_0 because the master has readdata signal 64 bit wide, but the slave is 32 bit wide.
+Info: Interconnect is inserted between master pcie_ip.bar1_0 and slave user_module_0.avalon_slave_0 because the master has writedata signal 64 bit wide, but the slave is 32 bit wide.
+Info: Interconnect is inserted between master pcie_ip.bar1_0 and slave user_module_0.avalon_slave_0 because the master has burstcount signal 7 bit wide, but the slave is 0 bit wide.
+Info: Interconnect is inserted between master pcie_ip.bar1_0 and slave user_module_0.avalon_slave_0 because the master has byteenable signal 8 bit wide, but the slave is 0 bit wide.
+Info: Interconnect is inserted between master pcie_ip.bar1_0 and slave user_module_0.avalon_slave_0 because they have different clock source.
+Info: Inserting clock-crossing logic between cmd_demux.src0 and cmd_mux.sink0
+Info: Inserting clock-crossing logic between rsp_demux.src0 and rsp_mux.sink0
+Info: pcie_ip: "amm_master_qsys_with_pcie" instantiated altera_pcie_hard_ip "pcie_ip"
+Info: sgdma: Starting RTL generation for module 'amm_master_qsys_with_pcie_sgdma'
+Info: sgdma:   Generation command is [exec /package/eda/altera/altera14.0/quartus/linux64/perl/bin/perl -I /package/eda/altera/altera14.0/quartus/linux64/perl/lib -I /package/eda/altera/altera14.0/quartus/sopc_builder/bin/europa -I /package/eda/altera/altera14.0/quartus/sopc_builder/bin/perl_lib -I /package/eda/altera/altera14.0/quartus/sopc_builder/bin -I /package/eda/altera/altera14.0/quartus/../ip/altera/sopc_builder_ip/common -I /package/eda/altera/altera14.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_sgdma -- /package/eda/altera/altera14.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_sgdma/generate_rtl.pl --name=amm_master_qsys_with_pcie_sgdma --dir=/tmp/alt6489_7259379572596842494.dir/0055_sgdma_gen/ --quartus_dir=/package/eda/altera/altera14.0/quartus --verilog --config=/tmp/alt6489_7259379572596842494.dir/0055_sgdma_gen//amm_master_qsys_with_pcie_sgdma_component_configuration.pl  --do_build_sim=0  ]
+Info: sgdma: Done RTL generation for module 'amm_master_qsys_with_pcie_sgdma'
+Info: sgdma: "amm_master_qsys_with_pcie" instantiated altera_avalon_sgdma "sgdma"
+Info: sdram: Starting RTL generation for module 'amm_master_qsys_with_pcie_sdram'
+Info: sdram:   Generation command is [exec /package/eda/altera/altera14.0/quartus/linux64/perl/bin/perl -I /package/eda/altera/altera14.0/quartus/linux64/perl/lib -I /package/eda/altera/altera14.0/quartus/sopc_builder/bin/europa -I /package/eda/altera/altera14.0/quartus/sopc_builder/bin/perl_lib -I /package/eda/altera/altera14.0/quartus/sopc_builder/bin -I /package/eda/altera/altera14.0/quartus/../ip/altera/sopc_builder_ip/common -I /package/eda/altera/altera14.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_new_sdram_controller -- /package/eda/altera/altera14.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_new_sdram_controller/generate_rtl.pl --name=amm_master_qsys_with_pcie_sdram --dir=/tmp/alt6489_7259379572596842494.dir/0056_sdram_gen/ --quartus_dir=/package/eda/altera/altera14.0/quartus --verilog --config=/tmp/alt6489_7259379572596842494.dir/0056_sdram_gen//amm_master_qsys_with_pcie_sdram_component_configuration.pl  --do_build_sim=0  ]
+Info: sdram: Done RTL generation for module 'amm_master_qsys_with_pcie_sdram'
+Info: sdram: "amm_master_qsys_with_pcie" instantiated altera_avalon_new_sdram_controller "sdram"
+Info: altpll_qsys: "amm_master_qsys_with_pcie" instantiated altpll "altpll_qsys"
+Info: user_module_0: "amm_master_qsys_with_pcie" instantiated user_module "user_module_0"
+Info: mm_interconnect_0: "amm_master_qsys_with_pcie" instantiated altera_mm_interconnect "mm_interconnect_0"
+Info: mm_interconnect_1: "amm_master_qsys_with_pcie" instantiated altera_mm_interconnect "mm_interconnect_1"
+Info: mm_interconnect_2: "amm_master_qsys_with_pcie" instantiated altera_mm_interconnect "mm_interconnect_2"
+Info: irq_mapper: "amm_master_qsys_with_pcie" instantiated altera_irq_mapper "irq_mapper"
+Info: rst_controller: "amm_master_qsys_with_pcie" instantiated altera_reset_controller "rst_controller"
+Info: pcie_internal_hip: "pcie_ip" instantiated altera_pcie_internal_hard_ip_qsys "pcie_internal_hip"
+Info: altgx_internal: Family: Cyclone IV GX
+Info: altgx_internal: Subprotocol: Gen 1-x1
+Info: altgx_internal: qmegawiz -silent module=alt_c3gxb LOCKDOWN_EXCL=PCIE IP_MODE=PCIE_HIP_8 gxb_analog_power=AUTO tx_analog_power=AUTO elec_idle_infer_enable=false tx_allow_polarity_inversion=false rx_cdrctrl_enable=true hip_tx_clkout rx_elecidleinfersel fixedclk enable_0ppm=false pll_powerdown intended_device_family=cycloneiv starting_channel_number=84   deviceFamily="Cyclone IV GX"  wiz_subprotocol="Gen 1-x1"  OPTIONAL_FILES=NONE amm_master_qsys_with_pcie_pcie_ip_altgx_internal.v
+Info: altgx_internal: "pcie_ip" instantiated altera_pcie_internal_altgx "altgx_internal"
+Info: reset_controller_internal: "pcie_ip" instantiated altera_pcie_internal_reset_controller_qsys "reset_controller_internal"
+Info: pipe_interface_internal: "pcie_ip" instantiated altera_pcie_internal_pipe_interface_qsys "pipe_interface_internal"
+Info: pcie_ip_bar2_translator: "mm_interconnect_0" instantiated altera_merlin_master_translator "pcie_ip_bar2_translator"
+Info: sgdma_csr_translator: "mm_interconnect_0" instantiated altera_merlin_slave_translator "sgdma_csr_translator"
+Info: pcie_ip_bar2_agent: "mm_interconnect_0" instantiated altera_merlin_master_agent "pcie_ip_bar2_agent"
+Info: sgdma_csr_agent: "mm_interconnect_0" instantiated altera_merlin_slave_agent "sgdma_csr_agent"
+Info: sgdma_csr_agent_rsp_fifo: "mm_interconnect_0" instantiated altera_avalon_sc_fifo "sgdma_csr_agent_rsp_fifo"
+Info: router: "mm_interconnect_0" instantiated altera_merlin_router "router"
+Info: router_001: "mm_interconnect_0" instantiated altera_merlin_router "router_001"
+Info: pcie_ip_bar2_limiter: "mm_interconnect_0" instantiated altera_merlin_traffic_limiter "pcie_ip_bar2_limiter"
+Info: Reusing file /home/ecegrid/a/mg287/Desktop/demo/hardware/amm_master_qsys_with_pcie/synthesis/submodules/altera_avalon_sc_fifo.v
+Info: sgdma_csr_burst_adapter: "mm_interconnect_0" instantiated altera_merlin_burst_adapter "sgdma_csr_burst_adapter"
+Info: Reusing file /home/ecegrid/a/mg287/Desktop/demo/hardware/amm_master_qsys_with_pcie/synthesis/submodules/altera_avalon_st_pipeline_base.v
+Info: cmd_demux: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "cmd_demux"
+Info: cmd_mux: "mm_interconnect_0" instantiated altera_merlin_multiplexer "cmd_mux"
+Info: rsp_demux: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "rsp_demux"
+Info: rsp_mux: "mm_interconnect_0" instantiated altera_merlin_multiplexer "rsp_mux"
+Info: Reusing file /home/ecegrid/a/mg287/Desktop/demo/hardware/amm_master_qsys_with_pcie/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: sgdma_csr_rsp_width_adapter: "mm_interconnect_0" instantiated altera_merlin_width_adapter "sgdma_csr_rsp_width_adapter"
+Info: Reusing file /home/ecegrid/a/mg287/Desktop/demo/hardware/amm_master_qsys_with_pcie/synthesis/submodules/altera_merlin_address_alignment.sv
+Info: Reusing file /home/ecegrid/a/mg287/Desktop/demo/hardware/amm_master_qsys_with_pcie/synthesis/submodules/altera_merlin_burst_uncompressor.sv
+Info: router: "mm_interconnect_1" instantiated altera_merlin_router "router"
+Info: router_002: "mm_interconnect_1" instantiated altera_merlin_router "router_002"
+Info: router_004: "mm_interconnect_1" instantiated altera_merlin_router "router_004"
+Info: router_005: "mm_interconnect_1" instantiated altera_merlin_router "router_005"
+Info: router_006: "mm_interconnect_1" instantiated altera_merlin_router "router_006"
+Info: cmd_demux: "mm_interconnect_1" instantiated altera_merlin_demultiplexer "cmd_demux"
+Info: cmd_demux_002: "mm_interconnect_1" instantiated altera_merlin_demultiplexer "cmd_demux_002"
+Info: cmd_demux_003: "mm_interconnect_1" instantiated altera_merlin_demultiplexer "cmd_demux_003"
+Info: cmd_demux_004: "mm_interconnect_1" instantiated altera_merlin_demultiplexer "cmd_demux_004"
+Info: cmd_mux: "mm_interconnect_1" instantiated altera_merlin_multiplexer "cmd_mux"
+Info: Reusing file /home/ecegrid/a/mg287/Desktop/demo/hardware/amm_master_qsys_with_pcie/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: cmd_mux_001: "mm_interconnect_1" instantiated altera_merlin_multiplexer "cmd_mux_001"
+Info: Reusing file /home/ecegrid/a/mg287/Desktop/demo/hardware/amm_master_qsys_with_pcie/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: rsp_demux: "mm_interconnect_1" instantiated altera_merlin_demultiplexer "rsp_demux"
+Info: rsp_demux_001: "mm_interconnect_1" instantiated altera_merlin_demultiplexer "rsp_demux_001"
+Info: rsp_mux: "mm_interconnect_1" instantiated altera_merlin_multiplexer "rsp_mux"
+Info: Reusing file /home/ecegrid/a/mg287/Desktop/demo/hardware/amm_master_qsys_with_pcie/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: rsp_mux_002: "mm_interconnect_1" instantiated altera_merlin_multiplexer "rsp_mux_002"
+Info: Reusing file /home/ecegrid/a/mg287/Desktop/demo/hardware/amm_master_qsys_with_pcie/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: rsp_mux_004: "mm_interconnect_1" instantiated altera_merlin_multiplexer "rsp_mux_004"
+Info: Reusing file /home/ecegrid/a/mg287/Desktop/demo/hardware/amm_master_qsys_with_pcie/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: crosser: "mm_interconnect_1" instantiated altera_avalon_st_handshake_clock_crosser "crosser"
+Info: Reusing file /home/ecegrid/a/mg287/Desktop/demo/hardware/amm_master_qsys_with_pcie/synthesis/submodules/altera_avalon_st_pipeline_base.v
+Info: router: "mm_interconnect_2" instantiated altera_merlin_router "router"
+Info: router_001: "mm_interconnect_2" instantiated altera_merlin_router "router_001"
+Info: cmd_demux: "mm_interconnect_2" instantiated altera_merlin_demultiplexer "cmd_demux"
+Info: cmd_mux: "mm_interconnect_2" instantiated altera_merlin_multiplexer "cmd_mux"
+Info: Reusing file /home/ecegrid/a/mg287/Desktop/demo/hardware/amm_master_qsys_with_pcie/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: rsp_demux: "mm_interconnect_2" instantiated altera_merlin_demultiplexer "rsp_demux"
+Info: rsp_mux: "mm_interconnect_2" instantiated altera_merlin_multiplexer "rsp_mux"
+Info: Reusing file /home/ecegrid/a/mg287/Desktop/demo/hardware/amm_master_qsys_with_pcie/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: amm_master_qsys_with_pcie: Done "amm_master_qsys_with_pcie" with 52 modules, 101 files
+Info: ip-generate succeeded.
+Info: Finished: Create HDL design files for synthesis

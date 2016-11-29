@@ -1,0 +1,16 @@
+<sld_project_info>
+  <project>
+    <hash md5_digest_80b="849dcf25c74af626cc74"/>
+  </project>
+  <file_info>
+    <file device="EP4CGX150DF31C7" path="master_example.sof" usercode="0xFFFFFFFF"/>
+  </file_info>
+  <sld_infos>
+    <sld_info hpath="amm_master_qsys_with_pcie:amm_master_inst" name="amm_master_inst">
+      <assignment_values>
+        <assignment_value text="QSYS_NAME amm_master_qsys_with_pcie HAS_SOPCINFO 1 GENERATION_ID 1429542311"/>
+      </assignment_values>
+      <parameters/>
+    </sld_info>
+  </sld_infos>
+</sld_project_info>

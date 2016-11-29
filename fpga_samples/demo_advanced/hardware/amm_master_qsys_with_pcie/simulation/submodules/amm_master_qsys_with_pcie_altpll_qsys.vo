@@ -1,0 +1,184 @@
+//IP Functional Simulation Model
+//VERSION_BEGIN 14.0 cbx_mgl 2014:06:05:10:17:12:SJ cbx_simgen 2014:06:05:09:45:41:SJ  VERSION_END
+// synthesis VERILOG_INPUT_VERSION VERILOG_2001
+// altera message_off 10463
+
+
+
+// Copyright (C) 1991-2014 Altera Corporation. All rights reserved.
+// Your use of Altera Corporation's design tools, logic functions 
+// and other software and tools, and its AMPP partner logic 
+// functions, and any output files from any of the foregoing 
+// (including device programming or simulation files), and any 
+// associated documentation or information are expressly subject 
+// to the terms and conditions of the Altera Program License 
+// Subscription Agreement, the Altera Quartus II License Agreement,
+// the Altera MegaCore Function License Agreement, or other 
+// applicable license agreement, including, without limitation, 
+// that your use is for the sole purpose of programming logic 
+// devices manufactured by Altera and sold by Altera or its 
+// authorized distributors.  Please refer to the applicable 
+// agreement for further details.
+
+// You may only use these simulation model output files for simulation
+// purposes and expressly not for synthesis or any other purposes (in which
+// event Altera disclaims all warranties of any kind).
+
+
+//synopsys translate_off
+
+//synthesis_resources = cycloneiv_pll 1 lut 5 
+`timescale 1 ps / 1 ps
+module  amm_master_qsys_with_pcie_altpll_qsys
+	( 
+	address,
+	areset,
+	c0,
+	c1,
+	c2,
+	c3,
+	clk,
+	locked,
+	phasedone,
+	read,
+	readdata,
+	reset,
+	write,
+	writedata) /* synthesis synthesis_clearbox=1 */;
+	input   [1:0]  address;
+	input   areset;
+	output   c0;
+	output   c1;
+	output   c2;
+	output   c3;
+	input   clk;
+	output   locked;
+	output   phasedone;
+	input   read;
+	output   [31:0]  readdata;
+	input   reset;
+	input   write;
+	input   [31:0]  writedata;
+
+	wire  [4:0]   wire_amm_master_qsys_with_pcie_altpll_qsys_amm_master_qsys_with_pcie_altpll_qsys_altpll_drn2_sd1_cycloneiv_pll_pll7_146_clk;
+	wire  wire_amm_master_qsys_with_pcie_altpll_qsys_amm_master_qsys_with_pcie_altpll_qsys_altpll_drn2_sd1_cycloneiv_pll_pll7_146_fbout;
+	wire  wire_amm_master_qsys_with_pcie_altpll_qsys_amm_master_qsys_with_pcie_altpll_qsys_altpll_drn2_sd1_cycloneiv_pll_pll7_146_locked;
+	reg	amm_master_qsys_with_pcie_altpll_qsys_pfdena_reg_7q;
+	reg	amm_master_qsys_with_pcie_altpll_qsys_amm_master_qsys_with_pcie_altpll_qsys_stdsync_sv6_stdsync2_amm_master_qsys_with_pcie_altpll_qsys_dffpipe_l2c_dffpipe3_dffe4a_0_118q;
+	reg	amm_master_qsys_with_pcie_altpll_qsys_amm_master_qsys_with_pcie_altpll_qsys_stdsync_sv6_stdsync2_amm_master_qsys_with_pcie_altpll_qsys_dffpipe_l2c_dffpipe3_dffe5a_0_121q;
+	reg	amm_master_qsys_with_pcie_altpll_qsys_amm_master_qsys_with_pcie_altpll_qsys_stdsync_sv6_stdsync2_amm_master_qsys_with_pcie_altpll_qsys_dffpipe_l2c_dffpipe3_dffe6a_0_119q;
+	reg	amm_master_qsys_with_pcie_altpll_qsys_prev_reset_5q;
+	wire  s_wire_amm_master_qsys_with_pcie_altpll_qsys_w_select_control_18_dataout;
+	wire  s_wire_amm_master_qsys_with_pcie_altpll_qsys_w_select_status_21_dataout;
+	wire  s_wire_amm_master_qsys_with_pcie_altpll_qsys_wire_pfdena_reg_ena_16_dataout;
+	wire  s_wire_vcc;
+
+	cycloneiv_pll   amm_master_qsys_with_pcie_altpll_qsys_amm_master_qsys_with_pcie_altpll_qsys_altpll_drn2_sd1_cycloneiv_pll_pll7_146
+	( 
+	.activeclock(),
+	.areset((amm_master_qsys_with_pcie_altpll_qsys_prev_reset_5q | areset)),
+	.clk(wire_amm_master_qsys_with_pcie_altpll_qsys_amm_master_qsys_with_pcie_altpll_qsys_altpll_drn2_sd1_cycloneiv_pll_pll7_146_clk),
+	.clkbad(),
+	.fbin(wire_amm_master_qsys_with_pcie_altpll_qsys_amm_master_qsys_with_pcie_altpll_qsys_altpll_drn2_sd1_cycloneiv_pll_pll7_146_fbout),
+	.fbout(wire_amm_master_qsys_with_pcie_altpll_qsys_amm_master_qsys_with_pcie_altpll_qsys_altpll_drn2_sd1_cycloneiv_pll_pll7_146_fbout),
+	.fref(),
+	.icdrclk(),
+	.inclk({1'b0, clk}),
+	.locked(wire_amm_master_qsys_with_pcie_altpll_qsys_amm_master_qsys_with_pcie_altpll_qsys_altpll_drn2_sd1_cycloneiv_pll_pll7_146_locked),
+	.phasedone(),
+	.scandataout(),
+	.scandone(),
+	.vcooverrange(),
+	.vcounderrange(),
+	.clkswitch(),
+	.configupdate(),
+	.pfdena(),
+	.phasecounterselect(),
+	.phasestep(),
+	.phaseupdown(),
+	.scanclk(),
+	.scanclkena(),
+	.scandata()
+	);
+	defparam
+		amm_master_qsys_with_pcie_altpll_qsys_amm_master_qsys_with_pcie_altpll_qsys_altpll_drn2_sd1_cycloneiv_pll_pll7_146.bandwidth_type = "auto",
+		amm_master_qsys_with_pcie_altpll_qsys_amm_master_qsys_with_pcie_altpll_qsys_altpll_drn2_sd1_cycloneiv_pll_pll7_146.clk0_divide_by = 1,
+		amm_master_qsys_with_pcie_altpll_qsys_amm_master_qsys_with_pcie_altpll_qsys_altpll_drn2_sd1_cycloneiv_pll_pll7_146.clk0_duty_cycle = 50,
+		amm_master_qsys_with_pcie_altpll_qsys_amm_master_qsys_with_pcie_altpll_qsys_altpll_drn2_sd1_cycloneiv_pll_pll7_146.clk0_multiply_by = 3,
+		amm_master_qsys_with_pcie_altpll_qsys_amm_master_qsys_with_pcie_altpll_qsys_altpll_drn2_sd1_cycloneiv_pll_pll7_146.clk0_phase_shift = "0",
+		amm_master_qsys_with_pcie_altpll_qsys_amm_master_qsys_with_pcie_altpll_qsys_altpll_drn2_sd1_cycloneiv_pll_pll7_146.clk1_divide_by = 1,
+		amm_master_qsys_with_pcie_altpll_qsys_amm_master_qsys_with_pcie_altpll_qsys_altpll_drn2_sd1_cycloneiv_pll_pll7_146.clk1_duty_cycle = 50,
+		amm_master_qsys_with_pcie_altpll_qsys_amm_master_qsys_with_pcie_altpll_qsys_altpll_drn2_sd1_cycloneiv_pll_pll7_146.clk1_multiply_by = 3,
+		amm_master_qsys_with_pcie_altpll_qsys_amm_master_qsys_with_pcie_altpll_qsys_altpll_drn2_sd1_cycloneiv_pll_pll7_146.clk1_phase_shift = "-1852",
+		amm_master_qsys_with_pcie_altpll_qsys_amm_master_qsys_with_pcie_altpll_qsys_altpll_drn2_sd1_cycloneiv_pll_pll7_146.clk2_divide_by = 1,
+		amm_master_qsys_with_pcie_altpll_qsys_amm_master_qsys_with_pcie_altpll_qsys_altpll_drn2_sd1_cycloneiv_pll_pll7_146.clk2_duty_cycle = 50,
+		amm_master_qsys_with_pcie_altpll_qsys_amm_master_qsys_with_pcie_altpll_qsys_altpll_drn2_sd1_cycloneiv_pll_pll7_146.clk2_multiply_by = 1,
+		amm_master_qsys_with_pcie_altpll_qsys_amm_master_qsys_with_pcie_altpll_qsys_altpll_drn2_sd1_cycloneiv_pll_pll7_146.clk2_phase_shift = "0",
+		amm_master_qsys_with_pcie_altpll_qsys_amm_master_qsys_with_pcie_altpll_qsys_altpll_drn2_sd1_cycloneiv_pll_pll7_146.clk3_divide_by = 1,
+		amm_master_qsys_with_pcie_altpll_qsys_amm_master_qsys_with_pcie_altpll_qsys_altpll_drn2_sd1_cycloneiv_pll_pll7_146.clk3_duty_cycle = 50,
+		amm_master_qsys_with_pcie_altpll_qsys_amm_master_qsys_with_pcie_altpll_qsys_altpll_drn2_sd1_cycloneiv_pll_pll7_146.clk3_multiply_by = 2,
+		amm_master_qsys_with_pcie_altpll_qsys_amm_master_qsys_with_pcie_altpll_qsys_altpll_drn2_sd1_cycloneiv_pll_pll7_146.clk3_phase_shift = "0",
+		amm_master_qsys_with_pcie_altpll_qsys_amm_master_qsys_with_pcie_altpll_qsys_altpll_drn2_sd1_cycloneiv_pll_pll7_146.compensate_clock = "clk0",
+		amm_master_qsys_with_pcie_altpll_qsys_amm_master_qsys_with_pcie_altpll_qsys_altpll_drn2_sd1_cycloneiv_pll_pll7_146.inclk0_input_frequency = 20000,
+		amm_master_qsys_with_pcie_altpll_qsys_amm_master_qsys_with_pcie_altpll_qsys_altpll_drn2_sd1_cycloneiv_pll_pll7_146.lpm_type = "cycloneiv_pll",
+		amm_master_qsys_with_pcie_altpll_qsys_amm_master_qsys_with_pcie_altpll_qsys_altpll_drn2_sd1_cycloneiv_pll_pll7_146.operation_mode = "normal",
+		amm_master_qsys_with_pcie_altpll_qsys_amm_master_qsys_with_pcie_altpll_qsys_altpll_drn2_sd1_cycloneiv_pll_pll7_146.pll_type = "auto";
+	initial
+	begin
+		amm_master_qsys_with_pcie_altpll_qsys_pfdena_reg_7q = 0;
+	end
+	always @ ( posedge clk or  posedge reset)
+	begin
+		if (reset == 1'b1) 
+		begin
+			amm_master_qsys_with_pcie_altpll_qsys_pfdena_reg_7q <= 1;
+		end
+		else if  (s_wire_amm_master_qsys_with_pcie_altpll_qsys_wire_pfdena_reg_ena_16_dataout == 1'b1) 
+		begin
+			amm_master_qsys_with_pcie_altpll_qsys_pfdena_reg_7q <= writedata[1];
+		end
+	end
+	event amm_master_qsys_with_pcie_altpll_qsys_pfdena_reg_7q_event;
+	initial
+		#1 ->amm_master_qsys_with_pcie_altpll_qsys_pfdena_reg_7q_event;
+	always @(amm_master_qsys_with_pcie_altpll_qsys_pfdena_reg_7q_event)
+		amm_master_qsys_with_pcie_altpll_qsys_pfdena_reg_7q <= 1;
+	initial
+	begin
+		amm_master_qsys_with_pcie_altpll_qsys_amm_master_qsys_with_pcie_altpll_qsys_stdsync_sv6_stdsync2_amm_master_qsys_with_pcie_altpll_qsys_dffpipe_l2c_dffpipe3_dffe4a_0_118q = 0;
+		amm_master_qsys_with_pcie_altpll_qsys_amm_master_qsys_with_pcie_altpll_qsys_stdsync_sv6_stdsync2_amm_master_qsys_with_pcie_altpll_qsys_dffpipe_l2c_dffpipe3_dffe5a_0_121q = 0;
+		amm_master_qsys_with_pcie_altpll_qsys_amm_master_qsys_with_pcie_altpll_qsys_stdsync_sv6_stdsync2_amm_master_qsys_with_pcie_altpll_qsys_dffpipe_l2c_dffpipe3_dffe6a_0_119q = 0;
+		amm_master_qsys_with_pcie_altpll_qsys_prev_reset_5q = 0;
+	end
+	always @ ( posedge clk or  posedge reset)
+	begin
+		if (reset == 1'b1) 
+		begin
+			amm_master_qsys_with_pcie_altpll_qsys_amm_master_qsys_with_pcie_altpll_qsys_stdsync_sv6_stdsync2_amm_master_qsys_with_pcie_altpll_qsys_dffpipe_l2c_dffpipe3_dffe4a_0_118q <= 0;
+			amm_master_qsys_with_pcie_altpll_qsys_amm_master_qsys_with_pcie_altpll_qsys_stdsync_sv6_stdsync2_amm_master_qsys_with_pcie_altpll_qsys_dffpipe_l2c_dffpipe3_dffe5a_0_121q <= 0;
+			amm_master_qsys_with_pcie_altpll_qsys_amm_master_qsys_with_pcie_altpll_qsys_stdsync_sv6_stdsync2_amm_master_qsys_with_pcie_altpll_qsys_dffpipe_l2c_dffpipe3_dffe6a_0_119q <= 0;
+			amm_master_qsys_with_pcie_altpll_qsys_prev_reset_5q <= 0;
+		end
+		else 
+		begin
+			amm_master_qsys_with_pcie_altpll_qsys_amm_master_qsys_with_pcie_altpll_qsys_stdsync_sv6_stdsync2_amm_master_qsys_with_pcie_altpll_qsys_dffpipe_l2c_dffpipe3_dffe4a_0_118q <= wire_amm_master_qsys_with_pcie_altpll_qsys_amm_master_qsys_with_pcie_altpll_qsys_altpll_drn2_sd1_cycloneiv_pll_pll7_146_locked;
+			amm_master_qsys_with_pcie_altpll_qsys_amm_master_qsys_with_pcie_altpll_qsys_stdsync_sv6_stdsync2_amm_master_qsys_with_pcie_altpll_qsys_dffpipe_l2c_dffpipe3_dffe5a_0_121q <= amm_master_qsys_with_pcie_altpll_qsys_amm_master_qsys_with_pcie_altpll_qsys_stdsync_sv6_stdsync2_amm_master_qsys_with_pcie_altpll_qsys_dffpipe_l2c_dffpipe3_dffe4a_0_118q;
+			amm_master_qsys_with_pcie_altpll_qsys_amm_master_qsys_with_pcie_altpll_qsys_stdsync_sv6_stdsync2_amm_master_qsys_with_pcie_altpll_qsys_dffpipe_l2c_dffpipe3_dffe6a_0_119q <= amm_master_qsys_with_pcie_altpll_qsys_amm_master_qsys_with_pcie_altpll_qsys_stdsync_sv6_stdsync2_amm_master_qsys_with_pcie_altpll_qsys_dffpipe_l2c_dffpipe3_dffe5a_0_121q;
+			amm_master_qsys_with_pcie_altpll_qsys_prev_reset_5q <= (s_wire_amm_master_qsys_with_pcie_altpll_qsys_wire_pfdena_reg_ena_16_dataout & writedata[0]);
+		end
+	end
+	assign
+		c0 = wire_amm_master_qsys_with_pcie_altpll_qsys_amm_master_qsys_with_pcie_altpll_qsys_altpll_drn2_sd1_cycloneiv_pll_pll7_146_clk[0],
+		c1 = wire_amm_master_qsys_with_pcie_altpll_qsys_amm_master_qsys_with_pcie_altpll_qsys_altpll_drn2_sd1_cycloneiv_pll_pll7_146_clk[1],
+		c2 = wire_amm_master_qsys_with_pcie_altpll_qsys_amm_master_qsys_with_pcie_altpll_qsys_altpll_drn2_sd1_cycloneiv_pll_pll7_146_clk[2],
+		c3 = wire_amm_master_qsys_with_pcie_altpll_qsys_amm_master_qsys_with_pcie_altpll_qsys_altpll_drn2_sd1_cycloneiv_pll_pll7_146_clk[3],
+		locked = wire_amm_master_qsys_with_pcie_altpll_qsys_amm_master_qsys_with_pcie_altpll_qsys_altpll_drn2_sd1_cycloneiv_pll_pll7_146_locked,
+		phasedone = 1'b0,
+		readdata = {{30{1'b0}}, (((amm_master_qsys_with_pcie_altpll_qsys_pfdena_reg_7q & s_wire_amm_master_qsys_with_pcie_altpll_qsys_w_select_control_18_dataout) | s_wire_amm_master_qsys_with_pcie_altpll_qsys_w_select_status_21_dataout) & read), (((amm_master_qsys_with_pcie_altpll_qsys_prev_reset_5q & s_wire_amm_master_qsys_with_pcie_altpll_qsys_w_select_control_18_dataout) | (s_wire_amm_master_qsys_with_pcie_altpll_qsys_w_select_status_21_dataout & amm_master_qsys_with_pcie_altpll_qsys_amm_master_qsys_with_pcie_altpll_qsys_stdsync_sv6_stdsync2_amm_master_qsys_with_pcie_altpll_qsys_dffpipe_l2c_dffpipe3_dffe6a_0_119q)) & read)},
+		s_wire_amm_master_qsys_with_pcie_altpll_qsys_w_select_control_18_dataout = (address[0] & (~ address[1])),
+		s_wire_amm_master_qsys_with_pcie_altpll_qsys_w_select_status_21_dataout = ((~ address[0]) & (~ address[1])),
+		s_wire_amm_master_qsys_with_pcie_altpll_qsys_wire_pfdena_reg_ena_16_dataout = (s_wire_amm_master_qsys_with_pcie_altpll_qsys_w_select_control_18_dataout & write),
+		s_wire_vcc = 1'b1;
+endmodule //amm_master_qsys_with_pcie_altpll_qsys
+//synopsys translate_on
+//VALID FILE
