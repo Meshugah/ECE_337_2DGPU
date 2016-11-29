@@ -1,0 +1,9 @@
+QuestaSim-64 vlog 10.3b Compiler 2014.05 May 29 2014
+Start time: 01:09:27 on Nov 16,2016
+vlog -sv -work source_work source/tb_test.sv 
+-- Compiling module tb_test
+
+Top level modules:
+	tb_test
+End time: 01:09:27 on Nov 16,2016, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0

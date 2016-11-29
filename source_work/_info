@@ -1,0 +1,206 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 d/home/ecegrid/a/mg75/ece337/Lab8
+T_opt
+!s110 1479276595
+VN9k`4^@GMOeZXMLz5[DFb3
+04 7 4 work tb_test fast 0
+=1-5cb9017b479f-582bf833-6a751-4b14
+Z1 o-quiet -auto_acc_if_foreign -work source_work/ -L /home/ecegrid/a/ece337/Course_Prod/Cell_Libs/AMI_05/vhdl_work -L /home/ecegrid/a/ece337/Class0.5u/GOLD_LIB -Lf /home/ecegrid/a/ece337/Course_Prod/IP_Libs/Lab_IP_Lib/Vsim +acc
+n@_opt
+Z2 OL;O;10.3b;59
+R0
+T_opt1
+!s110 1479873279
+V@K0KX]m`2Q0N9@2R6D8Ao3
+04 11 4 work tb_opdecode fast 0
+=1-c81f66bd1107-583512ff-2540f-b334
+R1
+n@_opt1
+R2
+R0
+T_opt2
+!s110 1480382181
+V@X<iLdFH0]NhV86g`UW4S2
+04 11 4 work tb_splitter fast 0
+=1-3417eba01898-583cd6e5-14188-201b
+R1
+n@_opt2
+R2
+vopcodeDecoder
+Z3 DXx6 sv_std 3 std 0 22 <EOTafDcUY:cQeO^ICn]m3
+!s110 1479872638
+!i10b 1
+!s100 YA]:DoKP9EhBkk5f:1KUE3
+IFC_hGNgoA44C_IVYR9JTf2
+Z4 V`JN@9S9cnhjKRR_L]QIcM3
+!s105 opdecode_sv_unit
+S1
+R0
+w1479872575
+8source/opdecode.sv
+Fsource/opdecode.sv
+L0 8
+Z5 OL;L;10.3b;59
+r1
+!s85 0
+31
+!s108 1479872638.191238
+!s107 source/opdecode.sv|
+!s90 -sv|-work|source_work|source/opdecode.sv|
+!i113 0
+Z6 o-sv -work source_work
+Z7 tCoverage 63 CoverExcludeDefault 1 CoverOpt 1 CoverShortCircuit 0
+nopcode@decoder
+vsplitter
+R3
+!s110 1480381771
+!i10b 1
+!s100 A9oTOB_HZldbEJ8h]czEU2
+Ik>fS]_eVFKZ3iTUz4^o_10
+R4
+!s105 splitter_sv_unit
+S1
+R0
+w1480381218
+8source/splitter.sv
+Fsource/splitter.sv
+L0 8
+R5
+r1
+!s85 0
+31
+!s108 1480381771.067583
+!s107 source/splitter.sv|
+!s90 -sv|-work|source_work|source/splitter.sv|
+!i113 0
+R6
+R7
+vtb_opdecode
+R3
+!s110 1480381956
+!i10b 1
+!s100 @ZizU^A1N6MdJ6IDRc=Ve0
+IoI6<jT4MZ9WbTUUiY;ZQ70
+R4
+Z8 !s105 tb_splitter_sv_unit
+S1
+R0
+w1480381951
+Z9 8source/tb_splitter.sv
+Z10 Fsource/tb_splitter.sv
+L0 9
+R5
+r1
+!s85 0
+31
+!s108 1480381956.945328
+Z11 !s107 source/tb_splitter.sv|
+Z12 !s90 -sv|-work|source_work|source/tb_splitter.sv|
+!i113 0
+R6
+R7
+vtb_splitter
+R3
+!s110 1480382177
+!i10b 1
+!s100 XTOKgP_[d@e0lBHASRDUV3
+I9ohioz?PUiGkXL0z`cUHh3
+R4
+R8
+S1
+R0
+w1480382175
+R9
+R10
+L0 9
+R5
+r1
+!s85 0
+31
+!s108 1480382177.255823
+R11
+R12
+!i113 0
+R6
+R7
+vtb_test
+R3
+Z13 !s110 1479276567
+!i10b 1
+!s100 d>He;ho:M9c6`:hl8V[9]0
+I6TRC34a6<fS1Hfm;eUPgZ2
+R4
+!s105 tb_test_sv_unit
+S1
+R0
+w1479276551
+8source/tb_test.sv
+Fsource/tb_test.sv
+L0 10
+R5
+r1
+!s85 0
+31
+!s108 1479276567.235831
+!s107 source/tb_test.sv|
+!s90 -sv|-work|source_work|source/tb_test.sv|
+!i113 0
+R6
+R7
+vtest
+R3
+!s110 1479276591
+!i10b 1
+!s100 >]?HZU>`912G92I3?KXYE1
+I66e3^BH>U^nJ3PdOMXCE[3
+R4
+Z14 !s105 test_sv_unit
+S1
+R0
+w1479276589
+Z15 8source/test.sv
+Z16 Fsource/test.sv
+L0 8
+R5
+r1
+!s85 0
+31
+!s108 1479276591.943937
+Z17 !s107 source/test.sv|
+Z18 !s90 -sv|-work|source_work|source/test.sv|
+!i113 0
+R6
+R7
+vtestVerilog
+R3
+R13
+!i10b 1
+!s100 E8cIDXFDXed=kKb@LIMok3
+I6eTk0TnVVI]A>[n8@PMBZ0
+R4
+R14
+S1
+R0
+w1479276231
+R15
+R16
+L0 8
+R5
+r1
+!s85 0
+31
+!s108 1479276567.127613
+R17
+R18
+!i113 0
+R6
+R7
+ntest@verilog

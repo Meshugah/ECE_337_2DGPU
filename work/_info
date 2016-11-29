@@ -1,0 +1,128 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 d/home/ecegrid/a/mg75/ece337/Lab8
+vopcodeDecoder
+Z1 DXx6 sv_std 3 std 0 22 <EOTafDcUY:cQeO^ICn]m3
+!s110 1479872136
+!i10b 1
+!s100 YA]:DoKP9EhBkk5f:1KUE3
+IF4kkKWTREOg]Vb2WGbUXf2
+Z2 V`JN@9S9cnhjKRR_L]QIcM3
+!s105 OpDecoder_sv_unit
+S1
+R0
+w1479872135
+8/home/ecegrid/a/mg75/ece337/Lab8/source/OpDecoder.sv
+F/home/ecegrid/a/mg75/ece337/Lab8/source/OpDecoder.sv
+L0 8
+Z3 OL;L;10.3b;59
+r1
+!s85 0
+31
+!s108 1479872136.903579
+!s107 /home/ecegrid/a/mg75/ece337/Lab8/source/OpDecoder.sv|
+!s90 -reportprogress|300|-work|work|/home/ecegrid/a/mg75/ece337/Lab8/source/OpDecoder.sv|
+!i113 0
+o-work work
+Z4 tCoverage 63 CoverExcludeDefault 1 CoverOpt 1 CoverShortCircuit 0
+nopcode@decoder
+vsplitter
+R1
+!s110 1480381221
+!i10b 1
+!s100 A9oTOB_HZldbEJ8h]czEU2
+Ih<ELZRhAlY3OW3YTKVFDZ1
+R2
+!s105 splitter_sv_unit
+S1
+R0
+w1480381218
+8source/splitter.sv
+Fsource/splitter.sv
+L0 8
+R3
+r1
+!s85 0
+31
+!s108 1480381221.172539
+!s107 source/splitter.sv|
+!s90 -reportprogress|300|source/splitter.sv|
+!i113 0
+R4
+vtb_opdecode
+R1
+!s110 1479872529
+!i10b 1
+!s100 iC[No1U7_mk;9GMa]hCaB0
+InNAf^<m_]XkD8S@MQd7A03
+R2
+!s105 tb_opdecode_sv_unit
+S1
+R0
+w1479872519
+8source/tb_opdecode.sv
+Fsource/tb_opdecode.sv
+L0 9
+R3
+r1
+!s85 0
+31
+!s108 1479872529.663668
+!s107 source/tb_opdecode.sv|
+!s90 -reportprogress|300|source/tb_opdecode.sv|
+!i113 0
+R4
+vtb_test
+R1
+!s110 1479276541
+!i10b 1
+!s100 d>He;ho:M9c6`:hl8V[9]0
+Ig]26?D@A4k^L7fMk4`hEB0
+R2
+!s105 tb_test_sv_unit
+S1
+R0
+w1479276539
+8source/tb_test.sv
+Fsource/tb_test.sv
+L0 10
+R3
+r1
+!s85 0
+31
+!s108 1479276541.894626
+!s107 source/tb_test.sv|
+!s90 -reportprogress|300|source/tb_test.sv|
+!i113 0
+R4
+vtestVerilog
+R1
+!s110 1479276224
+!i10b 1
+!s100 E8cIDXFDXed=kKb@LIMok3
+Id?d]VXj@?5JnfAf]JRTCO1
+R2
+!s105 test_sv_unit
+S1
+R0
+w1479276223
+8source/test.sv
+Fsource/test.sv
+L0 8
+R3
+r1
+!s85 0
+31
+!s108 1479276224.078582
+!s107 source/test.sv|
+!s90 -reportprogress|300|source/test.sv|
+!i113 0
+R4
+ntest@verilog

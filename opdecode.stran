@@ -1,0 +1,25 @@
+# //  Questa Sim-64
+# //  Version 10.3b linux_x86_64 May 29 2014
+# //
+# //  Copyright 1991-2014 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //
+# vsim -Lf /home/ecegrid/a/ece337/Course_Prod/IP_Libs/Lab_IP_Lib/Vsim -L /home/ecegrid/a/ece337/Course_Prod/Cell_Libs/AMI_05/vhdl_work -L /home/ecegrid/a/ece337/Class0.5u/GOLD_LIB "+no_glitch_msg" -coverage -voptargs="+acc" -i -t ps source_work/.tb_opdecode 
+# Start time: 22:54:39 on Nov 22,2016
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading sv_std.std
+# Loading work.tb_opdecode(fast)
+# Loading work.opcodeDecoder(fast)
+run 300 ns
+# ** Info: Shape matches!
+#    Time: 1 ns  Scope: tb_opdecode File: source/tb_opdecode.sv Line: 28
+# ** Info: Color matches!
+#    Time: 2 ns  Scope: tb_opdecode File: source/tb_opdecode.sv Line: 34
+# ** Info: Opcode data matches!
+#    Time: 3 ns  Scope: tb_opdecode File: source/tb_opdecode.sv Line: 39
+# End time: 22:54:50 on Nov 22,2016, Elapsed time: 0:00:11
+# Errors: 0, Warnings: 0

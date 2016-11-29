@@ -1,0 +1,9 @@
+QuestaSim-64 vlog 10.3b Compiler 2014.05 May 29 2014
+Start time: 22:43:58 on Nov 22,2016
+vlog -sv -work source_work source/opdecode.sv 
+-- Compiling module opcodeDecoder
+
+Top level modules:
+	opcodeDecoder
+End time: 22:43:58 on Nov 22,2016, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0
