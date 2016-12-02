@@ -1,0 +1,500 @@
+  101  ifconfig
+  102   reboot
+  103  ls
+  104  cd l
+  105  cd linux_app_sample/
+  106  make app
+  107  ./app plain_text.txt key1.txt key2.txt key3.txt encrypt_type.txt
+  108  cd d
+  109  cd drivers/
+  110  ls
+  111  ./load_terasic_qsys_pcie_driver.sh 
+  112  cd ..
+  113  ./app plain_text.txt key1.txt key2.txt key3.txt encrypt_type.txt
+  114  reboot
+  115  ifconfig
+  116  ifconfig
+  117  ifconfig
+  118  ifconfig
+  119  ifconfig
+  120  ifconfig
+  121  ifconfig
+  122  ifconfig
+  123  ifconfig
+  124  ifconfig
+  125  ifconfig
+  126  ifconfig
+  127  ifconfig
+  128  ifconfig
+  129  ifconfig
+  130  ifconfig
+  131  ifconfig
+  132  ifconfig
+  133  ifconfig
+  134  ifconfig
+  135  ifconfig
+  136  ifconfig
+  137  ifconfig
+  138  ifconfig
+  139  ifconfig
+  140  ifconfig
+  141  ifconfig
+  142  passwd
+  143  ls
+  144  cd linux_app_sample/drivers/
+  145  ls
+  146  ./load_terasic_qsys_pcie_driver.sh 
+  147  cd ..
+  148  ./app plain_text.txt key1.txt key2.txt key3.txt encrypt_type.txt
+  149  cd ..
+  150  rm -r linux_app_sample/
+  151  cd l
+  152  cd linux_app_sample/
+  153  ls
+  154  make app
+  155  ./app plain_text.txt key1.txt key2.txt key3.txt encrypt_type.txt
+  156  cd ..
+  157  rm -r linux_app_sample/
+  158  cd linux_app_sample/
+  159  make app
+  160  ./app plain_text.txt key1.txt key2.txt key3.txt encrypt_type.txt
+  161  cd ..
+  162  rm -r linux_app_sample/
+  163  cd l
+  164  cd linux_app_sample/
+  165  make app
+  166  ./app plain_text.txt key1.txt key2.txt key3.txt encrypt_type.txt
+  167  ./app plain_text.txt key1.txt key2.txt key3.txt encrypt_type.txt
+  168  ./app plain_text.txt key1.txt key2.txt key3.txt encrypt_type.txt
+  169  cd ..
+  170  rm -r linux_app_sample/
+  171  cd linux_app_sample/
+  172  make app
+  173  ./app plain_text.txt key1.txt key2.txt key3.txt encrypt_type.txt
+  174  cd ..
+  175  rm -r linux_app_sample/
+  176  cd linux_app_sample/
+  177  make app
+  178  ./app plain_text.txt key1.txt key2.txt key3.txt encrypt_type.txt
+  179  cd ..
+  180  rm -r linux_app_sample/
+  181  cd linux_app_sample/
+  182  make app
+  183  ./app plain_text.txt key1.txt key2.txt key3.txt encrypt_type.txt
+  184  cd ..
+  185  rm -r linux_app_sample/
+  186  cd linux_app_sample/
+  187  make app
+  188  ./app plain_text.txt key1.txt key2.txt key3.txt encrypt_type.txt
+  189  cd ..
+  190  rm -r linux_app_sample/
+  191  cd linux_app_sample/
+  192  make app
+  193  ./app plain_text.txt key1.txt key2.txt key3.txt encrypt_type.txt
+  194  reboot
+  195  reboot
+  196  cd linux_app_sample/drivers/
+  197  ./load_terasic_qsys_pcie_driver.sh 
+  198  cd ..
+  199  ./app plain_text.txt key1.txt key2.txt key3.txt encrypt_type.txt
+  200  cd ..
+  201  rm -r linux_app_sample/
+  202  rm -r linux_app_sample/
+  203  cd linux_app_sample/
+  204  make app
+  205  ./app plain_text.txt key1.txt key2.txt key3.txt encrypt_type.txt
+  206  reboot
+  207  ifconfig
+  208  ifconfig
+  209  ifconfig
+  210  ifconfig
+  211  ifconfig
+  212  ifconfig
+  213  ifconfig
+  214  cd linux_app_sample/
+  215  cd drivers/
+  216  ./load_terasic_qsys_pcie_driver.sh 
+  217  cd ..
+  218  ls
+  219  ./app plain_text.txt key1.txt key2.txt key3.txt encrypt_type.txt
+  220  reboot
+  221  ifconfig
+  222  ifconfig
+  223  cd linux_app_sample/drivers/
+  224  ./load_terasic_qsys_pcie_driver.sh 
+  225  cd ..
+  226  ./app plain_text.txt key1.txt key2.txt key3.txt encrypt_type.txt
+  227  cd ..
+  228  rm -r linux_app_sample/
+  229  cd linux_app_sample/
+  230  make app
+  231  ./app plain_text.txt key1.txt key2.txt key3.txt encrypt_type.txt
+  232  ifconfig
+  233  ifconfig
+  234  ifconfig
+  235  ifconfig
+  236  ifconfig
+  237  ifconfig
+  238  ifconfig
+  239  ifconfig
+  240  ifconfig
+  241  ifconfig
+  242  ifconfig
+  243  ifconfig
+  244  ifconfig
+  245  ifconfig
+  246  ifconfig
+  247  ifconfig
+  248  ifconfig
+  249  ifconfig
+  250  ifconfig
+  251  ifconfig
+  252  ifconfig
+  253  ifconfig
+  254  ifconfig
+  255  ifconfig
+  256  ifconfig
+  257  ifconfig
+  258  ifconfig
+  259  ifconfig
+  260  ifconfig
+  261  ifconfig
+  262  reboot
+  263  ifconfig
+  264  ifconfig
+  265  ifconfig
+  266  ifconfig
+  267  ifconfig
+  268  ifconfig
+  269  ifconfig
+  270  ifconfig
+  271  ifconfig
+  272  ifconfig
+  273  ifconfig
+  274  ifconfig
+  275  ifconfig
+  276  ifconfig
+  277  ifconfig
+  278  ifconfig
+  279  ifconfig
+  280  ifconfig
+  281  ifconfig
+  282  ifconfig
+  283  ifconfig
+  284  ifconfig
+  285  ifconfig
+  286  ifconfig
+  287  ifconfig
+  288  ifconfig
+  289  ifconfig
+  290  ifconfig
+  291  ifconfig
+  292  ifconfig
+  293  ifconfig
+  294  ifconfig
+  295  ifconfig
+  296  ifconfig
+  297  ifconfig
+  298  ifconfig
+  299  ifconfig
+  300  ifconfig
+  301  ifconfig
+  302  ifconfig
+  303  ifconfig
+  304  ifconfig
+  305  ifconfig
+  306  ifconfig
+  307  ifconfig
+  308  ifconfig
+  309  ifconfig
+  310  ifconfig
+  311  ifconfig
+  312  ifconfig
+  313  ifconfig
+  314  ifconfig
+  315  ifconfig
+  316  ifconfig
+  317  ifconfig
+  318  ifconfig
+  319  ifconfig
+  320  ifconfig
+  321  ifconfig
+  322  ifconfig
+  323  ifconfig
+  324  ifconfig
+  325  ifconfig
+  326  ifconfig
+  327  ls
+  328  reboot
+  329  ls
+  330  cd l
+  331  cd linux_app_sample/
+  332  ls
+  333  cd drivers/
+  334  ./load_terasic_qsys_pcie_driver.sh 
+  335  cd ..
+  336  ./app plain_text.txt key1.txt key2.txt key3.txt encrypt_type.txt
+  337  ./app plain_text.txt key1.txt key2.txt key3.txt encrypt_type.txt
+  338  ./app plain_text.txt key1.txt key2.txt key3.txt encrypt_type.txt
+  339  cd ..
+  340  rm -r linux_app_sample/
+  341  cd linux_app_sample/
+  342  make app
+  343  ./app plain_text.txt key1.txt key2.txt key3.txt encrypt_type.txt
+  344  ./app plain_text.txt key1.txt key2.txt key3.txt encrypt_type.txt
+  345  ./app plain_text.txt key1.txt key2.txt key3.txt encrypt_type.txt
+  346  cd ..
+  347  cd linux_app_sample/
+  348  cd ..
+  349  rm -r linux_app_sample/
+  350  cd linux_app_sample/
+  351  make app
+  352  ./app plain_text.txt key1.txt key2.txt key3.txt encrypt_type.txt
+  353  reboot
+  354  ifconfig
+  355  ifconfig
+  356  ifconfig
+  357  cd linux_app_sample/
+  358  cd drivers/
+  359  ./load_terasic_qsys_pcie_driver.sh 
+  360  cd ..
+  361  ./app plain_text.txt key1.txt key2.txt key3.txt encrypt_type.txt
+  362  ./app plain_text.txt key1.txt key2.txt key3.txt encrypt_type.txt
+  363  ./app plain_text.txt key1.txt key2.txt key3.txt encrypt_type.txt
+  364  ./app plain_text.txt key1.txt key2.txt key3.txt encrypt_type.txt
+  365  ./app plain_text.txt key1.txt key2.txt key3.txt encrypt_type.txt
+  366  ./app plain_text.txt key1.txt key2.txt key3.txt encrypt_type.txt
+  367  ./app plain_text.txt key1.txt key2.txt key3.txt encrypt_type.txt
+  368  ./app plain_text.txt key1.txt key2.txt key3.txt encrypt_type.txt
+  369  cd ..
+  370  rm -r linux_app_sample/
+  371  cd linux_app_sample/
+  372  make app
+  373  ./app plain_text.txt key1.txt key2.txt key3.txt encrypt_type.txt
+  374  ./app plain_text.txt key1.txt key2.txt key3.txt encrypt_type.txt
+  375  reboot
+  376  cd linux_app_sample/drivers/
+  377  ./load_terasic_qsys_pcie_driver.sh 
+  378  cd ..
+  379  ./app plain_text.txt key1.txt key2.txt key3.txt encrypt_type.txt
+  380  reboot
+  381  cd linux_app_sample/drivers/
+  382  ./load_terasic_qsys_pcie_driver.sh 
+  383  cd ..
+  384  ./app plain_text.txt key1.txt key2.txt key3.txt encrypt_type.txt
+  385  reboot
+  386  cd linux_app_sample/
+  387  cd drivers/
+  388  ./load_terasic_qsys_pcie_driver.sh 
+  389  cd ..
+  390  ./app plain_text.txt key1.txt key2.txt key3.txt encrypt_type.txt
+  391  cd ..
+  392  rm -r linux_app_sample/
+  393  cd linux_app_sample/
+  394  make app
+  395  ./app plain_text.txt key1.txt key2.txt key3.txt encrypt_type.txt
+  396  reboot
+  397  cd linux_app_sample/drivers/
+  398  ./load_terasic_qsys_pcie_driver.sh 
+  399  cd ..
+  400  ./app plain_text.txt key1.txt key2.txt key3.txt encrypt_type.txt
+  401  reboot
+  402  cd linux_app_sample/drivers/
+  403  ./load_terasic_qsys_pcie_driver.sh 
+  404  cd ..
+  405  ./app plain_text.txt key1.txt key2.txt key3.txt encrypt_type.txt
+  406  ./app plain_text.txt key1.txt key2.txt key3.txt encrypt_type.txt
+  407  cd ..
+  408  rm -r linux_app_sample/
+  409  cd linux_app_sample/
+  410  make app
+  411  ./app plain_text.txt key1.txt key2.txt key3.txt encrypt_type.txt
+  412  ls
+  413  cd Kenji/
+  414  ./app
+  415  cd drivers/
+  416  ./load_terasic_qsys_pcie_driver.sh 
+  417  cd ..
+  418  ./app
+  419  reboot
+  420  ls
+  421  cd Kenji
+  422  ./app
+  423  cd drivers/
+  424  ./load_terasic_qsys_pcie_driver.sh 
+  425  cd ..
+  426  ./app
+  427  ls
+  428  ./app
+  429  make clean app
+  430  ./ap
+  431  make app
+  432  make
+  433  ./app\
+  434  ./app
+  435  reboot
+  436  cd Kenji/drivers/
+  437  ls
+  438  ./load_terasic_qsys_pcie_driver.sh 
+  439  cd ..
+  440  ./app
+  441  reboot
+  442  reboot
+  443  sudo reboot
+  444  scp -r mg106@ecegrid.ecn.purdue.edu
+  445  scp -r mg106@ecegrid.ecn.purdue.edu:~/fpga/de2i150/demo_slave_only/linux_app_sample ~/test106
+  446  ls
+  447  cd test106/
+  448  ls
+  449  cleaer
+  450  clear
+  451  ls
+  452  cd drivers/
+  453  ls
+  454  ./load_terasic_qsys_pcie_driver.sh
+  455  pwd
+  456  ./load_terasic_qsys_pcie_driver.sh
+  457  ./load_terasic_qsys_pcie_driver.sh
+  458  ls -l
+  459  chmod +x load_terasic_qsys_pcie_driver.sh 
+  460  ./load_terasic_qsys_pcie_driver.sh
+  461  cd ..
+  462  ls
+  463  ./app
+  464  make clean
+  465  make app
+  466  ./app
+  467  sudo reboot
+  468  ifconfig
+  469  scp -r mg106@ecegrid.ecn.purdue.edu ~/home/fpga/de2i150/demo_advanced/software ~/test106
+  470  scp -r mg106@ecegrid.ecn.purdue.edu:~/home/fpga/de2i150/demo_advanced/software ~/test106
+  471  scp -r mg106@ecegrid.ecn.purdue.edu:~/home/fpga/de2i150/demo_advanced/software/* ~/test106
+  472  scp -r mg106@ecegrid.ecn.purdue.edu:~/home/fpga/de2i150/demo_advanced/software/ ~/test106
+  473  scp -r mg106@ecegrid.ecn.purdue.edu:~/fpga/de2i150/demo_advanced/software/ ~/test106
+  474  ls
+  475  cd test106/
+  476  ls
+  477  cd software/
+  478  clear
+  479  ls
+  480  pwd
+  481  clear
+  482  cd drivers/
+  483  ls
+  484  ./load_terasic_qsys-pcie_driiver.sh
+  485  ls -l
+  486  chmod +x *
+  487  ls
+  488  ./load_terasic_qsys-pcie_driiver.sh
+  489  ./load_terasic_qsys-pcie_driver.sh
+  490  clear
+  491  ls
+  492  ./load_terasic_qsys_pcie_driver.sh
+  493  cd ..
+  494  ls
+  495  ./app -d dancing.bmp 
+  496  ls -l
+  497  make clean
+  498  make app
+  499  ./app -d dancing.bmp 
+  500  scp out.bmp mg106@ecegrid.ecn.purdue.edu:~/Desktop/
+  501  ls
+  502  cd MG86
+  503  ls
+  504  scratch
+  505  scratch-text-editor
+  506  sudo apt-get install gedit
+  507  vi app.c
+  508  ./app -d dancing.bmp 
+  509  ./app 
+  510  vi app.c
+  511  ./app 
+  512  ./load_terasic_qsys_pcie_driver.sh
+  513  ls
+  514  cd MG86
+  515  cd ..
+  516  ./load_terasic_qsys_pcie_driver.sh
+  517  ls
+  518  ls
+  519  cd drivers
+  520  cd MG86/
+  521  ls
+  522  cd drivers/
+  523  ls
+  524  ./load_terasic_qsys_pcie_driver.sh
+  525  vi load_terasic_qsys_pcie_driver.sh
+  526  ls
+  527  vi de2i_150_config_file 
+  528  ls
+  529  ./unload_terasic_qsys_pcie_driver.sh
+  530  ./load_terasic_qsys_pcie_driver.sh
+  531  ls
+  532  cd ..
+  533  ls
+  534  ,/app
+  535  ./app
+  536  ls
+  537  vi app.c
+  538  ./app
+  539  make clean
+  540  vi Makefile 
+  541  vi Makefile 
+  542  make clean
+  543  make 
+  544  vi Makefile 
+  545  make 
+  546  make clean
+  547  make 
+  548  vi Makefile 
+  549  make app
+  550  make clean
+  551  make app
+  552  make clean
+  553  make app.o
+  554  ls
+  555  make clean
+  556  ls
+  557  ls
+  558  vi app.c
+  559  make clean
+  560  make app
+  561  ./app
+  562  vi app.c
+  563  vi app.c
+  564  ./app
+  565  vi app.c
+  566  make
+  567  ./app
+  568  vi app.c
+  569  make
+  570  ./app
+  571  cd ..
+  572  ls
+  573  cd MG86
+  574  ls
+  575* scp out.bmp mg@ecegrid.ecn.purdue.edu:~/Desktop/
+  576  history
+  577  history scp
+  578  history 
+  579  history 200
+  580  history 1
+  581  scp -r mg86@ecegrid.ecn.purdue.edu:~/ece337/de2i150/fpga_samples/demo_master_slave/linux_app_sample  
+  582  ls
+  583  cd ..
+  584  ls
+  585  mv MG86 slave_only
+  586  ls
+  587  mkdir master_slave
+  588  mv -t mg86 master_slave slave_only 
+  589  mkdir mg86
+  590  mv -t mg86 master_slave slave_only 
+  591  ls
+  592  cd mg86
+  593  ls
+  594  cd master_slave/
+  595  ls
+  596  scp -r mg86@ecegrid.ecn.purdue.edu:~/ece337/de2i150/fpga_samples/demo_master_slave/linux_app_sample $(pwd)
+  597  ls
+  598  cd ..
+  599  ls
+  600  history > history.txt
