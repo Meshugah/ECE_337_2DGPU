@@ -23,13 +23,14 @@ module tb_bresenline();
 	reg tb_nrst;
 	reg [37:0]tb_positions;
 	reg [18:0]tb_address;
+	reg [18:0]old_address;
 	reg tb_primSelect;
 	reg tb_lineDone;
 	reg tb_stop;
 	reg [8:0][9:0]img_buff = 0;
 
-	reg r, c, num_cols, num_rows, f;
-
+	reg r, c, num_cols, num_rows;
+	integer i,j,f;
 
 	bresenline DUT (.clk(tb_clk),
 		.n_rst(tb_nrst),
@@ -79,21 +80,67 @@ module tb_bresenline();
 	
 initial
 	begin
+		f = $fopen("output.txt","w");
+		@(posedge tb_clk);
+		@(posedge tb_clk);
+/*
+	//Test case 1: positive slope 
 		tb_positions = 38'b00100100000001000110000100110001100001;
 		tb_nrst = 0;
 		@(posedge tb_clk);
 		tb_nrst = 1;
 		@(negedge tb_clk);
 		tb_primSelect = 1;
-		tb_stop = 1;
 		@(posedge tb_clk);
-		@(posedge tb_clk);
-		tb_stop = 0;
 		tb_primSelect = 0;
-		#1;
-		tb_stop = 1;
-		#1;
-		tb_stop = 0;
+		for (i = 0; i < 640; i++) begin
+			for (j = 0; j < 480; j++) begin
+			old_address = tb_address;
+			@(posedge tb_clk);
+			if (old_address == tb_address) begin
+				i = 640; j = 480;
+			end
+			$fdisplay(f, "%b", tb_address);
+		end end
+		#15000;
+		$fclose(f);
+/*
+	//Test case 2: negative slope
+		tb_positions = 38'b00000000000000000000000011110000001111;
+		@(negedge tb_clk);
+		tb_primSelect = 1;
+		@(posedge tb_clk);
+		tb_primSelect = 0;
 
+		#12000;
+*/
+	//Test case 3: worst case negative slope (0,0) -> (640,480)
+		tb_positions = 38'b00000000000000000001010000000111100000;
+		@(negedge tb_clk);
+		tb_primSelect = 1;
+		@(posedge tb_clk);
+		tb_primSelect = 0;
+		for (i = 0; i < 640; i++) begin
+			for (j = 0; j < 480; j++) begin
+			old_address = tb_address;
+			@(posedge tb_clk);
+			if (old_address == tb_address) begin
+				i = 640; j = 480;
+			end
+			$fdisplay(f, "%b", tb_address);
+		end end
+		#1000;
+/*
+	//Test case 4: negative slope with pause
+		tb_positions = 38'b00000000000000000000000011110000001111;
+		@(negedge tb_clk);
+		tb_primSelect = 1;
+		@(posedge tb_clk);
+		tb_primSelect = 0;
+		#1000;
+		tb_stop = 1;
+		#300;
+		tb_stop = 0;
+*/
 	end
 endmodule
