@@ -48,7 +48,7 @@ assign t3start = opdata[38:20];
 assign t3end = opdata[19:1];
 
 //Circle Assignements
-assign c1cent = opdata[57:39];
+assign t1cent = opdata[57:39];
 assign c1rad = opdata[38:20];
 
 

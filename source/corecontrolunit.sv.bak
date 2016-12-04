@@ -15,7 +15,7 @@ module CoreControlUnit (
 	output reg enable,
 	output reg outputsel
 );
-//Need to deal with wait request state? -> YES NEED TO DEAL WITH IT
+//Need to deal with wait request state?
 
 typedef enum bit [4:0] {
 		IDLE = 5'b00000,
