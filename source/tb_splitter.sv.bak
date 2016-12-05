@@ -99,7 +99,7 @@ typedef enum bit [3:0] {
 			//Check Outputs
 			if((i % 3) == 0) begin
 				//Line Test
-				tb_shape = 0000;
+				tb_shape = 4'b0000;
 
 				@(posedge tb_clk);
 
@@ -114,7 +114,7 @@ typedef enum bit [3:0] {
 			end else if((i % 3) == 1) begin
 				//Triangle Test -> Slightly different because there are 3 phases to check
 				//Check Line 1
-				tb_shape = 0001;
+				tb_shape = 4'b0001;
 	
 				@(posedge tb_clk);
 
@@ -125,7 +125,7 @@ typedef enum bit [3:0] {
 				end
 
 				//Check Line 2
-				tb_shape = 0010;
+				tb_shape = 4'b0010;
 		
 				@(posedge tb_clk);
 			
@@ -136,7 +136,7 @@ typedef enum bit [3:0] {
 				end
 		
 				//Check Line 3
-				tb_shape = 0011;
+				tb_shape = 4'b0011;
 
 				@(posedge tb_clk);
 
@@ -150,7 +150,7 @@ typedef enum bit [3:0] {
 
 			end else if((i % 3) == 2) begin
 				//Circle Test
-				tb_shape = 0100;
+				tb_shape = 4'b0100;
 				@(posedge tb_clk);
 				//Check Center/Radius
 				if(tb_locations == {op_location1,op_location2}) begin

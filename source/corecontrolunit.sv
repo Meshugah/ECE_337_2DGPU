@@ -50,8 +50,8 @@ localparam TRI = 4'b0001;
 localparam ARC = 4'b0010;
 
 //Local Variables
-StateType [5:0] nextstate;
-StateType [5:0] state;
+StateType [4:0] nextstate;
+StateType [4:0] state;
 
 always_ff @(posedge clk, negedge nreset) begin
 	if(nreset == 0) begin

@@ -1,10 +1,14 @@
 // $Id: $
 // File name:   tb_splitter.sv
 // Created:     11/28/2016
-// Author:      Ahmad dit Ziad Dannawi
+// Author:      Ahmad dit Ziad Dannawi, Noah Petersen
 // Lab Section: 337-03
-// Version:     1.0  Initial Design Entry
-// Description: Test bench for splitter
+// Version:     1.1  Fairly complete Test Bench
+// Description: Test bench for splitter. Uses iterated pseudo-random opcodes to test splitter.
+//		Could also add more targeted test cases, but as it is every shape is tested,
+//		and the actual locations data is relatively inconsequential as long as it 
+//		matches the expected.
+
 `timescale 1ns/100ps
 module tb_splitter();
 	localparam CLK_PERIOD = 10;
