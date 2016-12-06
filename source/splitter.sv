@@ -54,14 +54,24 @@ assign c1rad = opdata[38:20];
 
 always_comb begin
 	//Output selection
-	case(output_sel)
-		LL1: locations = {lstart,lend};
-		TL1: locations = {t1start,t1end};
-		TL2: locations = {t2start,t2end};
-		TL3: locations = {t3start,t3end};
-		CA1: locations = {c1cent,c1rad};
-		default:  locations = '0;//Select LLine1
-	endcase
+	if(output_sel == LL1) begin
+		locations = {lstart,lend};
+
+	end else if(output_sel == TL1) begin
+		locations = {t1start,t1end};
+
+	end else if(output_sel == TL2) begin
+		locations = {t2start,t2end};
+
+	end else if(output_sel == TL3) begin
+		locations = {t3start,t3end};
+
+	end else if(output_sel == CA1) begin
+		locations = {c1cent,c1rad};
+
+	end else begin
+		locations = 0;
+	end
 end
 
 endmodule

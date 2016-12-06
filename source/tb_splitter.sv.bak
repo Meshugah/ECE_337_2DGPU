@@ -1,12 +1,18 @@
 // $Id: $
 // File name:   tb_splitter.sv
 // Created:     11/28/2016
-// Author:      Ahmad dit Ziad Dannawi
+// Author:      Ahmad dit Ziad Dannawi, Noah Petersen
 // Lab Section: 337-03
-// Version:     1.0  Initial Design Entry
-// Description: Test bench for splitter
+// Version:     1.1  Fairly complete Test Bench
+// Description: Test bench for splitter. Uses iterated pseudo-random opcodes to test splitter.
+//		Could also add more targeted test cases, but as it is every shape is tested,
+//		and the actual locations data is relatively inconsequential as long as it 
+//		matches the expected.
+
 `timescale 1ns/100ps
 module tb_splitter();
+	
+/*
 	localparam CLK_PERIOD = 10;
 	localparam DELAY = 1;
 
@@ -19,19 +25,29 @@ module tb_splitter();
 		tb_clk = 1'b1;
 		#(CLK_PERIOD/2.0);
 	end
+*/
 
+//Test Bench Identifier for which test is occuring
 typedef enum bit [3:0] {
 		LINE 		= 4'b0000,
 		TRIANGLE 	= 4'b0001,
 		CIRCLE	 	= 4'b0010
 			}ShapeType;
 
+typedef enum bit [3:0] {
+		L1	= 4'b0000,
+		TRI1	= 4'b0001,
+		TRI2 	= 4'b0010,
+		TRI3 	= 4'b0011,
+		CIR1	= 4'b0100
+			}SIDType;
+
 	//Test Bench variables
 	int i;
 
 
 	//Opcode Input declarations
-	ShapeType op_shape;
+	ShapeType test_shape;
 	reg [15:0] op_color;
 	reg [18:0] op_location1;
 	reg [18:0] op_location2;
@@ -42,9 +58,10 @@ typedef enum bit [3:0] {
 	//reg [18:0] exp_color
 
 	//TB Variables
-	reg tb_nrst;
-	reg [3:0]tb_shape;
+	//reg tb_nrst;
 	reg [73:0]tb_opcode; 
+	SIDType tb_shape;
+	reg [37:0]tb_expected;
 	wire [15:0]tb_test_color;
 	wire [37:0]tb_locations;
 
@@ -58,9 +75,8 @@ typedef enum bit [3:0] {
 /*/////////////////////////////////////////////////////////////
 	Testing
 *//////////////////////////////////////////////////////////////
-	initial
-		begin
-		reset_dut;
+	initial begin
+		//reset_dut;
 	
 		//Initial Variable Settings'
 		op_color = 0;
@@ -70,7 +86,7 @@ typedef enum bit [3:0] {
 		op_fill = 0;
 
 		//Pseudo Random Tests
-		for(i = 0; i < 1000; i++) begin
+		for(i = 1; i < 1000; i++) begin
 
 			//Set Opcode & Expected Values
 			op_color = $random % 16;
@@ -79,105 +95,115 @@ typedef enum bit [3:0] {
 			op_location3 = $random % 19;
 			op_fill = 0;
 
-			//Shape Selection
+			//Shape Selection -> Primarily there to make it easy to see what shape is being used
 			if((i % 3) == 0) begin
 				//Line Test
-				op_shape = LINE;
+				test_shape = LINE;
 			end else if((i % 3) == 1) begin
 				//Triangle Test -> Slightly different because there are 3 phases to check
-				op_shape = TRIANGLE;
+				test_shape = TRIANGLE;
 			end else if((i % 3) == 2) begin
 				//Circle Test
-				op_shape = CIRCLE;
+				test_shape = CIRCLE;
 			end
 
-			//Apply Opcode
-			tb_opcode = {op_color, op_location1, op_location2, op_location3, op_fill};
-			@(posedge tb_clk)
+			
 
 			//$display("Checking outputs for pseudo-random test case #%0d", i);
 			//Check Outputs
-			if((i % 3) == 0) begin
+			if(test_shape == LINE) begin
 				//Line Test
-				tb_shape = 4'b0000;
-
-				@(posedge tb_clk);
-
-				if(tb_locations == {op_location1,op_location2}) begin
+				tb_shape = L1;
+				tb_opcode = {op_color, op_location1, op_location2, op_location3, op_fill};
+				#(1);
+				tb_expected = {op_location1,op_location2};
+				if(tb_locations == tb_expected) begin
 					//$display("Line is printed correctly");
 				end else begin
 					$error("Error, line locations output is incorrect on pseudo random test case #%0d",i);
 				end
-				@(posedge tb_clk);
+				#(1);
 
 
-			end else if((i % 3) == 1) begin
+			end else if(test_shape == TRIANGLE) begin
 				//Triangle Test -> Slightly different because there are 3 phases to check
 				//Check Line 1
-				tb_shape = 4'b0001;
-	
-				@(posedge tb_clk);
+				tb_shape = TRI1;
+				tb_opcode = {op_color, op_location1, op_location2, op_location3, op_fill};
+				#(1);
 
-				if(tb_locations == {op_location1,op_location2}) begin
+				tb_expected = {op_location1,op_location2};
+				if(tb_locations == tb_expected) begin
 					//$display("Line is printed correctly");
 				end else begin
 					$error("Error, triangle line 1 locations output is incorrect on pseudo random test case #%0d",i);
 				end
 
 				//Check Line 2
-				tb_shape = 4'b0010;
-		
-				@(posedge tb_clk);
+				tb_shape = TRI2;
+				tb_opcode = {op_color, op_location1, op_location2, op_location3, op_fill};
+				#(1);
 			
-				if(tb_locations == {op_location1,op_location3}) begin
+				tb_expected = {op_location1,op_location3};
+				if(tb_locations == tb_expected) begin
 					//$display("Line is printed correctly");
 				end else begin
 					$error("Error, triangle line 2 locations output is incorrect on pseudo random test case #%0d",i);
 				end
 		
 				//Check Line 3
-				tb_shape = 4'b0011;
+				tb_shape = TRI3;
+				tb_opcode = {op_color, op_location1, op_location2, op_location3, op_fill};
+				#(1);
 
-				@(posedge tb_clk);
-
-				if(tb_locations == {op_location2,op_location3}) begin
+				tb_expected = {op_location2,op_location3};
+				if(tb_locations == tb_expected) begin
 					//$display("Line is printed correctly");
 				end else begin
 					$error("Error, triangle line 3 locations output is incorrect on pseudo random test case #%0d",i);
 				end
-				@(posedge tb_clk);
+
+				#(1);
 
 
-			end else if((i % 3) == 2) begin
+			end else if(test_shape == CIRCLE) begin
 				//Circle Test
-				tb_shape = 4'b0100;
-				@(posedge tb_clk);
+				tb_shape = CIR1;
+				tb_opcode = {op_color, op_location1, op_location2, op_location3, op_fill};
+				#(1);
+
 				//Check Center/Radius
+				tb_expected = {op_location1,op_location2};
 				if(tb_locations == {op_location1,op_location2}) begin
 					//$display("Line is printed correctly");
 				end else begin
 					$error("Error, circle locations output is incorrect on pseudo random test case #%0d",i);
 				end
-				@(posedge tb_clk);
+				#(1);
+
+			end else begin
+				$error("Shape was not set/detected correctly in testbench");
 			end
 
 			if(tb_test_color == op_color) begin
+				//$display("Wow such color");
 			end else begin
 				$error("Color was wrong on test #%0d",i);
 			end
-		end
-	end
+
+		end //End for loop
+	end //End initial
 
 /*/////////////////////////////////////////////////////////////
 	Tasks
 *//////////////////////////////////////////////////////////////
-
+/*
 /////////////////////////////BLANK/////////////////////////////
 	task template;
 	begin
 		//Insert Statements
 	end
-	endtask
+	endtask*/
 ///////////////////////////////////////////////////////////////
 /*
 localparam LL1 = 4'b0000;
@@ -186,7 +212,7 @@ localparam TL2 = 4'b0010;
 localparam TL3 = 4'b0011;
 localparam CA1 = 4'b0100;
 */
-
+/*
 ///////////////////////////DUT RESET///////////////////////////
 	task reset_dut;
 	begin
@@ -194,19 +220,16 @@ localparam CA1 = 4'b0100;
 		tb_nrst = 1'b0;
 		
 		// Wait for a couple clock cycles
-		@(posedge tb_clk);
-		@(posedge tb_clk);
+		#(2)
 		
 		// Release the reset
-		@(negedge tb_clk);
 		tb_nrst = 1;
 		
 		// Wait for a while before activating the design
-		@(posedge tb_clk);
-		@(posedge tb_clk);
+		#(3)
 	end
 	endtask
 ///////////////////////////////////////////////////////////////
-
+*/
 endmodule
 		
