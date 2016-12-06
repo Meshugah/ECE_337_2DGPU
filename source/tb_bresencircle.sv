@@ -37,7 +37,8 @@ module tb_bresencircle();
 		.positions(tb_positions),
 		.address(tb_address),
 		.primSelect(tb_primSelect),
-		.circleDone(tb_circDone)
+		.circleDone(tb_circDone),
+		.stop(tb_stop)
 	);
 	task writeToFile;
 	begin
@@ -57,12 +58,20 @@ module tb_bresencircle();
 initial
 	begin
 		@(posedge tb_clk);
+		@(posedge tb_clk);
+		@(posedge tb_clk);
+		@(posedge tb_clk);
+		@(posedge tb_clk);
+		@(posedge tb_clk);
 		tb_nrst = 0;
 		@(negedge tb_clk);
 		tb_nrst = 1;
 		@(posedge tb_clk);
-		tb_positions = 38'b01010000000111100000001111110000000000;
+//		tb_positions = 38'b01010000000111100000001111110000000000;
+		tb_positions = {10'd320, 9'd240, 10'd100, 9'd0};
 		@(posedge tb_clk);
+		@(posedge tb_clk);
+		tb_stop = 0;
 		@(posedge tb_clk);
 		@(negedge tb_clk);
 		tb_primSelect = 1;
@@ -70,6 +79,10 @@ initial
 		tb_primSelect = 0;
 		@(posedge tb_clk);
 		tb_primSelect = 1;
+		#100;
+		tb_stop = 1;
+		#100;
+		tb_stop = 0;
 		writeToFile;
 		#1000;
 	end

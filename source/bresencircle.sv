@@ -16,7 +16,7 @@ output wire [18:0]address,
 output wire circleDone
 );
 
-typedef enum {IDLE, RUN, DRAW1, DRAW2, DRAW3, DRAW4, DRAW5, DRAW6, DRAW7, DRAW8, UPDATE} stateType;
+typedef enum {IDLE, RUN, DRAW1, DRAW2, DRAW3, DRAW4, DRAW5, DRAW6, DRAW7, DRAW8, UPDATE, PAUSE} stateType;
 stateType state;
 stateType next_state;
 
@@ -34,6 +34,8 @@ logic [9:0] tempX;
 logic [8:0] tempY;
 
 logic signed [10:0] err;
+
+stateType prevState;
 
 assign address = {tempX, tempY};
 assign startX = positions[37:28];
@@ -65,7 +67,10 @@ begin
 			end
 			end
 		RUN:	begin
-			if (currentX >= currentY) begin
+			if (stop) begin
+				prevState <= RUN;
+				state <= PAUSE;
+			end else if (currentX >= currentY) begin
 				state <= DRAW1;
 			end else if (currentY > currentX) begin
 				state <= IDLE;
@@ -73,54 +78,90 @@ begin
 			end end
 		DRAW1:
 			begin
+			if (stop) begin
+				prevState <= DRAW1;
+				state <= PAUSE;
+			end else begin
 			tempX <= startX + currentX;
 			tempY <= startY + currentY;
 			state <= DRAW2;
-			end
+			end end
 		DRAW2:
 			begin
+			if (stop) begin
+				prevState <= DRAW2;
+				state <= PAUSE;
+			end else begin
 			tempX <= startX + currentY;
 			tempY <= startY + currentX;
 			state <= DRAW3;
-			end
+			end end
 		DRAW3:
 			begin
+			if (stop) begin
+				prevState <= DRAW3;
+				state <= PAUSE;
+			end else begin
 			tempX <= startX - currentY;
 			tempY <= startY + currentX;
 			state <= DRAW4;
-			end
+			end end
 		DRAW4:
 			begin
+			if (stop) begin
+				prevState <= DRAW4;
+				state <= PAUSE;
+			end else begin
 			tempX <= startX - currentX;
 			tempY <= startY + currentY; 
 			state <= DRAW5;
-			end
+			end end
 		DRAW5:
 			begin
+			if (stop) begin
+				prevState <= DRAW5;
+				state <= PAUSE;
+			end else begin
 			tempX <= startX - currentX;
 			tempY <= startY - currentY; 		
 			state <= DRAW6;
-			end
+			end end
 		DRAW6:
 			begin
+			if (stop) begin
+				prevState <= DRAW6;
+				state <= PAUSE;
+			end else begin
 			tempX <= startX - currentY;
 			tempY <= startY - currentX; 
 			state <= DRAW7;
-			end
+			end end
 		DRAW7:
 			begin
+			if (stop) begin
+				prevState <= DRAW7;
+				state <= PAUSE;
+			end else begin
 			tempX <= startX + currentY;
 			tempY <= startY - currentX; 
 			state <= DRAW8;
-			end
+			end end
 		DRAW8:
 			begin
+			if (stop) begin
+				prevState <= DRAW8;
+				state <= PAUSE;
+			end else begin
 			tempX <= startX + currentX;
 			tempY <= startY - currentY; 
 			state <= UPDATE;
-			end
+			end end
 		UPDATE:
 			begin
+			if (stop) begin
+				prevState <= UPDATE;
+				state <= PAUSE;
+			end else begin
 			currentY <= currentY + 10'd1;
 			err <= err + 1 + (currentY << 1);
 			if (((err - currentX) << 1) + 1 > 0) begin
@@ -128,6 +169,11 @@ begin
 				err <= err + 1 - (currentX << 1);
 			end
 			state <= RUN;
+			end end
+		PAUSE:
+			begin
+			if (!stop)
+				state <= prevState;
 			end
 		default:
 			state <= IDLE;
