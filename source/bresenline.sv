@@ -17,24 +17,24 @@ output wire [18:0]address,
 output wire lineDone
 );
 
-typedef enum {IDLE, RUN, DONE, PAUSE} stateType;
+typedef enum {IDLE, PAUSE, RUN} stateType;
 stateType state;
 stateType next_state;
 //Initialize requried variables
-reg [18:0]temp_address;
-reg lineDone_temp;
-reg lineD;
+logic [18:0]temp_address;
+logic  lineDone_temp;
+logic lineD;
 
-reg [9:0]startX;
-reg [8:0]startY;
-reg [9:0]endX;
-reg [8:0]endY;
+logic [9:0]startX;
+logic [8:0]startY;
+logic [9:0]endX;
+logic [8:0]endY;
 
-reg [9:0]x, tempX;
-reg [8:0]y, tempY;
-reg start;
-reg in_loop;
-reg done;
+logic [9:0]x, tempX;
+logic [8:0]y, tempY;
+logic start;
+logic in_loop;
+logic done;
 
 logic signed [10:0]dx, dy, err, e2;
 logic right, down;
@@ -42,17 +42,19 @@ logic right, down;
 assign address = {x,y};
 assign lineDone = lineD;
 assign startX = positions[37:28];
-assign startY = positions[27:19]; //Refer to below
+assign startY = {0,positions[27:19]}; //Refer to below
 assign endX = positions[18:9];
-assign endY = positions[8:0]; //Need to add leading 0 to pad it to 10 bits for arithmetic logic
-
+assign endY = {0,positions[8:0]}; //Need to add leading 0 to pad it to 10 bits for arithmetic logic
 
 always_ff @ (posedge clk)
 begin
-	lineD <= 0;
-	if (!n_rst)
+	if (!n_rst) begin
+
+		lineD <= 0;
 		state <= IDLE;
-	else case (state)
+		x <= 0;
+		y <= 0;
+	end else case (state)
 		IDLE:
 			if (primSelect == 1) begin
 				dx = endX - startX;
@@ -125,36 +127,7 @@ endmodule
 
 
 
-
-
-
 /*
-//Initialize requried variables
-reg [18:0]temp_address;
-reg lineDone_temp;
-reg lineD;
-
-reg [9:0]startX;
-reg [8:0]startY;
-reg [9:0]endX;
-reg [8:0]endY;
-
-reg [9:0]x, tempX;
-reg [8:0]y, tempY;
-reg start;
-reg in_loop;
-reg done;
-
-logic signed [10:0]dx, dy, err, e2;
-logic right, down;
-
-//Extract required information from position data (i.e: start X, start Y, so on)
-// 19 bit positions, 10 for x, 9 for y
-assign startX = positions[37:28];
-assign startY = positions[27:19]; //Refer to below
-assign endX = positions[18:9];
-assign endY = positions[8:0]; //Need to add leading 0 to pad it to 10 bits for arithmetic logic
-assign start = (primSelect==1)?1:0;
 
 always_ff @ (posedge clk)
 begin : NEXT_LOGIC
@@ -179,7 +152,7 @@ begin : STATE_LOGIC
 		IDLE:
 
 		begin
-			if (start)
+			if (primSelect == 1)
 				next_state = RUN;
 		end
 
@@ -192,14 +165,6 @@ begin : STATE_LOGIC
 				next_state = DONE;
 		end
 
-		DONE:
-
-		begin
-			if (start)
-				next_state = RUN;
-			else
-				next_state = IDLE;
-		end
 
 		PAUSE:
 
@@ -264,13 +229,8 @@ begin : STATE_VALUES
 			down = 0;
 			right = 0;
 			err = 0;
-			done = 0;	
-		end
-
-		PAUSE:
-		begin
 			done = 0;
-			in_loop = 0;
+			e2 = 0;	
 		end
 
 		default:
@@ -283,13 +243,13 @@ begin : STATE_VALUES
 			down = 0;
 			right = 0;
 			err = 0;
+			e2 = 0;
 		end
 		
 	endcase
 end
 
-assign address = {x,y};//temp_address;
-assign lineDone = lineDone_temp;
 
 endmodule
+
 */
