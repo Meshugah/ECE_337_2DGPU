@@ -104,7 +104,7 @@ bresencircle BRESNC (
 	.circleDone(arcdone)
 );
 
-input_fifo COREFIFO (
+corefifo COREFIFO (
 	.clk(clk),
 	.n_rst(n_rst),
 	.r_enable(read_en),
