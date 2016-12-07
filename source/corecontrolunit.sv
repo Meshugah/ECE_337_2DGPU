@@ -2,24 +2,25 @@
 module CoreControlUnit (
 	input wire clk,
 	input wire nreset,
-	input wire empty,
-	input wire newshape,
+	input wire new_shape,
+	input wire data_ready,
+	input wire data_sent,
 	input wire waitrequest,
-	input wire ldone,
-	input wire adone,
+	input wire line_done,
+	input wire arc_done,
 	input wire [3:0] shapeid,
-	output reg primsel,
-	output reg shapedone,
+	output reg prim_sel,
+	output reg shape_done,
 	output reg write,
 	output reg read,
 	output reg enable,
-	output reg [3:0]outputsel
+	output reg [3:0]output_sel
 );
 //Need to deal with wait request state? -> YES NEED TO DEAL WITH IT
 
 //Now 35 States
 
-typedef enum bit [4:0] {
+typedef enum bit [5:0] {
 		IDLE = 6'b000000,
 		IDENTIFYSHAPE 	= 6'b000001,
 
@@ -79,8 +80,8 @@ localparam TRIANGLE = 4'b0001;
 localparam CIRCLE = 4'b0011;
 
 //Local Variables
-StateType [4:0] next_state;
-StateType [4:0] state;
+StateType [5:0] next_state;
+StateType [5:0] state;
 ShapePrimitive shape_select;
 
 assign output_sel = shape_select;
@@ -120,26 +121,26 @@ always_comb begin
 	end else if ((state == LINEMAKEL) && (line_done == 1)) begin
 		next_state = CLEARFIFO3;
 	end else if ((state == LINEMAKEL) && (data_ready == 1)) begin
-		next_state == LINEOUTPIX;
+		next_state = LINEOUTPIX;
 	end else if ((state == LINEMAKEL) && (data_ready == 0) && (line_done == 0)) begin
 		next_state = LINEMAKEL;
 
 		//Outputting a pixel from the line
 	end else if ((state == LINEOUTPIX) && (data_sent == 0)) begin
-		next_state == LINEMAKEL;
+		next_state = LINEMAKEL;
 	end else if ((state == LINEOUTPIX) && (data_sent == 1)) begin
 		next_state = LINEOUTPIX;
  
 	//Circle Path
 		//Put Circle Into FIFO
 	end else if(state == SENDCIRC) begin
-		next_state == MAKEARC1;
+		next_state = MAKEARC1;
 
 		//Make Arc states - all very similar, 1 has extra branch
 
 		//Make Arc 1
 	end else if((state == MAKEARC1) && (arc_done == 1)) begin
-		next_state == CLEARFIFO3;
+		next_state = CLEARFIFO3;
 	end else if((state == MAKEARC1) && (data_ready == 1)) begin
 		next_state = OUTPIXARC1;
 	end else if((state == MAKEARC1) && (data_ready == 0)) begin
@@ -205,7 +206,7 @@ always_comb begin
 	end else if((state == OUTPIXARC3) && (data_sent == 1)) begin
 		next_state = MAKEARC4;
 	end else if((state == OUTPIXARC3) && (data_sent == 0)) begin
-		next_state = OUTPIXARC3;\
+		next_state = OUTPIXARC3;
 
 		//Send Arc Pix 4
 	end else if((state == OUTPIXARC4) && (data_sent == 1)) begin
@@ -238,13 +239,70 @@ always_comb begin
 		next_state = OUTPIXARC8;
 
 	//Triangle Path
-	//////NEEEEED TO FILL THIS SHIT UP
+	//	Putting Lines into FIFO
+	end else if (state == TRISENDL1) begin
+		next_state = TRISENDL2;
+	end else if (state == TRISENDL2) begin
+		next_state = TRISENDL3;
+	end else if (state == TRISENDL3) begin
+		next_state = TRIMAKEL1;
 
-		//Final FIFO Clear State
+	//	Generate Line Data For Triangle Line 1
+	end else if ((state == TRIMAKEL1) && (data_ready == 1)) begin
+		next_state = TRIOUTPIXL1;
+	end else if ((state == TRIMAKEL1) && (line_done == 1)) begin
+		next_state = CLEARFIFO1;
+	end else if ((state == TRIMAKEL1) && (data_ready == 0)) begin	
+		next_state = TRIMAKEL1;
+
+	//	Generate Line Data For Triangle Line 2
+	end else if ((state == TRIMAKEL2) && (data_ready == 1)) begin
+		next_state = TRIOUTPIXL2;
+	end else if ((state == TRIMAKEL2) && (line_done == 1)) begin
+		next_state = CLEARFIFO2;
+	end else if ((state == TRIMAKEL2) && (data_ready == 0)) begin	
+		next_state = TRIMAKEL2;
+
+	//	Generate Line Data For Triangle Line 3
+	end else if ((state == TRIMAKEL3) && (data_ready == 1)) begin
+		next_state = TRIOUTPIXL3;
+	end else if ((state == TRIMAKEL3) && (line_done == 1)) begin
+		next_state = CLEARFIFO3;
+	end else if ((state == TRIMAKEL3) && (data_ready == 0)) begin	
+		next_state = TRIMAKEL3;
+
+
+	//	Output Triangle Line 1 Pixels
+	end else if ((state == TRIOUTPIXL1) && (data_sent == 1)) begin
+		next_state = TRIMAKEL1;
+	end else if ((state == TRIOUTPIXL1) && (data_sent == 0)) begin
+		next_state = TRIOUTPIXL1;
+
+	//	Output Triangle Line 2 Pixels
+	end else if ((state == TRIOUTPIXL2) && (data_sent == 1)) begin
+		next_state = TRIMAKEL2;
+	end else if ((state == TRIOUTPIXL2) && (data_sent == 0)) begin
+		next_state = TRIOUTPIXL2;
+
+	//	Output Triangle Line 3 Pixels
+	end else if ((state == TRIOUTPIXL3) && (data_sent == 1)) begin
+		next_state = TRIMAKEL3;
+	end else if ((state == TRIOUTPIXL3) && (data_sent == 0)) begin
+		next_state = TRIOUTPIXL3;
+
+	//	Clear line 1 out of FIFO
+	end else if(state == CLEARFIFO1) begin
+		next_state = TRIMAKEL2;
+
+	//	Clear line 2 out of FIFO
+	end else if(state == CLEARFIFO2) begin
+		next_state = TRIMAKEL3;
+
+	//	Final FIFO Clear State
 	end else if(state == CLEARFIFO3) begin
-		next_state == DISPWAIT;
+		next_state = DISPWAIT;
 
-		//Wait State for Display -> mainly to set Shape Done Signal
+	//	Wait State for Display -> mainly to set Shape Done Signal
 	end else if (state == DISPWAIT) begin
 		next_state = IDLE;
 
@@ -265,182 +323,332 @@ always_comb begin
 	//	Triangle L3: 0011
 	//	Circle A1: 0100
 
+
+		//IDLE
+		//IDENTIFYSHAPE 
+		//TRISENDL1 
+		//TRISENDL2 
+		//TRISENDL3 
+		//TRIMAKEL1 
+		//TRIMAKEL2 
+		//TRIMAKEL3 
+		//TRIOUTPIXL1
+		//TRIOUTPIXL2 
+		//TRIOUTPIXL3 	
+		//CLEARFIFO1 
+		//CLEARFIFO2 
+		//CLEARFIFO3 
+		//DISPWAIT 
+		//LINESENDL
+		//LINEMAKEL
+		//LINEOUTPIX 
+		//SENDCIRC 
+		//MAKEARC1
+		//MAKEARC2
+		//MAKEARC3
+		//MAKEARC4
+		//MAKEARC5
+		//MAKEARC6
+		//MAKEARC7
+		//MAKEARC8
+		//OUTPIXARC1
+		//OUTPIXARC2
+		//OUTPIXARC3
+		//OUTPIXARC4	
+		//OUTPIXARC5	
+		//OUTPIXARC6	
+		//OUTPIXARC7	
+		//OUTPIXARC8	
+
+	//IDLE Output
 	if(state == IDLE) begin
-		primsel = 0;
-		shapedone = 0;
+		prim_sel = 0;
+		shape_done = 0;
 		write = 0;
 		read = 0;
-		outputsel = 4'b0000;
+		output_sel = 4'b0000;
 		enable = 0;
+	//Shape Identification
 	end else if (state == IDENTIFYSHAPE) begin
-		primsel = 0;
-		shapedone = 0;
+		prim_sel = 0;
+		shape_done = 0;
 		write = 0;
 		read = 0;
-		outputsel = 4'b0000;
+		output_sel = 4'b0000;
 		enable = 0;
-	end else if (state == LSENDL) begin
-		primsel = 0;
-		shapedone = 0;
-		write = 0;
-		read = 0;
-		enable = 0;
-		outputsel = 4'b0000;
-	end else if (state == LMAKEL) begin
-		primsel = 0;
-		shapedone = 0;
-		write = 0;
-		read = 0;
-		outputsel = 4'b0000;
-		enable = 1;
-	end else if (state == LCLFIFO) begin
-		primsel = 0;
-		shapedone = 0;
-		write = 0;
-		read = 0;
-		outputsel = 4'b0001;
-		enable = 0;
-	end else if (state == TRISENDL1) begin
-		primsel = 0;
-		shapedone = 0;
-		write = 0;
-		read = 0;
-		outputsel = 4'b0010;
-		enable = 0;
-	end else if (state == TRISENDL2) begin
-		primsel = 0;
-		shapedone = 0;
-		write = 0;
-		read = 0;
-		outputsel = 4'b0011;
-		enable = 0;
-	end else if (state == TRISENDL3) begin
-		primsel = 0;
-		shapedone = 0;
-		write = 0;
-		read = 0;
-		outputsel = 4'b0000;
-		enable = 0;
-	end else if (state == TRIMAKEL1) begin
-		primsel = 0;
-		shapedone = 0;
-		write = 0;
-		read = 0;
-		outputsel = 4'b0000;
-		enable = 1;
-	end else if (state == TRIMAKEL2) begin
-		primsel = 0;
-		shapedone = 0;
-		write = 0;
-		read = 0;
-		outputsel = 4'b0000;
-		enable = 1;
-	end else if (state == TRIMAKEL3) begin
-		primsel = 0;
-		shapedone = 0;
-		write = 0;
-		read = 0;
-		outputsel = 4'b0000;
-		enable = 1;
-	end else if (state == TRICLFIFOL1) begin
-		primsel = 0;
-		shapedone = 0;
-		write = 0;
-		read = 1;
-		outputsel = 4'b0000;
-		enable = 0;
-	end else if (state == TRICLFIFOL2) begin
-		primsel = 0;
-		shapedone = 0;
-		write = 0;
-		read = 1;
-		outputsel = 4'b0000;
-		enable = 0;
-	end else if (state == TRICLFIFOL3) begin
-		primsel = 0;
-		shapedone = 0;
-		write = 0;
-		read = 1;
-		outputsel = 4'b0000;
-		enable = 0;
-	end else if (state == DISPWAIT) begin
-		primsel = 0;
-		shapedone = 1;
-		write = 0;
-		read = 0;
-		outputsel = 4'b0000;
-		enable = 0;
-	end else if (state == SENDCIRC) begin
-		primsel = 1;
-		shapedone = 0;
+	//Send Line for Line
+	end else if (state == LINESENDL) begin
+		prim_sel = 0;
+		shape_done = 0;
 		write = 1;
 		read = 0;
-		outputsel = 4'b0100;
 		enable = 0;
-	end else if (state == ARC1) begin
-		primsel = 1;
-		shapedone = 0;
+		output_sel = 4'b0000;
+	//Calculating Line Output
+	end else if (state == LINEMAKEL) begin
+		prim_sel = 0;
+		shape_done = 0;
 		write = 0;
 		read = 0;
-		outputsel = 4'b0000;
+		output_sel = 4'b0000;
 		enable = 1;
-	end else if (state == ARC2) begin
-		primsel = 1;
-		shapedone = 0;
+	//Outputting a pixel for line
+	end else if (state == LINEOUTPIX) begin
+		prim_sel = 0;
+		shape_done = 0;
 		write = 0;
 		read = 0;
-		outputsel = 4'b0000;
-		enable = 1;
-	end else if (state == ARC3) begin
-		primsel = 1;
-		shapedone = 0;
+		output_sel = 4'b0000;
+		enable = 0;
+	//Send Line 1 for Traingle
+	end else if (state == TRISENDL1) begin
+		prim_sel = 0;
+		shape_done = 0;
+		write = 1;
+		read = 0;
+		output_sel = 4'b0001;
+		enable = 0;
+	//Send Line 2 for Traingle
+	end else if (state == TRISENDL2) begin
+		prim_sel = 0;
+		shape_done = 0;
+		write = 1;
+		read = 0;
+		output_sel = 4'b0010;
+		enable = 0;
+	//Send Line 3 for Traingle
+	end else if (state == TRISENDL3) begin
+		prim_sel = 0;
+		shape_done = 0;
+		write = 1;
+		read = 0;
+		output_sel = 4'b0000;
+		enable = 0;
+	//Calculating pixels for Triangle L1
+	end else if (state == TRIMAKEL1) begin
+		prim_sel = 0;
+		shape_done = 0;
 		write = 0;
 		read = 0;
-		outputsel = 4'b0000;
+		output_sel = 4'b0000;
 		enable = 1;
-	end else if (state == ARC4) begin
-		primsel = 1;
-		shapedone = 0;
+	//Calculating pixels for Triangle L2
+	end else if (state == TRIMAKEL2) begin
+		prim_sel = 0;
+		shape_done = 0;
 		write = 0;
 		read = 0;
-		outputsel = 4'b0000;
+		output_sel = 4'b0000;
 		enable = 1;
-	end else if (state == ARC5) begin
-		primsel = 1;
-		shapedone = 0;
+	//Calculating pixels for Triangle L3
+	end else if (state == TRIMAKEL3) begin
+		prim_sel = 0;
+		shape_done = 0;
 		write = 0;
 		read = 0;
-		outputsel = 4'b0000;
+		output_sel = 4'b0000;
 		enable = 1;
-	end else if (state == ARC6) begin
-		primsel = 1;
-		shapedone = 0;
+	//Outputting pixel from trinagle line 1
+	end else if (state == TRIOUTPIXL1) begin
+		prim_sel = 0;
+		shape_done = 0;
 		write = 0;
 		read = 0;
-		outputsel = 4'b0000;
-		enable = 1;
-	end else if (state == ARC7) begin
-		primsel = 1;
-		shapedone = 0;
+		output_sel = 4'b0000;
+		enable = 0;
+	//Outputting pixel from trinagle line 1
+	end else if (state == TRIOUTPIXL2) begin
+		prim_sel = 0;
+		shape_done = 0;
 		write = 0;
 		read = 0;
-		outputsel = 4'b0000;
-		enable = 1;
-	end else if (state == ARC8) begin
-		primsel = 1;
-		shapedone = 0;
+		output_sel = 4'b0000;
+		enable = 0;
+	//Outputting pixel from triangle line 1
+	end else if (state == TRIOUTPIXL3) begin
+		prim_sel = 0;
+		shape_done = 0;
 		write = 0;
 		read = 0;
-		outputsel = 4'b0000;
+		output_sel = 4'b0000;
+		enable = 0;
+	//Send Circle Into FIFO
+	end else if (state == SENDCIRC) begin
+		prim_sel = 1;
+		shape_done = 0;
+		write = 1;
+		read = 0;
+		output_sel = 4'b0100;
+		enable = 0;
+	//Generate Pixel Data for ARC 1
+	end else if (state == MAKEARC1) begin
+		prim_sel = 1;
+		shape_done = 0;
+		write = 0;
+		read = 0;
+		output_sel = 4'b0000;
 		enable = 1;
-	end else if (state == CCLFIFO) begin
-		primsel = 1;
-		shapedone = 0;
+	//Generate Pixel Data for ARC 2
+	end else if (state == MAKEARC2) begin
+		prim_sel = 1;
+		shape_done = 0;
+		write = 0;
+		read = 0;
+		output_sel = 4'b0000;
+		enable = 1;
+	//Generate Pixel Data for ARC 3
+	end else if (state == MAKEARC3) begin
+		prim_sel = 1;
+		shape_done = 0;
+		write = 0;
+		read = 0;
+		output_sel = 4'b0000;
+		enable = 1;
+	//Generate Pixel Data for ARC 4
+	end else if (state == MAKEARC4) begin
+		prim_sel = 1;
+		shape_done = 0;
+		write = 0;
+		read = 0;
+		output_sel = 4'b0000;
+		enable = 1;
+	//Generate Pixel Data for ARC 5
+	end else if (state == MAKEARC5) begin
+		prim_sel = 1;
+		shape_done = 0;
+		write = 0;
+		read = 0;
+		output_sel = 4'b0000;
+		enable = 1;
+	//Generate Pixel Data for ARC 6
+	end else if (state == MAKEARC6) begin
+		prim_sel = 1;
+		shape_done = 0;
+		write = 0;
+		read = 0;
+		output_sel = 4'b0000;
+		enable = 1;
+	//Generate Pixel Data for ARC 7
+	end else if (state == MAKEARC7) begin
+		prim_sel = 1;
+		shape_done = 0;
+		write = 0;
+		read = 0;
+		output_sel = 4'b0000;
+		enable = 1;
+	//Generate Pixel Data for ARC 8
+	end else if (state == MAKEARC8) begin
+		prim_sel = 1;
+		shape_done = 0;
+		write = 0;
+		read = 0;
+		output_sel = 4'b0000;
+		enable = 1;
+	//Output Pixel Data form Arc 1
+	end else if (state == OUTPIXARC1) begin
+		prim_sel = 1;
+		shape_done = 0;
+		write = 0;
+		read = 0;
+		output_sel = 4'b0000;
+		enable = 0;
+	//Output Pixel Data form Arc 2
+	end else if (state == OUTPIXARC2) begin
+		prim_sel = 1;
+		shape_done = 0;
+		write = 0;
+		read = 0;
+		output_sel = 4'b0000;
+		enable = 0;
+	//Output Pixel Data form Arc 3
+	end else if (state == OUTPIXARC3) begin
+		prim_sel = 1;
+		shape_done = 0;
+		write = 0;
+		read = 0;
+		output_sel = 4'b0000;
+		enable = 0;
+	//Output Pixel Data form Arc 4
+	end else if (state == OUTPIXARC4) begin
+		prim_sel = 1;
+		shape_done = 0;
+		write = 0;
+		read = 0;
+		output_sel = 4'b0000;
+		enable = 0;
+	//Output Pixel Data form Arc 5
+	end else if (state == OUTPIXARC5) begin
+		prim_sel = 1;
+		shape_done = 0;
+		write = 0;
+		read = 0;
+		output_sel = 4'b0000;
+		enable = 0;
+	//Output Pixel Data form Arc 6
+	end else if (state == OUTPIXARC6) begin
+		prim_sel = 1;
+		shape_done = 0;
+		write = 0;
+		read = 0;
+		output_sel = 4'b0000;
+		enable = 0;
+	//Output Pixel Data form Arc 7
+	end else if (state == OUTPIXARC7) begin
+		prim_sel = 1;
+		shape_done = 0;
+		write = 0;
+		read = 0;
+		output_sel = 4'b0000;
+		enable = 0;
+	//Output Pixel Data form Arc 8
+	end else if (state == OUTPIXARC8) begin
+		prim_sel = 1;
+		shape_done = 0;
+		write = 0;
+		read = 0;
+		output_sel = 4'b0000;
+		enable = 0;
+	//Clear First Item From FIFO
+	end else if (state == CLEARFIFO1) begin
+		prim_sel = 0;
+		shape_done = 0;
 		write = 0;
 		read = 1;
-		outputsel = 4'b0000;
+		output_sel = 4'b0000;
 		enable = 0;
-	end
+	//Clear Second Item From FIFO
+	end else if (state == CLEARFIFO2) begin
+		prim_sel = 0;
+		shape_done = 0;
+		write = 0;
+		read = 1;
+		output_sel = 4'b0000;
+		enable = 0;
+	//Clear Last Item From FIFO
+	end else if (state == CLEARFIFO3) begin
+		prim_sel = 0;
+		shape_done = 0;
+		write = 0;
+		read = 1;
+		output_sel = 4'b0000;
+		enable = 0;
+	//Displaying shape trigger
+	end else if (state == DISPWAIT) begin
+		prim_sel = 0;
+		shape_done = 1;
+		write = 0;
+		read = 0;
+		output_sel = 4'b0000;
+		enable = 0;
+	//Default
+	end else begin
+		prim_sel = 0;
+		shape_done = 0;
+		write = 0;
+		read = 0;
+		output_sel = 4'b0000;
+		enable = 0;	
+	end	
 end
 
 endmodule

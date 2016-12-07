@@ -1,0 +1,22 @@
+//Module: Output Logic
+//Author(s): Noah Petersen
+//Description: Calculates pixel datta and which byte to write to (based on whether pixel written to is even or odd).
+
+module output_logic (
+	input reg [15:0]color,
+	input wire address_lsb,
+	output reg [31:0]pixel_data,
+	output reg [3:0]byteenable
+);
+
+assign pixel_data = {color,color};
+
+always_comb begin
+	if(address_lsb == 0) begin
+		byteenable = 4'b0011;	
+	end else begin
+		byteenable = 4'b1100;
+	end
+end
+
+endmodule
