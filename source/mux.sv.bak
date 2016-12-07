@@ -3,10 +3,10 @@
 
 module mux
 (
-	input wire [31:0]a,
-	input wire [31:0]b,
+	input wire a,
+	input wire b,
 	input wire sel,
-	output reg [31:0]data
+	output reg data
 );
 
 always_comb begin
@@ -15,7 +15,7 @@ always_comb begin
 	end else if(sel == 1'b0) begin
 		data = b;
 	end else begin
-		data = '0;
+		data = 1'b0;
 	end
 end
 
