@@ -36,16 +36,105 @@ logic start;
 logic in_loop;
 logic done;
 
-logic signed [10:0]dx, dy, err, e2;
+logic signed [10:0]dx, dy, err, e2, temperr, tempe2;
 logic right, down;
 
-assign address = {x,y};
+assign address = {x,y};//{x,y};
 assign lineDone = lineD;
 assign startX = positions[37:28];
-assign startY = {0,positions[27:19]}; //Refer to below
+assign startY = positions[27:19]; //Refer to below
 assign endX = positions[18:9];
-assign endY = {0,positions[8:0]}; //Need to add leading 0 to pad it to 10 bits for arithmetic logic
+assign endY = positions[8:0]; //Need to add leading 0 to pad it to 10 bits for arithmetic logic
+always_ff @ (posedge clk)
+begin
+	if (!n_rst) begin
+		state <= IDLE;
+		tempX <= 0;
+		tempY <= 0;
+		temperr <= 0;
+		tempe2 <= 0;
+	end else begin
+		state <= next_state;
+		tempX <= x;
+		tempY <= y;
+		temperr <= err;
+		tempe2 <= e2;
+	end
+end
 
+always_comb
+begin
+	next_state = state;
+	case(state)
+	IDLE:
+		begin
+		if (primSelect == 1)
+			next_state = RUN;
+		end
+	RUN:
+		begin
+		if (stop) begin
+			next_state = PAUSE;
+		end else if (tempX == endX && tempY == endY) begin
+			next_state = IDLE;
+		end else begin
+			next_state = RUN;
+		end end
+	PAUSE:
+		begin
+		if (!stop) 
+			next_state = RUN;
+		end
+	endcase
+end
+
+always_comb
+begin
+	case(state)
+	IDLE:
+		begin
+		dx = endX - startX;
+		right = dx >= 0;
+		if (~right)
+			dx = -dx;
+		dy = endY - startY;
+		down = dy >= 0;
+		if (down)
+			dy = -dy;
+		err = dx+dy;
+		x = startX;
+		y = startY;
+		end
+
+	RUN:	begin
+		e2 = temperr << 1;
+		if (tempe2 > dy) begin
+			err = temperr + dy;
+			if (right)
+				x = tempX + 10'd1;
+			else
+				x = tempX - 10'd1;
+		end
+		if (tempe2 < dx) begin
+			err = temperr + dx;
+			if (down)
+				y = tempY + 10'd1;
+			else
+				y = tempY - 10'd1;
+	        end end
+
+	default:
+		begin
+		x = tempX;
+		y = tempY;
+		err = temperr;
+		e2 = tempe2;		
+		end
+	endcase
+end
+
+endmodule
+/*
 always_ff @ (posedge clk)
 begin
 	if (!n_rst) begin
@@ -56,6 +145,7 @@ begin
 		y <= 0;
 	end else case (state)
 		IDLE:
+			begin
 			if (primSelect == 1) begin
 				dx = endX - startX;
 				right = dx >= 0;
@@ -74,9 +164,9 @@ begin
 				y <= startY;
 
 				state <= RUN;
-			end
+			end end
 		RUN:
-			
+			begin
 			if (stop) begin
 				state <= PAUSE;
 			end else if (x == endX && y == endY) begin
@@ -85,24 +175,26 @@ begin
 			end else begin
 				e2 = err << 1;
 				if (e2 > dy) begin
-					err += dy;
+					err = err + dy;
 					if (right)
 						x <= x + 10'd1;
 					else
 						x <= x - 10'd1;
 				end
 				if (e2 < dx) begin
-					err += dx;
+					err = err +  dx;
 					if (down)
 						y <= y + 10'd1;
 					else
 						y <= y - 10'd1;
 				end
-			end		
+			end end		
 
 		PAUSE:
+			begin
 			if (!stop)
 				state <= RUN;	
+			end
 		default:
 			state <= IDLE;
 	endcase
