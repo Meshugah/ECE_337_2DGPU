@@ -1,11 +1,10 @@
 
-module CoreControlUnit (
+module corecontrolunit (
 	input wire clk,
 	input wire nreset,
 	input wire new_shape,
 	input wire data_ready,
 	input wire data_sent,
-	input wire waitrequest,
 	input wire line_done,
 	input wire arc_done,
 	input wire [3:0] shapeid,
@@ -20,7 +19,7 @@ module CoreControlUnit (
 
 //Now 35 States
 
-typedef enum bit [4:0] {
+typedef enum bit [5:0] {
 		IDLE = 6'b000000,
 		IDENTIFYSHAPE 	= 6'b000001,
 

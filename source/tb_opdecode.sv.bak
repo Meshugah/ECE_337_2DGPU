@@ -12,7 +12,7 @@ module tb_opdecode();
 	reg [15:0]test_color;
 	reg [75:0]outcode;
 
-	opdecode DUT (.opcode(test_in), .shape(shape), .color(test_color), .opdata(outcode));
+	opcodeDecoder DUT (.opcode(test_in), .shape(shape), .color(test_color), .opdata(outcode));
 
 	initial
 	begin

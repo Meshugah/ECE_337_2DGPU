@@ -1,11 +1,10 @@
 
-module CoreControlUnit (
+module corecontrolunit(
 	input wire clk,
 	input wire nreset,
 	input wire new_shape,
 	input wire data_ready,
 	input wire data_sent,
-	input wire waitrequest,
 	input wire line_done,
 	input wire arc_done,
 	input wire [3:0] shapeid,
