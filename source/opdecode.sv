@@ -10,7 +10,7 @@ module opdecode
 input wire [95:0]opcode,
 output wire [3:0]shape,
 output wire [15:0]color,
-output wire [73:0]opdata
+output wire [75:0]opdata
 );
 
 assign shape = opcode[95:92];

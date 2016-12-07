@@ -11,26 +11,30 @@ module tb_opdecode();
 	reg [3:0]shape;
 	reg [15:0]test_color;
 	reg [75:0]outcode;
+	//int i;
+	opdecode DUT (.opcode(test_in), .shape(shape), .color(test_color), .opdata(outcode));
 
-	opcodeDecoder DUT (.opcode(test_in), .shape(shape), .color(test_color), .opdata(outcode));
 
+	
 	initial
 	begin
-		test_in[95:92] = 4'b1010;
-		test_in[91:76] = 16'b0000100000100001;
-		test_in[75:57] = 19'b0000100001000100001;
-		test_in[56:38] = 19'b0001000010001000010;
-		test_in[37:19] = 0;
-		test_in[18:0] = 0;
+		////////////////////////////////////////////////////////
+		//Line
+		test_in[95:92] = 4'b0000;
+		test_in[91:76] = '1;
+		test_in[75:57] = '0;
+		test_in[56:38] = '1;
+		test_in[37:19] = '0;
+		test_in[18:0] = '1;
 		#1;
 
-		if (shape == 4'b1010)
+		if (shape == test_in[95:92])
 			$info("Shape matches!");
 		else
 			$error("Shape mismatch!");
 		#1;
 
-		if (test_color == 16'b0000100000100001)
+		if (test_color == test_in[91:76])
 			$info("Color matches!");
 		else
 			$error("Color mismatch!");
@@ -40,5 +44,97 @@ module tb_opdecode();
 		else
 			$error("Opcode data mismatch!");
 
+		#1
+		////////////////////////////////////////////////////////
+		//Triangle
+		test_in[95:92] = 4'b0001;
+		test_in[91:76] = '0;
+		test_in[75:57] = '1;
+		test_in[56:38] = '0;
+		test_in[37:19] = '1;
+		test_in[18:0] = '0;
+		#1;
+
+		if (shape == test_in[95:92])
+			$info("Shape matches!");
+		else
+			$error("Shape mismatch!");
+		#1;
+
+		if (test_color == test_in[91:76])
+			$info("Color matches!");
+		else
+			$error("Color mismatch!");
+		#1;
+		if (outcode[75:19] == test_in[75:19])
+			$info("Opcode data matches!");
+		else
+			$error("Opcode data mismatch!");
+
+		#1
+
+		////////////////////////////////////////////////////////
+		//Circle
+		test_in[95:92] = 4'b0010;
+		test_in[91:76] = '1;
+		test_in[75:57] = '0;
+		test_in[56:38] = '1;
+		test_in[37:19] = '0;
+		test_in[18:0] = '1;
+		#1;
+
+		if (shape == test_in[95:92])
+			$info("Shape matches!");
+		else
+			$error("Shape mismatch!");
+		#1;
+
+		if (test_color == test_in[91:76])
+			$info("Color matches!");
+		else
+			$error("Color mismatch!");
+		#1;
+		if (outcode[75:19] == test_in[75:19])
+			$info("Opcode data matches!");
+		else
+			$error("Opcode data mismatch!");
+
+		//#1
+/*
+		//Pseudo-Random Test Cases
+		for(i = 0; i < 450; i++) begin
+			if( i < 150) begin
+				test_in[95:92] = 4'b0000;
+			end else if ( i < 300) begin
+				test_in[95:92] = 4'b0001;
+			end else begin
+				test_in[95:92] = 4'b0010;
+			end
+		
+			test_in[91:76] = $random % 16;
+			test_in[75:57] = $random % 19;
+			test_in[56:38] = $random % 19;
+			test_in[37:19] = $random % 19;
+			test_in[18:0] = $random % 19;
+			#1;
+
+			if (shape == test_in[95:92])
+				$info("Shape matches!");
+			else
+				$error("Shape mismatch!");
+			#1;
+
+			if (test_color == test_in[91:76])
+				$info("Color matches!");
+			else
+				$error("Color mismatch!");
+			#1;
+			if (outcode[75:19] == test_in[75:19])
+				$info("Opcode data matches!");
+			else
+				$error("Opcode data mismatch!");
+			
+			#1
+	*/
 	end
 endmodule
