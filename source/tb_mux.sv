@@ -12,6 +12,7 @@ module tb_mux();
 /////////////////////////////////////////////////////////////
 //Clock
 /////////////////////////////////////////////////////////////
+/*	
 	localparam CLK_PERIOD = 10;
 	localparam DELAY = 1;
 
@@ -24,14 +25,14 @@ module tb_mux();
 		tb_clk = 1'b1;
 		#(CLK_PERIOD/2.0);
 	end
-
+*/
 /////////////////////////////////////////////////////////////
 //Test Bench Variables & Setup
 /////////////////////////////////////////////////////////////
-reg [31:0] tb_a;
-reg [31:0] tb_b;
+reg tb_a;
+reg tb_b;
 reg tb_sel;
-wire [31:0] tb_data;
+wire tb_data;
 
 //DUT
 mux DUT (
@@ -46,50 +47,42 @@ mux DUT (
 	Testing
 *//////////////////////////////////////////////////////////////
 initial begin
-	tb_a = '0;
-	tb_b = '1;
+	tb_a = 1'b0;
+	tb_b = 1'b1;
 	tb_sel = 1'b0;
 
-	@(posedge tb_clk);
 	checkoutput;
-	@(posedge tb_clk);
 	
 	tb_sel = 1'b1;
 
-	@(posedge tb_clk);
 	checkoutput;
-	@(posedge tb_clk);
-	@(negedge tb_clk);
 	
 
-	tb_a = '1;
-	tb_b = '0;
+	tb_a = 1'b1;
+	tb_b = 1'b0;
 	tb_sel = 1'b0;
 
-	@(posedge tb_clk);
 	checkoutput;
-	@(posedge tb_clk);
 	
 	tb_sel = 1'b1;
 
-	@(posedge tb_clk);
 	checkoutput;
-	@(posedge tb_clk);
 
 end
 
 /////////////////////////////BLANK/////////////////////////////
 	task checkoutput;
 	begin
-		@(negedge tb_clk);
+		#(1);		
 		//Insert Statements
-		if((tb_sel = 1'b0) && (tb_data == tb_b)) begin
+		if((tb_sel == 1'b0) && (tb_data == tb_b)) begin
 			$display("Correct Output");
-		end else if((tb_sel = 1'b0) && (tb_data == tb_b)) begin
+		end else if((tb_sel == 1'b1) && (tb_data == tb_a)) begin
 			$display("Correct Output");
 		end else begin
 			$error("Incorrect output");
 		end
+		#(1);
 	end
 	endtask
 ///////////////////////////////////////////////////////////////
