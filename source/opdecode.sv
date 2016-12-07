@@ -5,7 +5,7 @@
 // Lab Section: 337-03
 // Version:     1.0  Initial Design Entry
 // Description: Opcode decoder
-module opcodeDecoder
+module opdecode
 (
 input wire [95:0]opcode,
 output wire [3:0]shape,
