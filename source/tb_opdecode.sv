@@ -12,7 +12,7 @@ module tb_opdecode();
 	reg [15:0]test_color;
 	reg [75:0]outcode;
 	int i;
-	opdecode DUT (.opcode(test_in), .shape(shape), .color(test_color), .opdata(outcode));
+	opdecode DUT(.opcode(test_in), .shape(shape), .color(test_color), .opdata(outcode));
 
 
 	
@@ -28,22 +28,25 @@ module tb_opdecode();
 		test_in[18:0] = '1;
 		#1;
 
-		if (shape == test_in[95:92])
-			$info("Shape matches!");
-		else
+		if (shape == test_in[95:92]) begin
+			//info("Shape matches!");
+		end else begin
 			$error("Shape mismatch!");
+		end
 		#1;
 
-		if (test_color == test_in[91:76])
-			$info("Color matches!");
-		else
+		if (test_color == test_in[91:76]) begin 
+			//$info("Color matches!");
+		end else begin
 			$error("Color mismatch!");
-		#1;
-		if (outcode[75:19] == test_in[75:19])
-			$info("Opcode data matches!");
-		else
-			$error("Opcode data mismatch!");
+		end
 
+		#1;
+		if (outcode[75:19] == test_in[75:19]) begin
+			//$info("Opcode data matches!");
+		end else begin
+			$error("Opcode data mismatch!");
+		end
 		#1
 		////////////////////////////////////////////////////////
 		//Triangle
@@ -54,22 +57,25 @@ module tb_opdecode();
 		test_in[37:19] = '1;
 		test_in[18:0] = '0;
 		#1;
-
-		if (shape == test_in[95:92])
-			$info("Shape matches!");
-		else
+		if (shape == test_in[95:92]) begin
+			//info("Shape matches!");
+		end else begin
 			$error("Shape mismatch!");
+		end
 		#1;
 
-		if (test_color == test_in[91:76])
-			$info("Color matches!");
-		else
+		if (test_color == test_in[91:76]) begin 
+			//$info("Color matches!");
+		end else begin
 			$error("Color mismatch!");
+		end
+
 		#1;
-		if (outcode[75:19] == test_in[75:19])
-			$info("Opcode data matches!");
-		else
+		if (outcode[75:19] == test_in[75:19]) begin
+			//$info("Opcode data matches!");
+		end else begin
 			$error("Opcode data mismatch!");
+		end
 
 		#1
 
@@ -83,21 +89,25 @@ module tb_opdecode();
 		test_in[18:0] = '1;
 		#1;
 
-		if (shape == test_in[95:92])
-			$info("Shape matches!");
-		else
+		if (shape == test_in[95:92]) begin
+			//info("Shape matches!");
+		end else begin
 			$error("Shape mismatch!");
+		end
 		#1;
 
-		if (test_color == test_in[91:76])
-			$info("Color matches!");
-		else
+		if (test_color == test_in[91:76]) begin 
+			//$info("Color matches!");
+		end else begin
 			$error("Color mismatch!");
+		end
+
 		#1;
-		if (outcode[75:19] == test_in[75:19])
-			$info("Opcode data matches!");
-		else
+		if (outcode[75:19] == test_in[75:19]) begin
+			//$info("Opcode data matches!");
+		end else begin
 			$error("Opcode data mismatch!");
+		end
 
 		#1
 
@@ -119,14 +129,14 @@ module tb_opdecode();
 			#1;
 
 			if (shape == test_in[95:92]) begin
-				$info("Shape matches!");
+				//$info("Shape matches!");
 			end else begin
 				$error("Shape mismatch!");
 			end
 			#1;
 
 			if (test_color == test_in[91:76]) begin
-				$info("Color matches!");
+				//$info("Color matches!");
 			end else begin
 				$error("Color mismatch!");
 			end
@@ -134,7 +144,7 @@ module tb_opdecode();
 			#1;
 			
 			if (outcode[75:19] == test_in[75:19]) begin
-				$info("Opcode data matches!");
+				//$info("Opcode data matches!");
 			end else begin
 				$error("Opcode data mismatch!");
 			end
