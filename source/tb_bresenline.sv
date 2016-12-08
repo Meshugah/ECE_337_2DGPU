@@ -81,8 +81,6 @@ module tb_bresenline();
 initial
 	begin
 		f = $fopen("output.txt","w");
-		@(posedge tb_clk);
-		@(posedge tb_clk);
 /*
 	//Test case 1: positive slope 
 		tb_positions = 38'b00100100000001000110000100110001100001;
@@ -115,18 +113,27 @@ initial
 		#12000;
 */
 	//Test case 3: worst case negative slope (0,0) -> (640,480)
-		tb_positions = 38'b00000000000000000001010000000111100000;
+		//tb_positions = 38'b00000000000000000001010000000111100000;
+		tb_positions = {10'd0, 9'd0, 10'd640, 9'd480};
+		//tb_positions = {10'd0, 9'd480, 10'd640, 9'd0};
+		tb_nrst = 0;
+		tb_primSelect = 1;
+		tb_stop = 0;
+		@(negedge tb_clk);
+		tb_nrst = 1;
+		@(posedge tb_clk);
+		@(negedge tb_clk);
+		tb_primSelect = 0;
 		@(negedge tb_clk);
 		tb_primSelect = 1;
 		@(posedge tb_clk);
-		tb_primSelect = 0;
 		for (i = 0; i < 640; i++) begin
 			for (j = 0; j < 480; j++) begin
-			old_address = tb_address;
+		//	old_address = tb_address;
 			@(posedge tb_clk);
-			if (old_address == tb_address) begin
-				i = 640; j = 480;
-			end
+		//	if (old_address == tb_address) begin
+		//		i = 640; j = 480;
+		//	end
 			$fdisplay(f, "%b", tb_address);
 		end end
 		#1000;
