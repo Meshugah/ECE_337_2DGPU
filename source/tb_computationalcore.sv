@@ -6,7 +6,7 @@
 // Version:     1.0  Initial Design Entry
 // Description: Test bench for computational core wrapper
 `timescale 1ns/100ps
-module tb_bresenline();
+module tb_computationalcore();
 	localparam CLK_PERIOD = 30;
 	localparam DELAY = 1;
 	reg tb_clk;
@@ -44,7 +44,10 @@ module tb_bresenline();
 
 initial
 begin
+	tb_opcode = {4'd0, 16'b0000000001100000, 10'd300, 9'd200, 10'd0, 9'd200, 10'd0, 9'd0, 1'b0, 17'd0}; 
 	@(posedge tb_clk);
+	tb_nrst = 0;
+	@(negedge tb_clk);
 	tb_nrst = 0;
 	@(posedge tb_clk);
 	tb_nrst = 1;
