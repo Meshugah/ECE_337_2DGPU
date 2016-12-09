@@ -1,8 +1,8 @@
 module splitter (
-	input wire [73:0] opdata,
+	input wire [75:0] opdata,
 	input wire [3:0] output_sel,
-	output reg [37:0] locations,
-	output wire [15:0] color
+	output reg [37:0] locations
+	//output wire [15:0] color
 );
 localparam LL1 = 4'b0000;
 localparam TL1 = 4'b0001;
@@ -26,30 +26,31 @@ reg [18:0] c1rad;
 //75:57 - Determines part of the position for an object. E.g. Starting point for a line. 10 bits for x, 9 bits for y.
 //56:38 - Next 19 bits define the second position/location for an object (e.g. end point for a line). 10 bits for x, 9 bits for y.
 //37:19 - Next 19 bits define the third position. Used for  more advanced shapes such as triangles or rectangles that need more bits for definition.
-//91:76 -> 73:58 Color
+//91:76 -> Color (not given here)
 //75:57 -> 57:39 Pos1
 //56:38 -> 38:20 Pos2
 //37:19 -> 19:1 Pos3,unused for Line
-//18    -> 0 Fill
+//18    -> 0 Fill -> Effectively trash data now
+//17:0  -> Trash Data
 
 //Color
-assign color = opdata[73:58];
+//assign color = opdata[73:58];
 
 //Line Assignments
-assign lstart = opdata[57:39];
-assign lend = opdata[38:20];
+assign lstart = opdata[75:57];
+assign lend = opdata[56:38];
 
 //Triangle
-assign t1start = opdata[57:39];
-assign t1end = opdata[38:20];
-assign t2start = opdata[57:39];
-assign t2end = opdata[19:1];
-assign t3start = opdata[38:20];
-assign t3end = opdata[19:1];
+assign t1start = opdata[75:57]; //A->B
+assign t1end = opdata[56:38];
+assign t2start = opdata[56:38]; //B->C
+assign t2end = opdata[37:19];
+assign t3start = opdata[75:57]; //A->C
+assign t3end = opdata[37:19];
 
 //Circle Assignements
-assign c1cent = opdata[57:39];
-assign c1rad = opdata[38:20];
+assign c1cent = opdata[56:38];
+assign c1rad = opdata[37:19];
 
 
 always_comb begin

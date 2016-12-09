@@ -1,5 +1,5 @@
 
-module corecontrolunit (
+module corecontrolunit(
 	input wire clk,
 	input wire nreset,
 	input wire new_shape,

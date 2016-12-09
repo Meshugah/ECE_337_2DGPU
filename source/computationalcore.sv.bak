@@ -84,7 +84,7 @@ mux19 MUX2 (
 bresenline BRESENL (
 	.clk(clk),
 	.n_rst(n_rst),
-	.positions(fifo_r_data),
+	.positions(read_data),
 	.stop(~en),
 	.primSelect(primselect),
 	.address(line_address),
@@ -94,7 +94,7 @@ bresenline BRESENL (
 bresencircle BRESNC (
 	.clk(clk),
 	.n_rst(n_rst),
-	.positions(fifo_r_data),
+	.positions(read_data),
 	.stop(~en),
 	.primSelect(primselect),
 	.address(arc_address),

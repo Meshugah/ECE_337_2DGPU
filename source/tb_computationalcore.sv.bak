@@ -23,11 +23,11 @@ module tb_computationalcore();
 	reg [95:0]tb_opcode;
 	reg tb_data_sent;
 	reg tb_new_shape;
-	wire tb_data_ready;
-	wire tb_shape_done;
-	wire tb_frame_target;
-	wire [18:0]tb_address;
-	wire [15:0]tb_color;
+	reg tb_data_ready;
+	reg tb_shape_done;
+	reg tb_frame_target;
+	reg [18:0]tb_address;
+	reg [15:0]tb_color;
 
 	ComputationalCore DUT (
 		.clk(tb_clk),
