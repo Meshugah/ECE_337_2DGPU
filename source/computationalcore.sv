@@ -23,61 +23,54 @@ reg [3:0]desired_output;
 reg [3:0]desired_shape;
 reg [37:0]locations;
 reg [15:0]in_color;
-reg read;
 reg [18:0]line_address;
 reg [18:0]arc_address;
 reg empty;
-reg full
+reg full;
 reg primselect;
 reg linedone;
 reg arcdone;
 reg en;
 reg waitreq;
-reg write;
 reg data_r;
 
 splitter SHAPESPLIT (
-	.clk(clk),
-	.n_rst(n_rst),
 	.opdata(split_opcode),
 	.output_sel(desired_output),
-	.read(read),
 	.locations(locations),
 	.color(in_color)
 );
 
-opcodeDecoder OPDECODE (
+opdecode OPDECODE (
 	.opcode(full_opcode),
 	.shape(desired_shape),
 	.color(in_color),
 	.opdata(split_opcode)
 );
 
-CoreControlUnit CCU (
+corecontrolunit CCU (
 	.clk(clk),
 	.nreset(n_rst),
-	.empty(empty),
-	.newshape(new_shape),
-	.waitrequest(waitreq),
-	.ldone(linedone),
-	.adone(arcdone),
+	.new_shape(new_shape),
+	.line_done(linedone),
+	.arc_done(arcdone),
 	.shapeid(desired_shape),
-	.primsel(primselect),
-	.shapedone(shape_done),
-	.write(write),
-	.read(read),
+	.prim_sel(primselect),
+	.shape_done(shape_done),
+	.write(write_en),
+	.read(read_en),
 	.enable(en),
-	.outputsel(desired_output)
+	.output_sel(desired_output)
 );
 
-MUX MUX1 (
+mux MUX1 (
 	.a(line_data_ready),
 	.b(arc_data_ready),
 	.sel(primselect),
 	.data(data_r)
 );
 
-MUX MUX2 (
+mux MUX2 (
 	.a(line_address),
 	.b(arc_address),
 	.sel(primselect),
@@ -87,8 +80,8 @@ MUX MUX2 (
 bresenline BRESENL (
 	.clk(clk),
 	.n_rst(n_rst),
-	.positions(locations),
-	.stop(en),
+	.positions(read_data),
+	.stop(~en),
 	.primSelect(primselect),
 	.address(line_address),
 	.lineDone(linedone)
@@ -97,8 +90,8 @@ bresenline BRESENL (
 bresencircle BRESNC (
 	.clk(clk),
 	.n_rst(n_rst),
-	.positions(locations),
-	.stop(en),
+	.positions(read_data),
+	.stop(~en),
 	.primSelect(primselect),
 	.address(arc_address),
 	.circleDone(arcdone)
@@ -109,7 +102,7 @@ corefifo COREFIFO (
 	.n_rst(n_rst),
 	.r_enable(read_en),
 	.w_enable(write_en),
-	.w_data(write_data),
+	.w_data(locations),
 	.r_data(read_data),
 	.empty(empty),
 	.full(full)
