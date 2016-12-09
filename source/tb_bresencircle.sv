@@ -58,7 +58,7 @@ module tb_bresencircle();
 initial
 	begin
 		tb_nrst = 1;
-		tb_primSelect = 1;
+		tb_primSelect = 0;
 		tb_stop = 0;
 		@(posedge tb_clk);
 		tb_nrst = 0;
@@ -72,15 +72,15 @@ initial
 		@(negedge tb_clk);
 		@(posedge tb_clk);
 //		tb_positions = 38'b01010000000111100000001111110000000000;
-		tb_positions = {10'd320, 9'd240, 10'd200, 9'd0};
-		@(posedge tb_clk);
+		tb_positions = {10'd320, 9'd240, 10'd330, 9'd0};
+		@(negedge tb_clk);
 		@(posedge tb_clk);
 		@(posedge tb_clk);
 		@(negedge tb_clk);
 		@(negedge tb_clk);
-		tb_primSelect = 0;
-		@(posedge tb_clk);
 		tb_primSelect = 1;
+		@(posedge tb_clk);
+		tb_primSelect = 0;
 		#100;
 		tb_stop = 1;
 		#100;
