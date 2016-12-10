@@ -83,7 +83,7 @@ StateType [5:0] next_state;
 StateType [5:0] state;
 ShapePrimitive shape_select;
 
-assign output_sel = shape_select;
+//assign output_sel = shape_select;
 
 always_ff @(posedge clk, negedge nreset) begin
 	if(nreset == 0) begin

@@ -23,13 +23,13 @@ module tb_computationalcore();
 	reg [95:0]tb_opcode;
 	reg tb_data_sent;
 	reg tb_new_shape;
-	reg tb_data_ready;
-	reg tb_shape_done;
-	reg tb_frame_target;
-	reg [18:0]tb_address;
-	reg [15:0]tb_color;
+	wire tb_data_ready;
+	wire tb_shape_done;
+	wire tb_frame_target;
+	wire [18:0]tb_address;
+	wire [15:0]tb_color;
 
-	ComputationalCore DUT (
+	computationalcore DUT (
 		.clk(tb_clk),
 		.n_rst(tb_nrst),
 		.data_sent(tb_data_sent),
@@ -51,6 +51,5 @@ begin
 	tb_nrst = 0;
 	@(posedge tb_clk);
 	tb_nrst = 1;
-	
 end
 endmodule
