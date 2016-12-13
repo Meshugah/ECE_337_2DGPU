@@ -4,7 +4,7 @@
 
 module gpucontrolunit
 (
-	input wire clk,
+	input wire clk,ls
 	input wire n_reset,
 	input wire master_busy,
 	input wire busy,
@@ -14,7 +14,8 @@ module gpucontrolunit
 	output reg new_shape,
 	output reg shift_enable,
 	output reg send_data,
-	output reg busy_reset
+	output reg busy_reset,
+	output reg shift_enable
 );
 
 //State Enumeration
@@ -111,6 +112,7 @@ always_comb begin
 		shift_enable = 0;
 		send_data = 0;
 		busy_reset = 0;
+		shift_enable = 0;
 	//SHIFTOP1
 	end else if(state == SHIFTOP1) begin
 		read = 0;
@@ -118,6 +120,7 @@ always_comb begin
 		shift_enable = 1;
 		send_data = 0;
 		busy_reset = 0;
+		shift_enable = 1;
 
 	//SHIFTOP2
 	end else if(state == SHIFTOP2) begin
@@ -126,6 +129,7 @@ always_comb begin
 		shift_enable = 1;
 		send_data = 0;
 		busy_reset = 0;
+		shift_enable = 1;
 	//SHIFTOP3
 	end else if(state == SHIFTOP3) begin
 		read = 0;
@@ -133,12 +137,14 @@ always_comb begin
 		shift_enable = 1;
 		send_data = 0;
 		busy_reset = 0;
+		shift_enable = 1;
 	//GETOP2
 	end else if(state == GETOP2) begin
 		read = 1;
 		new_shape = 0;
 		shift_enable = 0;
 		send_data = 0;
+		shift_enable = 0;
 		busy_reset = 0;
 	//GETOP3
 	end else if(state == GETOP3) begin
@@ -147,6 +153,7 @@ always_comb begin
 		shift_enable = 0;
 		send_data = 0;
 		busy_reset = 0;
+		shift_enable = 0;
 	//NEWSHAPE
 	end else if(state == NEWSHAPE) begin
 		read = 0;
@@ -154,6 +161,7 @@ always_comb begin
 		shift_enable = 0;
 		send_data = 0;
 		busy_reset = 0;
+		shift_enable = 0;
 	//OUTPUTWAIT
 	end else if(state == OUTPUTWAIT) begin
 		read = 0;
@@ -161,6 +169,7 @@ always_comb begin
 		shift_enable = 0;
 		send_data = 0;
 		busy_reset = 0;
+		shift_enable = 0;
 	//DATASENT
 	end else if(state == DATASENT) begin
 		read = 0;
@@ -168,6 +177,7 @@ always_comb begin
 		shift_enable = 0;
 		send_data = 1;
 		busy_reset = 0;
+		shift_enable = 0;
 	//OUTPUTEND
 	end else if(state == OUTPUTEND) begin
 		read = 0;
@@ -175,6 +185,7 @@ always_comb begin
 		shift_enable = 0;
 		send_data = 0;
 		busy_reset = 1;
+		shift_enable = 0;
 	//Default
 	end else begin
 		read = 0;
@@ -182,6 +193,7 @@ always_comb begin
 		shift_enable = 0;
 		send_data = 0;
 		busy_reset = 0;
+		shift_enable = 0;
 	end
 end
 

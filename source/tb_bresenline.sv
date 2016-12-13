@@ -7,7 +7,7 @@
 // Description: Test bench for bresenham's line generator.
 `timescale 1ns/100ps
 module tb_bresenline();
-	localparam CLK_PERIOD = 30;
+	localparam CLK_PERIOD = 50;
 	localparam DELAY = 1;
 
 	reg tb_clk;

@@ -1,2 +1,103 @@
 //Module:
 //Author(s): Noah Petersen
+//Top Level tying other modules together
+
+module toplevelgpu
+(
+//All IO will be defined by Avalon INterface
+
+);
+
+//variable Declaration
+
+//GCU Control Unit
+gpucontrolunit GPUCU(	.clk(),
+			.n_reset(),
+			.master_busy(),
+			.busy(),
+			.data_ready(),
+			.shape_done(),
+			.read(),
+			.new_shape(),
+			.send_data(),
+			.busy_reset(),
+			.shift_enable()
+			);
+
+//Avalon Master
+//AMI
+//Will need FIFO as well as master interface to external signals
+master #(
+	parameter MASTER_ADDRESSWIDTH = 20 ,  	// ADDRESSWIDTH specifies how many addresses the Master can address 
+	parameter SLAVE_ADDRESSWIDTH = 6 ,  	// ADDRESSWIDTH specifies how many addresses the slave needs to be mapped to. log(NUMREGS)
+	parameter DATAWIDTH = 32 ,    			// DATAWIDTH specifies the data width. Default 32 bits
+	parameter NUMREGS = 8 ,       			// Number of Internal Registers for Custom Logic
+	parameter REGWIDTH = 32       			// Data Width for the Internal Registers. Default 32 bits
+)	
+(	
+	.clk(clk),
+        .reset_n(n_reset),
+	
+	// Interface to Top Level
+	.rdwr_cntl(),//SW[17]
+	.n_action(send_data),		// Trigger the Read or Write. Additional control to avoid continuous transactions. Not a required signal. Can and should be removed for actual application.
+	.add_data_sel(),//SW[16]
+	.rdwr_address(address),//SW[15:0] ->[MASTER_ADDRESSWIDTH-1:0]
+	.display_data(pixel_data), //[DATAWIDTH-1:0]
+
+	//17 enable
+	//16 1=write 0=read
+	//15-0 unassigned
+
+	// Bus Slave Interface
+        .slave_address(),  //->[MASTER_ADDRESSWIDTH-1:0]
+        .slave_writedata(), //[DATAWIDTH-1:0]
+        .slave_write(),
+        .slave_read(),
+        .slave_chipselect(),
+//      input logic  slave_readdatavalid, 			// These signals are for variable latency reads. 
+//	output logic slave_waitrequest,   			// See the Avalon Specifications for details  on how to use them.
+        .slave_readdata(),
+
+	// Bus Master Interface
+        .master_address(), //->[MASTER_ADDRESSWIDTH-1:0]
+        .master_writedata(), //[DATAWIDTH-1:0]
+        .master_write(),
+        .master_read(),
+        .master_readdata(), //[DATAWIDTH-1:0]
+        .master_readdatavalid(),
+        .master_waitrequest()
+		  
+);
+
+//Avalon Slave
+//ASI
+//Need to add input FIFO if not in slave
+
+
+//Shift Register
+opcode_stp STP	(
+ 		.clk(clk),
+		.n_rst(n_reset), 
+		.shift_enable(shift_enable), 
+		.serial_in(),
+		.parallel_out()
+ 		); 
+
+//Computational Core
+computationalcore CORE(
+		.clk(),
+		.n_rst(),
+		.data_sent(),
+		.new_shape(),
+		.full_opcode(),		//95:0 bits
+		.data_ready(),
+		.shape_done(),
+		.frame_target(),
+		.address(),		//18:0 bits
+		.color()		//15:0 bits
+);
+
+
+
+endmodule

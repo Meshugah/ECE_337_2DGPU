@@ -48,18 +48,19 @@ typedef enum bit [3:0] {
 
 	//Opcode Input declarations
 	ShapeType test_shape;
-	reg [15:0] op_color;
+	//reg [15:0] op_color;
 	reg [18:0] op_location1;
 	reg [18:0] op_location2;
 	reg [18:0] op_location3;
 	reg op_fill;
+	reg [17:0] op_spare;
 
 	//reg [18:0] exp_location;
 	//reg [18:0] exp_color
 
 	//TB Variables
 	//reg tb_nrst;
-	reg [73:0]tb_opcode; 
+	reg [75:0]tb_opcode; 
 	SIDType tb_shape;
 	reg [37:0]tb_expected;
 	wire [15:0]tb_test_color;
@@ -68,8 +69,8 @@ typedef enum bit [3:0] {
 	splitter DUT (
 		.opdata(tb_opcode),
 		.output_sel(tb_shape),
-		.locations(tb_locations),
-		.color(tb_test_color)
+		.locations(tb_locations)
+		//.color(tb_test_color)
 	);
 
 /*/////////////////////////////////////////////////////////////
@@ -79,17 +80,18 @@ typedef enum bit [3:0] {
 		//reset_dut;
 	
 		//Initial Variable Settings'
-		op_color = 0;
+		//op_color = 0;
 		op_location1 = 0;
 		op_location2 = 0;
 		op_location3 = 0;
 		op_fill = 0;
+		op_spare = 0;
 
 		//Pseudo Random Tests
-		for(i = 3; i < 1000; i++) begin
+		for(i = 0; i < 1000; i++) begin
 
 			//Set Opcode & Expected Values
-			op_color = $random % 16;
+			//op_color = $random % 16;
 			op_location1 = $random % 19;
 			op_location2 = $random % 19;
 			op_location3 = $random % 19;
@@ -114,9 +116,11 @@ typedef enum bit [3:0] {
 			if(test_shape == LINE) begin
 				//Line Test
 				tb_shape = L1;
-				tb_opcode = {op_color, op_location1, op_location2, op_location3, op_fill};
-				#(1);
+				tb_opcode = {op_location1, op_location2, op_location3, op_fill, op_spare};
 				tb_expected = {op_location1,op_location2};
+
+				#(1);
+				//tb_expected = {op_location1,op_location2};
 				if(tb_locations == tb_expected) begin
 					//$display("Line is printed correctly");
 				end else begin
@@ -129,10 +133,11 @@ typedef enum bit [3:0] {
 				//Triangle Test -> Slightly different because there are 3 phases to check
 				//Check Line 1
 				tb_shape = TRI1;
-				tb_opcode = {op_color, op_location1, op_location2, op_location3, op_fill};
+				tb_opcode = {op_location1, op_location2, op_location3, op_fill, op_spare};
+				tb_expected = {op_location1,op_location2};
 				#(1);
 
-				tb_expected = {op_location1,op_location2};
+				//tb_expected = {op_location1,op_location2};
 				if(tb_locations == tb_expected) begin
 					//$display("Line is printed correctly");
 				end else begin
@@ -141,10 +146,11 @@ typedef enum bit [3:0] {
 
 				//Check Line 2
 				tb_shape = TRI2;
-				tb_opcode = {op_color, op_location1, op_location2, op_location3, op_fill};
+				tb_opcode = {op_location1, op_location2, op_location3, op_fill, op_spare};
+				tb_expected = {op_location2,op_location3};
 				#(1);
 			
-				tb_expected = {op_location1,op_location3};
+				//tb_expected = {op_location2,op_location3};
 				if(tb_locations == tb_expected) begin
 					//$display("Line is printed correctly");
 				end else begin
@@ -153,10 +159,11 @@ typedef enum bit [3:0] {
 		
 				//Check Line 3
 				tb_shape = TRI3;
-				tb_opcode = {op_color, op_location1, op_location2, op_location3, op_fill};
+				tb_opcode = {op_location1, op_location2, op_location3, op_fill, op_spare};
+				tb_expected = {op_location1,op_location3};
 				#(1);
 
-				tb_expected = {op_location2,op_location3};
+				//tb_expected = {op_location1,op_location3};
 				if(tb_locations == tb_expected) begin
 					//$display("Line is printed correctly");
 				end else begin
@@ -169,11 +176,12 @@ typedef enum bit [3:0] {
 			end else if(test_shape == CIRCLE) begin
 				//Circle Test
 				tb_shape = CIR1;
-				tb_opcode = {op_color, op_location1, op_location2, op_location3, op_fill};
+				tb_opcode = {op_location1, op_location2, op_location3, op_fill, op_spare};
+				tb_expected = {op_location1,op_location2};
 				#(1);
 
 				//Check Center/Radius
-				tb_expected = {op_location1,op_location2};
+				//tb_expected = {op_location1,op_location2};
 				if(tb_locations == {op_location1,op_location2}) begin
 					//$display("Line is printed correctly");
 				end else begin
@@ -185,11 +193,11 @@ typedef enum bit [3:0] {
 				$error("Shape was not set/detected correctly in testbench");
 			end
 
-			if(tb_test_color == op_color) begin
+			/*if(tb_test_color == op_color) begin
 				//$display("Wow such color");
 			end else begin
 				$error("Color was wrong on test #%0d",i);
-			end
+			end*/
 
 		end //End for loop
 	end //End initial

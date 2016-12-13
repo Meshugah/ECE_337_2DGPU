@@ -49,8 +49,8 @@ assign t3start = opdata[75:57]; //A->C
 assign t3end = opdata[37:19];
 
 //Circle Assignements
-assign c1cent = opdata[56:38];
-assign c1rad = opdata[37:19];
+assign c1cent = opdata[75:57];
+assign c1rad = opdata[56:38];
 
 
 always_comb begin

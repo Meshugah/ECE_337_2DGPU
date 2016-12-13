@@ -1,7 +1,7 @@
 module splitter (
 	input wire [75:0] opdata,
 	input wire [3:0] output_sel,
-	output reg [37:0] locations,
+	output reg [37:0] locations
 	//output wire [15:0] color
 );
 localparam LL1 = 4'b0000;
