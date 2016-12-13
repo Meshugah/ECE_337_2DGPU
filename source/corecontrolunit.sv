@@ -83,7 +83,7 @@ StateType [5:0] next_state;
 StateType [5:0] state;
 ShapePrimitive shape_select;
 
-assign output_sel = shape_select;
+//assign output_sel = shape_select;
 
 always_ff @(posedge clk, negedge nreset) begin
 	if(nreset == 0) begin
@@ -321,43 +321,6 @@ always_comb begin
 	//	Triangle L2: 0010
 	//	Triangle L3: 0011
 	//	Circle A1: 0100
-
-
-		//IDLE
-		//IDENTIFYSHAPE 
-		//TRISENDL1 
-		//TRISENDL2 
-		//TRISENDL3 
-		//TRIMAKEL1 
-		//TRIMAKEL2 
-		//TRIMAKEL3 
-		//TRIOUTPIXL1
-		//TRIOUTPIXL2 
-		//TRIOUTPIXL3 	
-		//CLEARFIFO1 
-		//CLEARFIFO2 
-		//CLEARFIFO3 
-		//DISPWAIT 
-		//LINESENDL
-		//LINEMAKEL
-		//LINEOUTPIX 
-		//SENDCIRC 
-		//MAKEARC1
-		//MAKEARC2
-		//MAKEARC3
-		//MAKEARC4
-		//MAKEARC5
-		//MAKEARC6
-		//MAKEARC7
-		//MAKEARC8
-		//OUTPIXARC1
-		//OUTPIXARC2
-		//OUTPIXARC3
-		//OUTPIXARC4	
-		//OUTPIXARC5	
-		//OUTPIXARC6	
-		//OUTPIXARC7	
-		//OUTPIXARC8	
 
 	//IDLE Output
 	if(state == IDLE) begin

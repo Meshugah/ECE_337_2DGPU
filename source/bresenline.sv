@@ -17,7 +17,13 @@ output wire [18:0]address,
 output wire lineDone
 );
 
-typedef enum {IDLE, PAUSE, RUN} stateType;
+typedef enum {IDLE, PAUSE, RUN, RUN1, WAIT1, RUN2, WAIT2, RUNWAIT} stateType;
+// 000 -> idle
+// 001 -> pause
+// 010 -> run
+// 011 -> run1
+// 100 -> run2
+// 101 -> runwait
 stateType state;
 stateType next_state;
 //Initialize requried variables
@@ -39,12 +45,13 @@ logic done;
 logic signed [10:0]dx, dy, err, e2, temperr, tempe2;
 logic right, down;
 
-assign address = {x,y};//{x,y};
+assign address = {tempX,tempY};//{x,y};
 assign lineDone = lineD;
 assign startX = positions[37:28];
 assign startY = positions[27:19]; //Refer to below
 assign endX = positions[18:9];
 assign endY = positions[8:0]; //Need to add leading 0 to pad it to 10 bits for arithmetic logic
+
 always_ff @ (posedge clk)
 begin
 	if (!n_rst) begin
@@ -53,35 +60,62 @@ begin
 		tempY <= 0;
 		temperr <= 0;
 		tempe2 <= 0;
+		lineD <= 0;
 	end else begin
 		state <= next_state;
 		tempX <= x;
 		tempY <= y;
 		temperr <= err;
 		tempe2 <= e2;
+		lineD <= lineDone_temp;
 	end
 end
 
 always_comb
 begin
 	next_state = state;
+	lineDone_temp = lineDone_temp;
 	case(state)
 	IDLE:
 		begin
-		if (primSelect == 1)
+		if (primSelect == 0)
 			next_state = RUN;
+			lineDone_temp = 0;
 		end
 	RUN:
 		begin
 		if (stop) begin
 			next_state = PAUSE;
-		end else if (tempX == endX && tempY == endY) begin
+		end else if ((tempX == endX) && (tempY == endY)) begin
+			lineDone_temp = 1;
 			next_state = IDLE;
 		end else begin
-			next_state = RUN;
+			lineDone_temp = 0;
+			next_state = RUNWAIT;
 		end end
+	RUNWAIT: begin
+			lineDone_temp = 0;
+			next_state = RUN1;
+		end
+	RUN1: begin
+			lineDone_temp = 0;
+			next_state = WAIT1;
+		end
+	WAIT1: begin
+			lineDone_temp = 0;
+			next_state = RUN2;
+		end
+	RUN2: begin
+			lineDone_temp = 0;
+			next_state = WAIT2;
+		end
+	WAIT2: begin
+			lineDone_temp = 0;
+			next_state = RUN;
+		end
 	PAUSE:
 		begin
+		lineDone_temp = 0;
 		if (!stop) 
 			next_state = RUN;
 		end
@@ -90,6 +124,15 @@ end
 
 always_comb
 begin
+		x = tempX;
+		y = tempY;
+		err = temperr;
+		e2 = tempe2;
+		dx = dx;
+		dy = dy;
+		right = right;
+		down = down;
+
 	case(state)
 	IDLE:
 		begin
@@ -106,15 +149,20 @@ begin
 		y = startY;
 		end
 
-	RUN:	begin
+	RUNWAIT:
+		begin
 		e2 = temperr << 1;
+		end
+
+	RUN1:	begin
 		if (tempe2 > dy) begin
 			err = temperr + dy;
 			if (right)
 				x = tempX + 10'd1;
 			else
 				x = tempX - 10'd1;
-		end
+		end end
+	RUN2:  begin
 		if (tempe2 < dx) begin
 			err = temperr + dx;
 			if (down)
@@ -123,17 +171,11 @@ begin
 				y = tempY - 10'd1;
 	        end end
 
-	default:
-		begin
-		x = tempX;
-		y = tempY;
-		err = temperr;
-		e2 = tempe2;		
-		end
 	endcase
 end
 
 endmodule
+
 /*
 always_ff @ (posedge clk)
 begin

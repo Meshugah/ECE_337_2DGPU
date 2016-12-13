@@ -4,8 +4,8 @@
 // Author:      Ahmad dit Ziad Dannawi
 // Lab Section: 337-03
 // Version:     1.0  Initial Design Entry
-// Description: Top Level computational core wrapper
-module computationalcore(
+// Description: Top level computational core wrapper
+module ComputationalCore(
 	input wire clk,
 	input wire n_rst,
 	input wire data_sent,

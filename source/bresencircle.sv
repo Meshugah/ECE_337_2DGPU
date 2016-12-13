@@ -16,7 +16,7 @@ output wire [18:0]address,
 output wire circleDone
 );
 
-typedef enum {IDLE, RUN, DRAW1, DRAW2, DRAW3, DRAW4, DRAW5, DRAW6, DRAW7, DRAW8, UPDATE, PAUSE} stateType;
+typedef enum bit[3:0] {IDLE, RUN, DRAW1, DRAW2, DRAW3, DRAW4, DRAW5, DRAW6, DRAW7, DRAW8, UPDATE, PAUSE} stateType;
 stateType state;
 stateType next_state;
 
@@ -251,7 +251,7 @@ begin
 		d <= 0;
 	end else begin case (state)
 		IDLE:	begin
-			if (primSelect == 0) begin
+			if (primSelect == 1) begin
 				currentX <= 0; //radius;
 				currentY <= radius; //0;
 				err <= 0;
