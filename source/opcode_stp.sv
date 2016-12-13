@@ -16,7 +16,7 @@ reg [31:0]line2;
 reg [31:0]line3;
 
 
-assign parallel_out = {line3,line2,line1};
+assign parallel_out = {line1,line2,line3};
 
 
 
@@ -27,9 +27,9 @@ always_ff @(posedge clk, negedge n_rst) begin
 		line3 <= '1;
 	end else begin
 		if(shift_enable) begin
-			line1 <= serial_in;
-			line2 <= line1;
 			line3 <= line2;
+			line2 <= line1;
+			line1 <= serial_in;
 		end
 	end
 end
