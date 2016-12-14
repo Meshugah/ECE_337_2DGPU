@@ -80,17 +80,23 @@ module tb_bresenline();
 	endtask
 
 	task writeToFile;
-		input [18:0]address;
 	begin
 		f = $fopen("output.txt", "w");
-		$fwrite(f, "%s\n", address);
+		for (i = 0; i < 640; i++) begin
+			for (j = 0; j < 480; j++) begin
+			@(posedge tb_clk);
+			if (tb_lineDone == 1) begin
+				i = 640; j = 480;
+			end
+			$fdisplay(f, "%b", tb_address);
+		end end
 		$fclose(f);
 	end
 	endtask
 	
 initial
 	begin
-		f = $fopen("output.txt","w"); //Get file pointer
+		//f = $fopen("output.txt","w"); //Get file pointer
 /*
 	//Test case 1: positive slope 
 		tb_positions = 38'b00100100000001000110000100110001100001;
@@ -124,7 +130,7 @@ initial
 */
 	//Test case 3: worst case negative slope (0,0) -> (640,480)
 
-		tb_positions = {10'd0, 9'd0, 10'd640, 9'd480}; //If desired, one can modify these values to test whichever line they wish.
+		tb_positions = {10'd640, 9'd0, 10'd0, 9'd480}; //If desired, one can modify these values to test whichever line they wish. {10'd<0-640>, 9'd<0-480>}, and so on
 		tb_nrst = 0;
 		tb_primSelect = 1;
 		tb_stop = 0;
@@ -136,7 +142,6 @@ initial
 		@(negedge tb_clk);
 		tb_primSelect = 1;
 		@(posedge tb_clk);
-
 /*
 	//Test case 4: negative slope with pause
 		tb_positions = 38'b00000000000000000000000011110000001111;
@@ -149,7 +154,7 @@ initial
 		#300;
 		tb_stop = 0;
 */
-
+/*
 		for (i = 0; i < 640; i++) begin //Write into the file 640*480 times
 			for (j = 0; j < 480; j++) begin
 		//	old_address = tb_address;
@@ -160,5 +165,8 @@ initial
 			$fdisplay(f, "%b", tb_address);
 		end end
 		#1000;
+*/
+		writeToFile;
+		
 	end
 endmodule
