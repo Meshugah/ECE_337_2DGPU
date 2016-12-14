@@ -5,6 +5,16 @@
 // Lab Section: 337-03
 // Version:     1.0  Initial Design Entry
 // Description: Test bench for bresenham's line generator.
+
+
+//TESTING INSTRUCTIONS:
+//Step 1: Uncomment one and only one desired test case or preferably:
+//Step 1a: Modify position values in given test case as such {startX,startY,endX,endY} where X is between 0 and 640 and y is between 0 and 480.
+//Step 2: Simulate to completion.
+//Note: If successful, a populated 'output.txt' file will be generated.
+//Step 3: Run the python address script with the following command:
+//          python3.4 addressparse.py
+//Step4: Observe resulting image
 `timescale 1ns/100ps
 module tb_bresenline();
 	localparam CLK_PERIOD = 50;
@@ -80,7 +90,7 @@ module tb_bresenline();
 	
 initial
 	begin
-		f = $fopen("output.txt","w");
+		f = $fopen("output.txt","w"); //Get file pointer
 /*
 	//Test case 1: positive slope 
 		tb_positions = 38'b00100100000001000110000100110001100001;
@@ -113,9 +123,8 @@ initial
 		#12000;
 */
 	//Test case 3: worst case negative slope (0,0) -> (640,480)
-		//tb_positions = 38'b00000000000000000001010000000111100000;
-		tb_positions = {10'd0, 9'd0, 10'd640, 9'd480};
-		//tb_positions = {10'd0, 9'd480, 10'd640, 9'd0};
+
+		tb_positions = {10'd0, 9'd0, 10'd640, 9'd480}; //If desired, one can modify these values to test whichever line they wish.
 		tb_nrst = 0;
 		tb_primSelect = 1;
 		tb_stop = 0;
@@ -127,16 +136,7 @@ initial
 		@(negedge tb_clk);
 		tb_primSelect = 1;
 		@(posedge tb_clk);
-		for (i = 0; i < 640; i++) begin
-			for (j = 0; j < 480; j++) begin
-		//	old_address = tb_address;
-			@(posedge tb_clk);
-		//	if (old_address == tb_address) begin
-		//		i = 640; j = 480;
-		//	end
-			$fdisplay(f, "%b", tb_address);
-		end end
-		#1000;
+
 /*
 	//Test case 4: negative slope with pause
 		tb_positions = 38'b00000000000000000000000011110000001111;
@@ -149,5 +149,16 @@ initial
 		#300;
 		tb_stop = 0;
 */
+
+		for (i = 0; i < 640; i++) begin //Write into the file 640*480 times
+			for (j = 0; j < 480; j++) begin
+		//	old_address = tb_address;
+			@(posedge tb_clk);
+		//	if (old_address == tb_address) begin
+		//		i = 640; j = 480;
+		//	end
+			$fdisplay(f, "%b", tb_address);
+		end end
+		#1000;
 	end
 endmodule

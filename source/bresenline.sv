@@ -18,6 +18,7 @@ output wire lineDone
 );
 
 typedef enum {IDLE, PAUSE, RUN, RUN1, WAIT1, RUN2, WAIT2, RUNWAIT} stateType;
+// State mapping for debugging purposes
 // 000 -> idle
 // 001 -> pause
 // 010 -> run
@@ -45,12 +46,13 @@ logic done;
 logic signed [10:0]dx, dy, err, e2, temperr, tempe2;
 logic right, down;
 
-assign address = {tempX,tempY};//{x,y};
+assign address = {tempX,tempY};// Final address is concatenation of x and y, {x,y}
 assign lineDone = lineD;
-assign startX = positions[37:28];
-assign startY = positions[27:19]; //Refer to below
+
+assign startX = positions[37:28]; //Splits 38 bit position accordingly
+assign startY = positions[27:19]; 
 assign endX = positions[18:9];
-assign endY = positions[8:0]; //Need to add leading 0 to pad it to 10 bits for arithmetic logic
+assign endY = positions[8:0];
 
 always_ff @ (posedge clk)
 begin
@@ -136,10 +138,11 @@ begin
 	case(state)
 	IDLE:
 		begin
+		//This is the initialize phase, it determines how the line is behaving (which octants it's in)
 		dx = endX - startX;
 		right = dx >= 0;
 		if (~right)
-			dx = -dx;
+			dx = -dx; 
 		dy = endY - startY;
 		down = dy >= 0;
 		if (down)
@@ -176,6 +179,7 @@ end
 
 endmodule
 
+// Everything below this is experimental code, discard
 /*
 always_ff @ (posedge clk)
 begin

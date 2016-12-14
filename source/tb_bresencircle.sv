@@ -72,7 +72,7 @@ initial
 		@(negedge tb_clk);
 		@(posedge tb_clk);
 //		tb_positions = 38'b01010000000111100000001111110000000000;
-		tb_positions = {10'd320, 9'd240, 10'd330, 9'd0};
+		tb_positions = {10'd320, 9'd240, 10'd470, 9'd0};
 		@(negedge tb_clk);
 		@(posedge tb_clk);
 		@(posedge tb_clk);
