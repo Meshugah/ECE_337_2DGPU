@@ -1,0 +1,188 @@
+set_global_assignment -entity "amm_master_qsys_with_pcie" -library "amm_master_qsys_with_pcie" -name IP_TOOL_NAME "Qsys"
+set_global_assignment -entity "amm_master_qsys_with_pcie" -library "amm_master_qsys_with_pcie" -name IP_TOOL_VERSION "13.0sp1"
+set_global_assignment -entity "amm_master_qsys_with_pcie" -library "amm_master_qsys_with_pcie" -name IP_TOOL_ENV "Qsys"
+set_global_assignment -library "amm_master_qsys_with_pcie" -name SOPCINFO_FILE [file join $::quartus(qip_path) "../../amm_master_qsys_with_pcie.sopcinfo"]
+set_instance_assignment -entity "amm_master_qsys_with_pcie" -library "amm_master_qsys_with_pcie" -name SLD_INFO "QSYS_NAME amm_master_qsys_with_pcie HAS_SOPCINFO 1 GENERATION_ID 1429542311"
+set_global_assignment -library "amm_master_qsys_with_pcie" -name MISC_FILE [file join $::quartus(qip_path) "../../amm_master_qsys_with_pcie.cmp"]
+set_global_assignment -name SYNTHESIS_ONLY_QIP ON
+set_global_assignment -library "amm_master_qsys_with_pcie" -name MISC_FILE [file join $::quartus(qip_path) "../../amm_master_qsys_with_pcie.qsys"]
+
+set_global_assignment -library "amm_master_qsys_with_pcie" -name VERILOG_FILE [file join $::quartus(qip_path) "amm_master_qsys_with_pcie.v"]
+set_global_assignment -library "amm_master_qsys_with_pcie" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "submodules/amm_master_qsys_with_pcie_irq_mapper.sv"]
+set_global_assignment -library "amm_master_qsys_with_pcie" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/altera_avalon_st_handshake_clock_crosser.v"]
+set_global_assignment -library "amm_master_qsys_with_pcie" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/altera_avalon_st_clock_crosser.v"]
+set_global_assignment -library "amm_master_qsys_with_pcie" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "submodules/altera_avalon_st_pipeline_base.v"]
+set_global_assignment -library "amm_master_qsys_with_pcie" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "submodules/altera_merlin_width_adapter.sv"]
+set_global_assignment -library "amm_master_qsys_with_pcie" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "submodules/altera_merlin_address_alignment.sv"]
+set_global_assignment -library "amm_master_qsys_with_pcie" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "submodules/altera_merlin_burst_uncompressor.sv"]
+set_global_assignment -library "amm_master_qsys_with_pcie" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "submodules/amm_master_qsys_with_pcie_cmd_xbar_demux_006.sv"]
+set_global_assignment -library "amm_master_qsys_with_pcie" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "submodules/altera_merlin_arbitrator.sv"]
+set_global_assignment -library "amm_master_qsys_with_pcie" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "submodules/amm_master_qsys_with_pcie_rsp_xbar_mux_003.sv"]
+set_global_assignment -library "amm_master_qsys_with_pcie" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "submodules/amm_master_qsys_with_pcie_rsp_xbar_demux_003.sv"]
+set_global_assignment -library "amm_master_qsys_with_pcie" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "submodules/amm_master_qsys_with_pcie_rsp_xbar_demux_002.sv"]
+set_global_assignment -library "amm_master_qsys_with_pcie" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "submodules/amm_master_qsys_with_pcie_cmd_xbar_mux_003.sv"]
+set_global_assignment -library "amm_master_qsys_with_pcie" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "submodules/amm_master_qsys_with_pcie_cmd_xbar_mux_002.sv"]
+set_global_assignment -library "amm_master_qsys_with_pcie" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "submodules/amm_master_qsys_with_pcie_cmd_xbar_demux_004.sv"]
+set_global_assignment -library "amm_master_qsys_with_pcie" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "submodules/amm_master_qsys_with_pcie_cmd_xbar_demux_003.sv"]
+set_global_assignment -library "amm_master_qsys_with_pcie" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "submodules/amm_master_qsys_with_pcie_cmd_xbar_demux_001.sv"]
+set_global_assignment -library "amm_master_qsys_with_pcie" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "submodules/amm_master_qsys_with_pcie_rsp_xbar_mux.sv"]
+set_global_assignment -library "amm_master_qsys_with_pcie" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "submodules/amm_master_qsys_with_pcie_rsp_xbar_demux.sv"]
+set_global_assignment -library "amm_master_qsys_with_pcie" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "submodules/amm_master_qsys_with_pcie_cmd_xbar_demux.sv"]
+set_global_assignment -library "amm_master_qsys_with_pcie" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/altera_reset_controller.v"]
+set_global_assignment -library "amm_master_qsys_with_pcie" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/altera_reset_synchronizer.v"]
+set_global_assignment -library "amm_master_qsys_with_pcie" -name SDC_FILE [file join $::quartus(qip_path) "submodules/altera_reset_controller.sdc"]
+set_global_assignment -library "amm_master_qsys_with_pcie" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "submodules/altera_merlin_burst_adapter.sv"]
+set_global_assignment -library "amm_master_qsys_with_pcie" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "submodules/altera_merlin_traffic_limiter.sv"]
+set_global_assignment -library "amm_master_qsys_with_pcie" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "submodules/amm_master_qsys_with_pcie_id_router_004.sv"]
+set_global_assignment -library "amm_master_qsys_with_pcie" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "submodules/amm_master_qsys_with_pcie_addr_router_006.sv"]
+set_global_assignment -library "amm_master_qsys_with_pcie" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "submodules/amm_master_qsys_with_pcie_id_router_003.sv"]
+set_global_assignment -library "amm_master_qsys_with_pcie" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "submodules/amm_master_qsys_with_pcie_id_router_002.sv"]
+set_global_assignment -library "amm_master_qsys_with_pcie" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "submodules/amm_master_qsys_with_pcie_addr_router_005.sv"]
+set_global_assignment -library "amm_master_qsys_with_pcie" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "submodules/amm_master_qsys_with_pcie_addr_router_003.sv"]
+set_global_assignment -library "amm_master_qsys_with_pcie" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "submodules/amm_master_qsys_with_pcie_addr_router_001.sv"]
+set_global_assignment -library "amm_master_qsys_with_pcie" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "submodules/amm_master_qsys_with_pcie_id_router.sv"]
+set_global_assignment -library "amm_master_qsys_with_pcie" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "submodules/amm_master_qsys_with_pcie_addr_router.sv"]
+set_global_assignment -library "amm_master_qsys_with_pcie" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/altera_avalon_sc_fifo.v"]
+set_global_assignment -library "amm_master_qsys_with_pcie" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "submodules/altera_merlin_slave_agent.sv"]
+set_global_assignment -library "amm_master_qsys_with_pcie" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "submodules/altera_merlin_master_agent.sv"]
+set_global_assignment -library "amm_master_qsys_with_pcie" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "submodules/altera_merlin_slave_translator.sv"]
+set_global_assignment -library "amm_master_qsys_with_pcie" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "submodules/altera_merlin_master_translator.sv"]
+set_global_assignment -library "amm_master_qsys_with_pcie" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "submodules/custom_master_slave.sv"]
+set_global_assignment -library "amm_master_qsys_with_pcie" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/amm_master_qsys_with_pcie_altpll_qsys.v"]
+set_global_assignment -library "amm_master_qsys_with_pcie" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/amm_master_qsys_with_pcie_sdram.v"]
+set_global_assignment -library "amm_master_qsys_with_pcie" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/amm_master_qsys_with_pcie_sgdma.v"]
+set_global_assignment -library "amm_master_qsys_with_pcie" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/amm_master_qsys_with_pcie_pcie_ip.v"]
+set_global_assignment -library "amm_master_qsys_with_pcie" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/altpcie_pipe_interface.v"]
+set_global_assignment -library "amm_master_qsys_with_pcie" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/altpcie_pcie_reconfig_bridge.v"]
+set_global_assignment -library "amm_master_qsys_with_pcie" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/altera_pcie_hard_ip_reset_controller.v"]
+set_global_assignment -library "amm_master_qsys_with_pcie" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/altpcie_rs_serdes.v"]
+set_global_assignment -library "amm_master_qsys_with_pcie" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/altpcie_pll_100_250.v"]
+set_global_assignment -library "amm_master_qsys_with_pcie" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/altpcie_pll_125_250.v"]
+set_global_assignment -library "amm_master_qsys_with_pcie" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/amm_master_qsys_with_pcie_pcie_ip_altgx_internal.v"]
+set_global_assignment -library "amm_master_qsys_with_pcie" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/altpcie_hip_pipen1b_qsys.v"]
+set_global_assignment -library "amm_master_qsys_with_pcie" -name SDC_FILE [file join $::quartus(qip_path) "submodules/altera_pci_express.sdc"]
+set_global_assignment -library "amm_master_qsys_with_pcie" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/altpciexpav_stif_a2p_addrtrans.v"]
+set_global_assignment -library "amm_master_qsys_with_pcie" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/altpciexpav_stif_a2p_fixtrans.v"]
+set_global_assignment -library "amm_master_qsys_with_pcie" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/altpciexpav_stif_a2p_vartrans.v"]
+set_global_assignment -library "amm_master_qsys_with_pcie" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/altpciexpav_stif_app.v"]
+set_global_assignment -library "amm_master_qsys_with_pcie" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/altpciexpav_stif_control_register.v"]
+set_global_assignment -library "amm_master_qsys_with_pcie" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/altpciexpav_stif_cr_avalon.v"]
+set_global_assignment -library "amm_master_qsys_with_pcie" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/altpciexpav_stif_cr_interrupt.v"]
+set_global_assignment -library "amm_master_qsys_with_pcie" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/altpciexpav_stif_cr_mailbox.v"]
+set_global_assignment -library "amm_master_qsys_with_pcie" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/altpciexpav_stif_p2a_addrtrans.v"]
+set_global_assignment -library "amm_master_qsys_with_pcie" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/altpciexpav_stif_reg_fifo.v"]
+set_global_assignment -library "amm_master_qsys_with_pcie" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/altpciexpav_stif_rx.v"]
+set_global_assignment -library "amm_master_qsys_with_pcie" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/altpciexpav_stif_rx_cntrl.v"]
+set_global_assignment -library "amm_master_qsys_with_pcie" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/altpciexpav_stif_rx_resp.v"]
+set_global_assignment -library "amm_master_qsys_with_pcie" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/altpciexpav_stif_tx.v"]
+set_global_assignment -library "amm_master_qsys_with_pcie" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/altpciexpav_stif_tx_cntrl.v"]
+set_global_assignment -library "amm_master_qsys_with_pcie" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/altpciexpav_stif_txavl_cntrl.v"]
+set_global_assignment -library "amm_master_qsys_with_pcie" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/altpciexpav_stif_txresp_cntrl.v"]
+set_global_assignment -library "amm_master_qsys_with_pcie" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/altpciexpav_clksync.v"]
+set_global_assignment -library "amm_master_qsys_with_pcie" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/altpciexpav_lite_app.v"]
+
+set_global_assignment -entity "amm_master_qsys_with_pcie_irq_mapper" -library "amm_master_qsys_with_pcie" -name IP_TOOL_NAME "altera_irq_mapper"
+set_global_assignment -entity "amm_master_qsys_with_pcie_irq_mapper" -library "amm_master_qsys_with_pcie" -name IP_TOOL_VERSION "13.0"
+set_global_assignment -entity "amm_master_qsys_with_pcie_irq_mapper" -library "amm_master_qsys_with_pcie" -name IP_TOOL_ENV "Qsys"
+set_global_assignment -entity "altera_avalon_st_handshake_clock_crosser" -library "amm_master_qsys_with_pcie" -name IP_TOOL_NAME "altera_avalon_st_handshake_clock_crosser"
+set_global_assignment -entity "altera_avalon_st_handshake_clock_crosser" -library "amm_master_qsys_with_pcie" -name IP_TOOL_VERSION "13.0"
+set_global_assignment -entity "altera_avalon_st_handshake_clock_crosser" -library "amm_master_qsys_with_pcie" -name IP_TOOL_ENV "Qsys"
+set_global_assignment -entity "altera_merlin_width_adapter" -library "amm_master_qsys_with_pcie" -name IP_TOOL_NAME "altera_merlin_width_adapter"
+set_global_assignment -entity "altera_merlin_width_adapter" -library "amm_master_qsys_with_pcie" -name IP_TOOL_VERSION "13.0"
+set_global_assignment -entity "altera_merlin_width_adapter" -library "amm_master_qsys_with_pcie" -name IP_TOOL_ENV "Qsys"
+set_global_assignment -entity "amm_master_qsys_with_pcie_cmd_xbar_demux_006" -library "amm_master_qsys_with_pcie" -name IP_TOOL_NAME "altera_merlin_demultiplexer"
+set_global_assignment -entity "amm_master_qsys_with_pcie_cmd_xbar_demux_006" -library "amm_master_qsys_with_pcie" -name IP_TOOL_VERSION "13.0"
+set_global_assignment -entity "amm_master_qsys_with_pcie_cmd_xbar_demux_006" -library "amm_master_qsys_with_pcie" -name IP_TOOL_ENV "Qsys"
+set_global_assignment -entity "amm_master_qsys_with_pcie_rsp_xbar_mux_003" -library "amm_master_qsys_with_pcie" -name IP_TOOL_NAME "altera_merlin_multiplexer"
+set_global_assignment -entity "amm_master_qsys_with_pcie_rsp_xbar_mux_003" -library "amm_master_qsys_with_pcie" -name IP_TOOL_VERSION "13.0"
+set_global_assignment -entity "amm_master_qsys_with_pcie_rsp_xbar_mux_003" -library "amm_master_qsys_with_pcie" -name IP_TOOL_ENV "Qsys"
+set_global_assignment -entity "amm_master_qsys_with_pcie_rsp_xbar_demux_003" -library "amm_master_qsys_with_pcie" -name IP_TOOL_NAME "altera_merlin_demultiplexer"
+set_global_assignment -entity "amm_master_qsys_with_pcie_rsp_xbar_demux_003" -library "amm_master_qsys_with_pcie" -name IP_TOOL_VERSION "13.0"
+set_global_assignment -entity "amm_master_qsys_with_pcie_rsp_xbar_demux_003" -library "amm_master_qsys_with_pcie" -name IP_TOOL_ENV "Qsys"
+set_global_assignment -entity "amm_master_qsys_with_pcie_rsp_xbar_demux_002" -library "amm_master_qsys_with_pcie" -name IP_TOOL_NAME "altera_merlin_demultiplexer"
+set_global_assignment -entity "amm_master_qsys_with_pcie_rsp_xbar_demux_002" -library "amm_master_qsys_with_pcie" -name IP_TOOL_VERSION "13.0"
+set_global_assignment -entity "amm_master_qsys_with_pcie_rsp_xbar_demux_002" -library "amm_master_qsys_with_pcie" -name IP_TOOL_ENV "Qsys"
+set_global_assignment -entity "amm_master_qsys_with_pcie_cmd_xbar_mux_003" -library "amm_master_qsys_with_pcie" -name IP_TOOL_NAME "altera_merlin_multiplexer"
+set_global_assignment -entity "amm_master_qsys_with_pcie_cmd_xbar_mux_003" -library "amm_master_qsys_with_pcie" -name IP_TOOL_VERSION "13.0"
+set_global_assignment -entity "amm_master_qsys_with_pcie_cmd_xbar_mux_003" -library "amm_master_qsys_with_pcie" -name IP_TOOL_ENV "Qsys"
+set_global_assignment -entity "amm_master_qsys_with_pcie_cmd_xbar_mux_002" -library "amm_master_qsys_with_pcie" -name IP_TOOL_NAME "altera_merlin_multiplexer"
+set_global_assignment -entity "amm_master_qsys_with_pcie_cmd_xbar_mux_002" -library "amm_master_qsys_with_pcie" -name IP_TOOL_VERSION "13.0"
+set_global_assignment -entity "amm_master_qsys_with_pcie_cmd_xbar_mux_002" -library "amm_master_qsys_with_pcie" -name IP_TOOL_ENV "Qsys"
+set_global_assignment -entity "amm_master_qsys_with_pcie_cmd_xbar_demux_004" -library "amm_master_qsys_with_pcie" -name IP_TOOL_NAME "altera_merlin_demultiplexer"
+set_global_assignment -entity "amm_master_qsys_with_pcie_cmd_xbar_demux_004" -library "amm_master_qsys_with_pcie" -name IP_TOOL_VERSION "13.0"
+set_global_assignment -entity "amm_master_qsys_with_pcie_cmd_xbar_demux_004" -library "amm_master_qsys_with_pcie" -name IP_TOOL_ENV "Qsys"
+set_global_assignment -entity "amm_master_qsys_with_pcie_cmd_xbar_demux_003" -library "amm_master_qsys_with_pcie" -name IP_TOOL_NAME "altera_merlin_demultiplexer"
+set_global_assignment -entity "amm_master_qsys_with_pcie_cmd_xbar_demux_003" -library "amm_master_qsys_with_pcie" -name IP_TOOL_VERSION "13.0"
+set_global_assignment -entity "amm_master_qsys_with_pcie_cmd_xbar_demux_003" -library "amm_master_qsys_with_pcie" -name IP_TOOL_ENV "Qsys"
+set_global_assignment -entity "amm_master_qsys_with_pcie_cmd_xbar_demux_001" -library "amm_master_qsys_with_pcie" -name IP_TOOL_NAME "altera_merlin_demultiplexer"
+set_global_assignment -entity "amm_master_qsys_with_pcie_cmd_xbar_demux_001" -library "amm_master_qsys_with_pcie" -name IP_TOOL_VERSION "13.0"
+set_global_assignment -entity "amm_master_qsys_with_pcie_cmd_xbar_demux_001" -library "amm_master_qsys_with_pcie" -name IP_TOOL_ENV "Qsys"
+set_global_assignment -entity "amm_master_qsys_with_pcie_rsp_xbar_mux" -library "amm_master_qsys_with_pcie" -name IP_TOOL_NAME "altera_merlin_multiplexer"
+set_global_assignment -entity "amm_master_qsys_with_pcie_rsp_xbar_mux" -library "amm_master_qsys_with_pcie" -name IP_TOOL_VERSION "13.0"
+set_global_assignment -entity "amm_master_qsys_with_pcie_rsp_xbar_mux" -library "amm_master_qsys_with_pcie" -name IP_TOOL_ENV "Qsys"
+set_global_assignment -entity "amm_master_qsys_with_pcie_rsp_xbar_demux" -library "amm_master_qsys_with_pcie" -name IP_TOOL_NAME "altera_merlin_demultiplexer"
+set_global_assignment -entity "amm_master_qsys_with_pcie_rsp_xbar_demux" -library "amm_master_qsys_with_pcie" -name IP_TOOL_VERSION "13.0"
+set_global_assignment -entity "amm_master_qsys_with_pcie_rsp_xbar_demux" -library "amm_master_qsys_with_pcie" -name IP_TOOL_ENV "Qsys"
+set_global_assignment -entity "amm_master_qsys_with_pcie_cmd_xbar_demux" -library "amm_master_qsys_with_pcie" -name IP_TOOL_NAME "altera_merlin_demultiplexer"
+set_global_assignment -entity "amm_master_qsys_with_pcie_cmd_xbar_demux" -library "amm_master_qsys_with_pcie" -name IP_TOOL_VERSION "13.0"
+set_global_assignment -entity "amm_master_qsys_with_pcie_cmd_xbar_demux" -library "amm_master_qsys_with_pcie" -name IP_TOOL_ENV "Qsys"
+set_global_assignment -entity "altera_reset_controller" -library "amm_master_qsys_with_pcie" -name IP_TOOL_NAME "altera_reset_controller"
+set_global_assignment -entity "altera_reset_controller" -library "amm_master_qsys_with_pcie" -name IP_TOOL_VERSION "13.0"
+set_global_assignment -entity "altera_reset_controller" -library "amm_master_qsys_with_pcie" -name IP_TOOL_ENV "Qsys"
+set_global_assignment -entity "altera_merlin_burst_adapter" -library "amm_master_qsys_with_pcie" -name IP_TOOL_NAME "altera_merlin_burst_adapter"
+set_global_assignment -entity "altera_merlin_burst_adapter" -library "amm_master_qsys_with_pcie" -name IP_TOOL_VERSION "13.0"
+set_global_assignment -entity "altera_merlin_burst_adapter" -library "amm_master_qsys_with_pcie" -name IP_TOOL_ENV "Qsys"
+set_global_assignment -entity "altera_merlin_traffic_limiter" -library "amm_master_qsys_with_pcie" -name IP_TOOL_NAME "altera_merlin_traffic_limiter"
+set_global_assignment -entity "altera_merlin_traffic_limiter" -library "amm_master_qsys_with_pcie" -name IP_TOOL_VERSION "13.0"
+set_global_assignment -entity "altera_merlin_traffic_limiter" -library "amm_master_qsys_with_pcie" -name IP_TOOL_ENV "Qsys"
+set_global_assignment -entity "amm_master_qsys_with_pcie_id_router_004" -library "amm_master_qsys_with_pcie" -name IP_TOOL_NAME "altera_merlin_router"
+set_global_assignment -entity "amm_master_qsys_with_pcie_id_router_004" -library "amm_master_qsys_with_pcie" -name IP_TOOL_VERSION "13.0"
+set_global_assignment -entity "amm_master_qsys_with_pcie_id_router_004" -library "amm_master_qsys_with_pcie" -name IP_TOOL_ENV "Qsys"
+set_global_assignment -entity "amm_master_qsys_with_pcie_addr_router_006" -library "amm_master_qsys_with_pcie" -name IP_TOOL_NAME "altera_merlin_router"
+set_global_assignment -entity "amm_master_qsys_with_pcie_addr_router_006" -library "amm_master_qsys_with_pcie" -name IP_TOOL_VERSION "13.0"
+set_global_assignment -entity "amm_master_qsys_with_pcie_addr_router_006" -library "amm_master_qsys_with_pcie" -name IP_TOOL_ENV "Qsys"
+set_global_assignment -entity "amm_master_qsys_with_pcie_id_router_003" -library "amm_master_qsys_with_pcie" -name IP_TOOL_NAME "altera_merlin_router"
+set_global_assignment -entity "amm_master_qsys_with_pcie_id_router_003" -library "amm_master_qsys_with_pcie" -name IP_TOOL_VERSION "13.0"
+set_global_assignment -entity "amm_master_qsys_with_pcie_id_router_003" -library "amm_master_qsys_with_pcie" -name IP_TOOL_ENV "Qsys"
+set_global_assignment -entity "amm_master_qsys_with_pcie_id_router_002" -library "amm_master_qsys_with_pcie" -name IP_TOOL_NAME "altera_merlin_router"
+set_global_assignment -entity "amm_master_qsys_with_pcie_id_router_002" -library "amm_master_qsys_with_pcie" -name IP_TOOL_VERSION "13.0"
+set_global_assignment -entity "amm_master_qsys_with_pcie_id_router_002" -library "amm_master_qsys_with_pcie" -name IP_TOOL_ENV "Qsys"
+set_global_assignment -entity "amm_master_qsys_with_pcie_addr_router_005" -library "amm_master_qsys_with_pcie" -name IP_TOOL_NAME "altera_merlin_router"
+set_global_assignment -entity "amm_master_qsys_with_pcie_addr_router_005" -library "amm_master_qsys_with_pcie" -name IP_TOOL_VERSION "13.0"
+set_global_assignment -entity "amm_master_qsys_with_pcie_addr_router_005" -library "amm_master_qsys_with_pcie" -name IP_TOOL_ENV "Qsys"
+set_global_assignment -entity "amm_master_qsys_with_pcie_addr_router_003" -library "amm_master_qsys_with_pcie" -name IP_TOOL_NAME "altera_merlin_router"
+set_global_assignment -entity "amm_master_qsys_with_pcie_addr_router_003" -library "amm_master_qsys_with_pcie" -name IP_TOOL_VERSION "13.0"
+set_global_assignment -entity "amm_master_qsys_with_pcie_addr_router_003" -library "amm_master_qsys_with_pcie" -name IP_TOOL_ENV "Qsys"
+set_global_assignment -entity "amm_master_qsys_with_pcie_addr_router_001" -library "amm_master_qsys_with_pcie" -name IP_TOOL_NAME "altera_merlin_router"
+set_global_assignment -entity "amm_master_qsys_with_pcie_addr_router_001" -library "amm_master_qsys_with_pcie" -name IP_TOOL_VERSION "13.0"
+set_global_assignment -entity "amm_master_qsys_with_pcie_addr_router_001" -library "amm_master_qsys_with_pcie" -name IP_TOOL_ENV "Qsys"
+set_global_assignment -entity "amm_master_qsys_with_pcie_id_router" -library "amm_master_qsys_with_pcie" -name IP_TOOL_NAME "altera_merlin_router"
+set_global_assignment -entity "amm_master_qsys_with_pcie_id_router" -library "amm_master_qsys_with_pcie" -name IP_TOOL_VERSION "13.0"
+set_global_assignment -entity "amm_master_qsys_with_pcie_id_router" -library "amm_master_qsys_with_pcie" -name IP_TOOL_ENV "Qsys"
+set_global_assignment -entity "amm_master_qsys_with_pcie_addr_router" -library "amm_master_qsys_with_pcie" -name IP_TOOL_NAME "altera_merlin_router"
+set_global_assignment -entity "amm_master_qsys_with_pcie_addr_router" -library "amm_master_qsys_with_pcie" -name IP_TOOL_VERSION "13.0"
+set_global_assignment -entity "amm_master_qsys_with_pcie_addr_router" -library "amm_master_qsys_with_pcie" -name IP_TOOL_ENV "Qsys"
+set_global_assignment -entity "altera_avalon_sc_fifo" -library "amm_master_qsys_with_pcie" -name IP_TOOL_NAME "altera_avalon_sc_fifo"
+set_global_assignment -entity "altera_avalon_sc_fifo" -library "amm_master_qsys_with_pcie" -name IP_TOOL_VERSION "13.0"
+set_global_assignment -entity "altera_avalon_sc_fifo" -library "amm_master_qsys_with_pcie" -name IP_TOOL_ENV "Qsys"
+set_global_assignment -entity "altera_merlin_slave_agent" -library "amm_master_qsys_with_pcie" -name IP_TOOL_NAME "altera_merlin_slave_agent"
+set_global_assignment -entity "altera_merlin_slave_agent" -library "amm_master_qsys_with_pcie" -name IP_TOOL_VERSION "13.0"
+set_global_assignment -entity "altera_merlin_slave_agent" -library "amm_master_qsys_with_pcie" -name IP_TOOL_ENV "Qsys"
+set_global_assignment -entity "altera_merlin_master_agent" -library "amm_master_qsys_with_pcie" -name IP_TOOL_NAME "altera_merlin_master_agent"
+set_global_assignment -entity "altera_merlin_master_agent" -library "amm_master_qsys_with_pcie" -name IP_TOOL_VERSION "13.0"
+set_global_assignment -entity "altera_merlin_master_agent" -library "amm_master_qsys_with_pcie" -name IP_TOOL_ENV "Qsys"
+set_global_assignment -entity "altera_merlin_slave_translator" -library "amm_master_qsys_with_pcie" -name IP_TOOL_NAME "altera_merlin_slave_translator"
+set_global_assignment -entity "altera_merlin_slave_translator" -library "amm_master_qsys_with_pcie" -name IP_TOOL_VERSION "13.0"
+set_global_assignment -entity "altera_merlin_slave_translator" -library "amm_master_qsys_with_pcie" -name IP_TOOL_ENV "Qsys"
+set_global_assignment -entity "altera_merlin_master_translator" -library "amm_master_qsys_with_pcie" -name IP_TOOL_NAME "altera_merlin_master_translator"
+set_global_assignment -entity "altera_merlin_master_translator" -library "amm_master_qsys_with_pcie" -name IP_TOOL_VERSION "13.0"
+set_global_assignment -entity "altera_merlin_master_translator" -library "amm_master_qsys_with_pcie" -name IP_TOOL_ENV "Qsys"
+set_global_assignment -entity "amm_master_qsys_with_pcie_altpll_qsys" -library "amm_master_qsys_with_pcie" -name IP_TOOL_NAME "altpll"
+set_global_assignment -entity "amm_master_qsys_with_pcie_altpll_qsys" -library "amm_master_qsys_with_pcie" -name IP_TOOL_VERSION "13.0"
+set_global_assignment -entity "amm_master_qsys_with_pcie_altpll_qsys" -library "amm_master_qsys_with_pcie" -name IP_TOOL_ENV "Qsys"
+set_global_assignment -entity "amm_master_qsys_with_pcie_sdram" -library "amm_master_qsys_with_pcie" -name IP_TOOL_NAME "altera_avalon_new_sdram_controller"
+set_global_assignment -entity "amm_master_qsys_with_pcie_sdram" -library "amm_master_qsys_with_pcie" -name IP_TOOL_VERSION "13.0.1.99.2"
+set_global_assignment -entity "amm_master_qsys_with_pcie_sdram" -library "amm_master_qsys_with_pcie" -name IP_TOOL_ENV "Qsys"
+set_global_assignment -entity "amm_master_qsys_with_pcie_sgdma" -library "amm_master_qsys_with_pcie" -name IP_TOOL_NAME "altera_avalon_sgdma"
+set_global_assignment -entity "amm_master_qsys_with_pcie_sgdma" -library "amm_master_qsys_with_pcie" -name IP_TOOL_VERSION "13.0.1.99.2"
+set_global_assignment -entity "amm_master_qsys_with_pcie_sgdma" -library "amm_master_qsys_with_pcie" -name IP_TOOL_ENV "Qsys"

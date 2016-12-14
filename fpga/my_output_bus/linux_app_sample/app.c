@@ -9,7 +9,7 @@
 
 #define WIDTH 1
 //MAX BUFFER FOR DMA
-#define MAXDMA 32
+#define MAXDMA 50
 
 //BASE ADDRESS FOR CONTROL REGISTER
 #define CRA 0x00000000		// This is the starting address of the Custom Slave module. This maps to the address space of the custom module in the Qsys subsystem.
@@ -20,11 +20,18 @@
 #define RWSIZE (32 / 8)
 PCIE_BAR pcie_bars[] = { PCIE_BAR0, PCIE_BAR1 , PCIE_BAR2 , PCIE_BAR3 , PCIE_BAR4 , PCIE_BAR5 };
 
-void test32( PCIE_HANDLE hPCIe, DWORD addr );
-void testDMA( PCIE_HANDLE hPCIe, DWORD addr);
+void testDMA( PCIE_HANDLE hPCIe, DWORD addr, ssize_t, char*);
 
-int main(void)
+int main( int argc, char *argv[])
 {
+	//argument passing	
+	if(argc != 2)
+	{
+		printf("\nplease include argument.txt argument\n");
+		return 0;
+	}
+	
+	//PCIE stuff
 	void *lib_handle;
 	PCIE_HANDLE hPCIe;
 
@@ -42,90 +49,64 @@ int main(void)
 		return 0;
 	}
 
-	//test CRA
-	printf("Testing the configuration registers for the Custom Slave Module\n");
-	test32(hPCIe, CRA);			// Test the Configuration Registers for reads and writes
-	printf("*******************************************************************************");
-	//test SDRAM
-	printf("************Testing the SDRAM for reads and writes through the DMA ************");
-	testDMA(hPCIe,SDRAM);			// Test the SDRAM for reads and writes
+
+	//FILE IO
+	//file IO	
+	FILE * filepointer;
+	char* input = argv[1];
+	filepointer = fopen(input,"rb");
+	char * line = NULL;
+	size_t len = 0;
+	ssize_t read;	
+
+	while ((read = getline(&line, &len, filepointer)) != -1) {
+		printf("Retrieved instructions of length %zu : \n", read -1);
+		printf("%s",line);
+		getchar();
+		//WEVE got the line here, now operations
+		
+		//test SDRAM
+		printf("\n************Testing the SDRAM for reads and writes through the DMA ************\n\n");
+		testDMA(hPCIe,SDRAM, read -1, line);			// Test the SDRAM for reads and writes
+		
+	
+		
+		
+		
+		}
+
+	
+	
+	
+	//close file pointer
+	fclose(filepointer);
+	if (line)
+		free(line);
+	
+	
+
+	
 	return 0;
 }
 
-//Tests 16 consecutive PCIE_Write32 to addresses mapping to the Custom Slave
-
-void test32( PCIE_HANDLE hPCIe, DWORD addr )
-{
-	BOOL bPass;
-	DWORD testVal = 0xf;
-	DWORD readVal;
-	DWORD reset_addr = addr;
-
-	WORD i = 0;
-	for (i = 0; i < 16 ; i++ )
-	{
-		printf("Testing register %d at addr %x with value %x\n", i, addr, testVal);
-		bPass = PCIE_Write32( hPCIe, pcie_bars[0], addr, testVal);
-		if (!bPass)
-		{
-			printf("test FAILED: write did not return success");
-			return;
-		}
-		bPass = PCIE_Read32( hPCIe, pcie_bars[0], addr, &readVal);
-		if (!bPass)
-		{
-			printf("test FAILED: read did not return success");
-			return;
-		}
-		if (testVal == readVal)
-		{
-			printf("Test PASSED: expected %x, received %x\n", testVal, readVal);
-		}
-		else
-		{
-			printf("Test FAILED: expected %x, received %x\n", testVal, readVal);
-		}
-		testVal = testVal + 1;
-		addr = addr + WIDTH;
-	}
-	testVal = 0xf;
-	addr = reset_addr;
-	sleep(10);
-	for (i = 0; i < 16 ; i++ )
-	{
-		bPass = PCIE_Read32( hPCIe, pcie_bars[0], addr, &readVal);
-		if (!bPass)
-		{
-			printf("test FAILED: read did not return success");
-			return;
-		}
-		if (testVal == readVal)
-		{
-			printf("Test PASSED: expected %x, received %x\n", testVal, readVal);
-		}
-		else
-		{
-			printf("Test FAILED: expected %x, received %x\n", testVal, readVal);
-		}
-		testVal = testVal + 1;
-		addr = addr + WIDTH;
-	}
-	return;
-}
 
 //tests DMA write of buffer to addresses in the SDRAM 
-//
-void testDMA( PCIE_HANDLE hPCIe, DWORD addr)
+
+void testDMA( PCIE_HANDLE hPCIe, DWORD addr,ssize_t len, char * address)
 {
 	BOOL bPass;
-	DWORD testArray[MAXDMA];
-	DWORD readArray[MAXDMA];
+	int testArray[MAXDMA];
+	int readArray[MAXDMA];
 	
-	WORD i = 0;
+	int i = 0;
 	
-	while ( i < MAXDMA )
+	//printf("\n\n%s\n\n",address);
+	
+	
+	
+	while ( i < len )
 	{
-		testArray[i] = i  + 0x0f;
+		testArray[i] = address[i];
 		i++;
 	}
 
@@ -141,18 +122,21 @@ void testDMA( PCIE_HANDLE hPCIe, DWORD addr)
 		printf("test FAILED: read did not return success");
 		return;
 	}
+	
 	i = 0;
-	while ( i < MAXDMA )
+	while ( i < len )
 	{
 		if (testArray[i] == readArray[i])
 		{
-			printf("Test PASSED: expected %x, received %x\n", testArray[i], readArray[i]);
+			printf("Test PASSED: address: %x expected %x, received %x\n",addr,  testArray[i] %10, readArray[i] %10);
 		}
 		else
 		{
 			printf("Test FAILED: expected %x, received %x\n", testArray[i], readArray[i]);
 		}
 		i++;
+		addr++;
 	}
 	return;
 }
+
