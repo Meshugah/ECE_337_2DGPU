@@ -28,8 +28,7 @@ module tb_bresencircle();
 	reg tb_circDone;
 	reg tb_stop;
 
-	reg r,c,num_cols,num_rows;
-	integer i,j,f;
+	integer i,j,f; //Loop control variables
 
 	bresencircle DUT ( 
 		.clk(tb_clk),
@@ -40,11 +39,13 @@ module tb_bresencircle();
 		.circleDone(tb_circDone),
 		.stop(tb_stop)
 	);
+
+	//Task writes addresses to a file until the circle done signal is asserted
 	task writeToFile;
 	begin
 		f = $fopen("output.txt", "w");
 		for (i = 0; i < 640; i++) begin
-			for (j = 0; j < 480; j++) begin
+			for (j = 0; j < 480; j++) begin 
 			old_address = tb_address;
 			@(posedge tb_clk);
 			if (tb_circDone == 1) begin
@@ -71,8 +72,10 @@ initial
 		@(posedge tb_clk);
 		@(negedge tb_clk);
 		@(posedge tb_clk);
-//		tb_positions = 38'b01010000000111100000001111110000000000;
-		tb_positions = {10'd320, 9'd240, 10'd470, 9'd0};
+		// To modify the circle, change the values in tb_positions as such:
+		//  tb_positions = {10'd<startX>, 9'd<startY>, 10'd<radius>, 0} where startX is a value between 0-640, startY is between 0-480, and radius is between 1-480
+		tb_positions = {10'd320, 9'd240, 10'd470, 9'd0}; 
+
 		@(negedge tb_clk);
 		@(posedge tb_clk);
 		@(posedge tb_clk);
